@@ -1,0 +1,190 @@
+\documentclass{amsart}
+
+\usepackage{fullpage}
+\usepackage{amsmath,amssymb,amsthm}
+
+\usepackage{url}
+
+\setlength\parindent{0pt}                       %No indent
+
+\usepackage{hyperref}
+
+\def\ryan{\textcolor{purple}{RG: }\textcolor{purple}}
+
+\usepackage{graphicx,tikz,tikz-cd}                      %Drawing stuff and necessary for \todo
+\def\todo#1{\textcolor{red}{\textbf{TODO: }{#1}}}
+\def\quest#1{\textcolor{blue}{\textbf{Question: }{#1}}}
+\def\thought#1{\textcolor{violet}{\textbf{Thought: }{#1}}}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{examples}[theorem]{Examples}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{question}[theorem]{Question}
+
+\title{Adam Notes}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{3-Manifolds: Heegaard Splittings}
+One can construct a closed, oriented 3-manifold $Y$ by starting with two handlebodies of the same genus, $U_{0}$ and  $U_{1}$, and identifying their boundaries by an orientation reversing homeomorphism of their boundary $\Sigma_{g}.$ \begin{definition} Such a construction is called a genus-$g$  \textbf{Heegaard splitting} of $Y$ and will be denoted by $$Y = U_{0} \cup_{\Sigma_{g}} U_{1}$$\end{definition}
+
+\subsection{Existence}
+
+\begin{theorem} Let $Y$ be an oriented closed connected three-dimensional manifold. Then there exists a $g$, so that Y admits a genus-$g$ Heegaard splitting.\end{theorem} One proof of this theorem relies on a result that any 3-manifold admits a triangulation. Using this we can take $U_{0}$ to be a tubular neighborhood of its 1-skeleton and have $U_{1} = Y-int(U_{0})$ \newline \newline Another proof uses a result that any closed connected manifold admits a self-indexing Morse function with unique maximum and minimum (conservation of difficulty.) If $f: Y \rightarrow \mathbb{R}$ is such a Morse function with $k$ index 1 critical points, then $U_{0} = f^{-1}([0, \frac{3}{2}])$ is a genus-$k$ handlebody and ``flipping'' $f$ to $-f$ we get that $U_{1} = f^{-1}([\frac{3}{2}, 3])$ is also a genus-$k$ handlebody. So splitting Y along $f^{-1}(\frac{3}{2}) = \Sigma_{k}$ gives a Heegaard splitting of Y. 
+
+\subsection{Elementary Examples}
+\begin{enumerate}
+
+\item A genus-0 Heegaard splitting of $S^{3}$ is given by gluing two three balls $B^{3}$ along their boundary $S^{2}.$
+\item A genus-1 Heegaard splitting of $S^{3}$ is given by gluing two solid-tori (genus-1 handlebodies) $S^{1} \times B^{2}$ such that the latitude of the first is identified with the longitude of the other.
+\item Lens spaces
+\item A genus-3 Heegaard splitting of $T^{3}:$ Consider the 3-torus as the cube $I^{3},$ with opposite faces identified. Take $U_{0}$ to be a tubular neighborhood of the wedge of three circles given by $$S^{1}\vee S^{1} \vee S^{1} = ((1/2, y, z) \cap (x, 1/2, z)) \bigcup ((1/2, y, z) \cap (x, y, 1/2)) \bigcup ((x, 1/2, z) \cap (x, y, 1/2))$$ i.e. the union of lines perpendicular to the center of each face of the cube. Take $U_{1}$ to be a tubular neighborhood of the edges of the cube (another $S^{1} \vee S^{1} \vee S^{1}$.) Fattening $U_{0}$ and $U_{1}$ they will fill the entire cube and meet along their boundary $\Sigma_{3}.$ 
+\end{enumerate}
+
+\subsection{Heegaard Diagrams} 
+Orientable surfaces are very well understood and easily visualized, so it would be incredibly convenient if we could instill the data of a Heegaard splitting into its central surface. 
+
+\begin{definition}
+A Heegaard diagram is a tuple $(\Sigma, \alpha, \beta)$ where $\Sigma$ is a genus-$g$ surface and $\alpha = (\alpha_{1}, \alpha_{2}, \hdots, \alpha_{g})$ and $\beta = (\beta_{1}, \beta_{2}, \hdots, \beta_{g})$ are collections of curves on $\Sigma$ such that $(\Sigma, \alpha)$ and $(\Sigma, \beta)$ are diffeomorphic to the standard genus$-g$ cut system $(\Sigma_{g}, \alpha_{g}).$ A curve system $(\Sigma, \alpha)$ being diffeomorphic to the standard genus$-g$ cut system is characterized by when cutting the surface along $\alpha,$ the result is a punctured sphere. 
+\end{definition}
+
+\begin{lemma}
+\begin{enumerate}
+\item For every diagram $\textbf{D} = (\Sigma, \alpha, \beta)$ there is an associated 3-manifold $M(\textbf{D})$ with a Heegaard splitting $M(\textbf{D}) = U_{0} \cup_{\Sigma} U_{1}$ where $\alpha$ bounds disks in $U_{0}$ and $\beta$ bounds disks in $U_{1}.$
+\item Any other 3-manifold with a Heegaard splitting $Y = V_{0} \cup_{\Sigma} V_{1}$ satisfying the above conditions is diffeomorphic the above Heegaard splitting, i.e. $Y \approx M(\textbf{D}).$
+\item  For every Heegaard splitting $Y = V_{0} \cup_{\Sigma} V_{1}$ there is a diagram \textbf{D} such $Y \approx M(\textbf{D})$
+\end{enumerate}
+\end{lemma}
+
+
+\subsection{Stabilization}
+A manifold can have many different Heegaard splittings. The following process, called stabilization, takes a genus-$g$ splitting of $Y$ and transforms it into a genus-$(g + 1)$ splitting. Let $Y = U_{0} \cup_{\Sigma_{g}} U_{1}$ be a genus-$g$ Heegaard splitting of $Y$ and let $\alpha$ be a boundary parallel curve in $U_{0}$ and a tubular neighborhood $\nu$ such that $\nu \cap \Sigma_{g} = D^{2} \times \partial \alpha.$ Now $Y = U_{0}' \cup_{\Sigma_{g + 1}} U_{1}'$ is a genus-$(g+1)$ splitting where $U_{1}' = U_{1} \cup \nu$ and $U_{0}' = U_{0} - \mathring{\nu}.$ \newline \newline This process of stabilization is related to connect summing a  Heegaard splitting of a manifold with the genus-$1$ splitting of $S^{3}.$  The \textit{standard} genus-1 Heegaard diagram for $S^{3}$ is $\textbf{D}^{*} = (T^{2}, \mu, \lambda)$ where        $\mu$ and $\lambda$ are the meridian and latitude of the torus. \todo{consider how connect summing diagrams corresponds to stabilization.}
+
+\subsection{Heegaard Floer Homology}
+Heegaard Floer Homology is a mysterious invariant of 3-manifolds
+
+\section{Morse 2-theory}
+A Morse function is a smooth map on a manifold $f: M \rightarrow \mathbb{R}$ such that all of its critical points are non-degenerate, i.e. the Hessian of $f$ is non-singular at all critical points. For a compact manifold $M, f(M)$ will be some interval $[a,b] \subset \mathbb{R}$ and we can look at preimages $M_{c} = f^{-1}([a, c]) \subset X$ with $a \leq c \leq b$ and the topology of $M_{c}$ only changes as $c$ passes over critical values. \newline \newline The target of a Morse function doesn't necessarily have to be $\mathbb{R},$ it could be another 1-dimensional manifold such as $S^{1}$ in which case we would call it a circle valued Morse function. A Morse 2-function is a smooth map $f: M \rightarrow \Sigma^{2}$ such that for each point $p \in M$ their are coordinate charts $\mathbb{R} \times \mathbb{R}^{n-1}$ around $p$ and $\mathbb{R} \times \mathbb{R}$ around $f(p)$ so that for $x$ in a neighborhood of $p,$ $f(x) = f(t, y) = (t, f_{t}(y))$ where $f_{t}: \mathbb{R}^{n-1} \rightarrow \mathbb{R}$ is a one parameter family of Morse functions. The set of points where $Z = \{p \in M : Df_{p} \text{  has rank 1} \}$ will be an embedded 1-manifold and $Z' := f(Z)$ will be an immersed 1-manifold (with cusps) of $\Sigma$ called the ``fold curves.''
+\subsection{Fundamental results about Morse 2-functions}
+\todo{Much}
+
+\section{4-Manifolds: Trisections}
+
+Similar to how one can construct a 3-manifold by gluing two 3-dimensional handlebodies together, on can construct a 4-manifold by gluing three 4-dimensional handlebodies together, this is referred to as a trisection. Before we state the definition, a standard 4-dimensional handlebody (of ``genus'' $k$) is $Z_{k} = \natural^{k}(S^{1} \times B^{3}).$
+\begin{definition} A ($g$; $k_{1}, k_{2}, k_{3}$) trisection of a closed, connected, oriented 4-manifold $X$ is a decomposition $X = X_{1} \cup X_{2} \cup X_{2}$ such that: 
+\begin{enumerate}
+\item Each $X_{i}$ is diffeomorphic to $Z_{k_{i}}$
+\item With indices mod 3, each $X_{i} \cap X_{i + 1}$ is diffeomorphic to a genus-$g$ handlebody. 
+\item $X_{1} \cap X_{2} \cap X_{3} = \Sigma_{g}$
+\end{enumerate}
+If $k_{1} = k_{2} = k_{3} = k$ then the trisection is balanced, and we will refer to it as a $(g, k)$ trisection.
+\end{definition}
+
+\subsection{Existence}
+
+\subsection{Elementary Examples}
+\begin{enumerate}
+\item Consider $S^{4} = \{(re^{i\theta}, x_{3}, x_{4}, x_{5}) \in \mathbb{C} \times \mathbb{R}^{3} : r^{2} + x_{3}^{2} + x_{4}^{2} + x_{5}^{2}= 1\}.$ The standard genus-0 trisection of $S^{4}$ is given as follows: Let $X_{j} = B^{4} = \natural^{0}(S^{1} \times B^{3}) = \{(re^{i\theta}, x_{3}, x_{4}, x_{5}):  \frac{2\pi j}{3} \leq \theta \leq \frac{2\pi(j + 1)}{3} \} \subset S^{4}.$ Then we have $X_{j} \cap X_{i} = \{(re^{\frac{2\pi j}{3}}, x_{3}, x_{4}, x_{5}): x_{3}^{2} + x_{4}^{2} + x_{5}^{2} = 1 - r^{2} \text{ for every } r \in [0, 1]\} = B^{3}$ and $X_{i} \cap X_{j} \cap X_{k} = \{(0, x_{3}, x_{4}, x_{5}) : x_{3}^{2} + x_{4}^{2} + x_{5}^{2} = 1 \} = S^{2}.$
+\end{enumerate}
+
+\subsection{Trisection diagrams}
+Similar to how we can associate a diagram to a Heegaard splitting of a 3-manifold, we can also associate a diagram to a trisection of a 4-manifold. We will need an extra definition.
+\begin{definition}
+If $\alpha = (\alpha_{1}, \alpha_{2}, \hdots, \alpha_{g})$ is a collection of disjoint curves on an orientable surface we can produce a new collection of curves $\alpha'$ by taking an arc $a$ between two curves $\alpha_{j}$ and $\alpha_{k}$ disjoint from all other curves, and replace $\alpha_{j}$ with $$\alpha_{j}' = \partial(\nu(\alpha_{j} \cup a \cup \alpha_{k}))$$ and leaving $\alpha_{i}' = \alpha_{i}$ for all $i \neq j.$ This is referred to as \textit{sliding} $\alpha_{j}$ over $\alpha_{k}$ and the two curve systems are called \textit{slide equivalent}. Two curve systems $(\Sigma, \alpha, \beta)$ and $(\Sigma, \alpha', \beta')$ are \textit{slide diffeomorphic} if $(\alpha, \beta)$ and $(\alpha'', \beta'')$ are slide equivalent and there is an orientation preserving diffeomorphism from $(\Sigma, \alpha'', \beta'')$ to $(\Sigma, \alpha', \beta')$
+\end{definition} 
+
+\begin{definition}
+A $(g; k_{1}, k_{2}, k_{3})-$trisection diagram is a tuple $(\Sigma, \alpha, \beta, \gamma)$ where $\Sigma$ is a genus-$g$ surface and $(\Sigma, \alpha, \beta),  (\Sigma, \beta, \gamma),$ and  $(\Sigma, \gamma, \alpha)$ are each slide diffeomorphic to the standard Heegaard diagram $(\Sigma, \alpha^{g, k_{i}}, \beta^{g, k_{i}}).$
+\end{definition}
+
+\thought{Cutting the standard Heegaard diagram along one of the collections of curves results in a punctured sphere (or disk with one less hole) leaving the other collection of curves either circling the boundary circles or connecting two boundary circles in a standard way. So in order to check if a diagram of curves is in fact a trisection diagram, you could pairwise take the curve systems and (after perhaps some amount of handle sliding) cut along one curve system to check that it is diffeomorphic to one of these standard disks.}
+
+
+\subsection{Stabilization/Destabilization}
+
+\section{Knotted Surfaces}
+There is a strong connection between knots and 3-manifolds, in fact the Lickorish-Wallace Theorem states that every closed, orientable, connected 3-manifold is given by Dehn surgery on some link in $S^{3}.$ Moving up a dimension, we can think about embedding a surface into a 4-manifold to get a knotted surface. A motto to keep in mind is that any technique to study Heegaard decompositions of 3-manifolds can be adapted to a technique for studying bridge decompositions (splittings of $(S^{3}, L)$ into two trivial tangles) of knots and links in $S^{3}.$ Meier and Zupan then push this motto up a dimension and discuss bridge-trisections of knotted surfaces and their relation to ``bridge trisections'' of $(S^{4}, \mathcal{L})$.
+\subsection{Preliminaries}
+\begin{definition}
+A knotted surface $\mathcal{K}$ in $S^{4},$ is a smoothly embedded, closed surface which may or may not be connected or orientable. If $\mathcal{K}$ is homeomorphic to $S^{2}$ then we call this a 2-knot.
+\end{definition}
+\begin{definition}
+A trivial $c$-disk system is a pair $(X, \mathcal{D})$ where $X$ is homeomorphic to $B^{4}$ and $\mathcal{D} \subset X$ is a collection of $c$ properly embedded disks which are simultaneously isotopic to the boundary of $X$.
+\end{definition}
+\begin{definition}
+A $(b; c_{1}, c_{2}, c_{3})-$bridge trisection $\mathcal{T}$ of a knotted surface $\mathcal{K} \subset S^{4}$ is a decomposition of $(S^{4}, \mathcal{K}) = (X_{1}, \mathcal{D}_{1}) \cup (X_{2}, \mathcal{D}_{2}) \cup (X_{3}, \mathcal{D}_{3})$ such that:
+\begin{enumerate}
+\item $S^{4} = X_{1} \cup X_{2} \cup X_{3}$ is the standard genus-0 trisection of $S^{4}.$
+\item $(X_{i}), \mathcal{D}_{i})$ is a trivial $c_{i}-$disk system, and
+\item $(B_{ij}, \alpha_{ij}) = (X_{i}, \mathcal{D}_{i}) \cap (X_{j}, \mathcal{D}_{j})$ is a $b-$strand trivial tangle.
+\end{enumerate}
+If $c_{i} = c$ for all $i$ then $\mathcal{T}$ is balanced and we say $\mathcal{K}$ admits a $(b, c)-$bridge trisection.
+\end{definition} 
+
+\subsection{Examples: Spun Knots}
+Emil Artin described two ways of constructing knotted two spheres in $\mathbb{R}^{4}$ (which is how I'm going to think of $S^{4}$) the first of which is suspension. If $K \subset \mathbb{R}^{3} = \{(x_{1}, x_{2}, x_{3}, 0)\}\subset \mathbb{R}^{4}$ is a knot, for each point $p \in K$ we can draw two line segments $U_{p}$ connecting $p$ to $(0, 0, 0, 1)$ and $L_{p}$ connecting $p$ to $(0, 0, 0, -1).$ The union of of all these lines will be a 2-sphere in $\mathbb{R}^{4}.$ The problem with this is that the resulting space fails to be \textit{locally flat} at the ``vertices.'' \todo{consider locally flat things} \newline \newline Artin's second method considers spinning an arc in $\mathbb{R}^{3}_{+} = \{(x_{1}, x_{2}, x_{3}, 0) : x_{3} \geq 0\} \subset \mathbb{R}^{4}$ about $\mathbb{R}^{2} = \{(x_{1}, x_{2}, 0, 0)\}$ in a process similar to how one obtains surfaces of revolution in Calc 1 by rotating an arc in the upper halfspace of $\mathbb{R}^{2}$ about $\mathbb{R}$. If $x = (x_{1}, x_{2}, x_{3}, 0) \in \mathbb{R}^{3}_{+}$ let $x_{\theta} = (x_{1}, x_{2}, x_{3}cos(\theta), x_{3}sin(\theta)),$ then letting $\theta$ run from 0 to $2\pi$ we get a point tracing out a circle in $\mathbb{R}^{4}.$ If $X \subset \mathbb{R}^{3}_{+}$ is an arbitrary set, let $$X^{*} := \{x_{\theta}: x \in X \text{ and } 0 \leq \theta \leq 2\pi\},$$ this is called the \textit{spin} of $X.$ Now consider an arc (possibly knotted in) $A \subset \mathbb{R}^{3}_{+}$ such that $\partial A \in \mathbb{R}^{2},$ then $A^{*}$ will be a 2-sphere in $\mathbb{R}^{4},$ called a \textit{spun knot.} \newline \newline Given a knot $\mathcal{K} \in \mathbb{R}^{3}$ we consider an isotopy placing all of $\mathcal{K}$ except an unknotted strand $\mathcal{L}$ in $\mathbb{R}^{3}_{+}$, then $\mathcal{K} - \mathcal{L} = A$ is an arc in  $\mathbb{R}^{3}_{+}$ and we may spin it to get a knotted 2-sphere $S(\mathcal{K})  \subset \mathbb{R}^{4}.$
+\thought{Placing a knot completely in $\mathbb{R}^{3}_{+}$ and spinning it should yield a knotted torus?}
+\begin{proposition} Given $\mathcal{K} \subset \mathbb{R}^{3}$ and its associated spun knot $S(\mathcal{K}) \subset \mathbb{R}^{4},$ we have the following isomorphism of fundamental groups: $\pi_{1}(\mathbb{R}^{3} - \mathcal{K}) \cong \pi_{1}(\mathbb{R}^{4} - S(\mathcal{K})) $
+\end{proposition}
+\begin{proof}
+First we note that $\pi_{1}(\mathbb{R}^{3} - \mathcal{K}) \cong \pi_{1}(\mathbb{R}^{3}_{+} - \mathcal{A}).$ \thought{Any part of a loop wrapping around $\mathcal{L}$ can be carried (by homotopy) into $\mathbb{R}^{3}_{+}$ wrapping around one of the legs of the arc $\mathcal{A}$. For further rigor one could apply the Seifert-van Kampen Theorem} Then using the following lemma, take $X = \mathbb{R}^{3}_{+} - \mathcal{A}$ and we get that $\pi_{1}(\mathbb{R}^{3}_{+} - \mathcal{A})= \pi_{1}(X) \cong \pi_{1}(X^{*}) = \pi_{1}(\mathbb{R}^{4} - S(\mathcal{K})).$
+\end{proof}
+\begin{lemma}
+For any open, path-connected subset $X \subset \mathbb{R}^{3}_{+}$ such that $X \cap \mathbb{R}^{2} \neq \varnothing$, we have that $$\pi_{1}(X) \cong \pi_{1}(X^{*})$$
+\end{lemma}
+\begin{proof}
+\todo{sketch from rolfson}
+\end{proof}
+In the Meier and Zupan paper, they use a slightly different method for spinning a knot. In order to understand this method it is necessary to understand the decomposition: $S^{4} = (B^{3} \times S^{1}) \cup (S^{2} \times B^{2}).$ We are familiar/comfortable with $S^{4}$ as the one-point compactification of $\mathbb{R}^{4}.$ To consider the new decomposition let $$B^{3} = \{(x_{1}, x_{2}, x_{3}, 0) : x_{1}^{2} + x_{2}^{2} + x_{3}^{2} \leq 1)\} \subset \mathbb{R}^{4} \cup \{\infty\} = S^{4}$$ and $$S^{1} = \{(0, 0, 0, x_{4}) : x_{4} \in \mathbb{R}\} \cup \{\infty\} \subset S^{4}.$$ Then take $$B^{3} \times S^{1} =  \{(x_{1}, x_{2}, x_{3}, x_{4}): x_{1}^{2} + x_{2}^{2} + x_{3}^{2} \leq 1, x_{4} \in \mathbb{R}\} \cup (B^{3} \times \{\infty\}) \subset S^{4}.$$ Now taking the complement of this subspace, we get $$S^{4} - (B^{3} \times S^{1}) = \{(x_{1}, x_{2}, x_{3}, x_{4}): 1 < x_{1}^{2} + x_{2}^{2} + x_{3}^{2} < \infty , x_{4} \in \mathbb{R}\} $$ and fixing an $x_{4} \in \mathbb{R}$ and letting $r \in (1, \infty)$ range we get a family of 2-spheres, $$S_{r}^{2} = \{(x_{1}, x_{2}, x_{3}, x_{4}) : x_{1}^{2} + x_{2}^{2} + x_{3}^{2} = r^{2}\}.$$ Now letting $x_{4}$ range in $(-\infty, \infty)$ we see that $$S^{4} - (B^{3} \times S^{1}) \cong S^{2} \times (1, \infty) \times (-\infty, \infty) \cong S^{2} \times (B^{2})^{\circ}$$ the closure of which is of course $S^{2} \times B^{2}.$ So gluing $B^{3} \times S^{1}$ to $S^{2} \times B^{2}$ along their common boundary recovers $S^{4}.$ \newline \newline Now if $(S^{3}, \mathcal{K})$ is a knot, let $(B^{3}, \mathcal{K}^{\circ})$ be the result of removing an open neighborhood around a point in $\mathcal{K}.$ Then $\mathcal{K}^{\circ}$ is a knotted arc in $B^{3}$ and we may isotope it's endpoints so that they end up at the north and south poles of the closed ball. Then we can consider the spun knot as $$(S^{4}, \mathcal{S}(\mathcal{K})) = ((B^{3}, \mathcal{K}^{\circ}) \times S^{1}) \cup ((S^{2}, \{n, s\}) \times D^{2})$$ which can be thought of as spinning a knotted tangle around to get a cylinder/annulus and then capping the top and bottom off with disks.
+
+\subsection{$K \subset S^4$: Triplane diagrams}
+\begin{definition}
+A $(b; c_{1}, c_{2}, c_{3})$-bridge trisection $\mathcal{T}$ of a knotted surface $\mathcal{K} \subset S^{4}$ is a decomposition $$(S^{4}, \mathcal{K}) = (X_{1}, \mathcal{D}_{1}) \cup (X_{2}, \mathcal{D}_{2}) \cup (X_{3}, \mathcal{D}_{3})$$ such that:
+\begin{enumerate}
+\item $S^{4} = X_{1} \cup X_{2} \cup X_{3}$ is the standard genus-0 trisection of $S^{4}$
+\item $(X_{i}, \mathcal{D}_{i})$ is a trivial $c_{i}$-disk system
+\item $(B_{ij}, \alpha_{ij}) = (X_{i}, \mathcal{D}_{i}) \cap (X_{j}, \mathcal{D}_{j})$ is a $b$-strand trivial tangle.
+\end{enumerate}
+\hspace{1pt} \newline The subset $\mathcal{S} = (B_{12}, \alpha_{12}) \cup (B_{23}, \alpha_{23}) \cup (B_{31}, \alpha_{31})$ is called the \textit{spine} of the bridge trisection, and we say two bridge trisections are equivalent if their spines are smoothly isotopic. \textbf{Fact:} A bridge trisection $\mathcal{T}$ is uniquely determined by its spine.
+\end{definition}
+Given a bridge trisection of a knotted surface, there are disks $E_{ij} \subset B_{ij}$ such that $e = \partial E_{12} = \partial E_{23} =  \partial E_{31}$ and we may project the tangle (keeping track of crossing information) to get diagrams $\mathcal{P}_{ij}.$ These diagrams have the property that $\mathcal{P}_{ij} \cup \overline{\mathcal{P}_{ki}}$ is a classical link diagram for $\partial \mathcal{D}_{i}$ (the unlink with $c_{i}$ components.) The subspace $E_{12} \cup E_{23} \cup E_{31}$ is referred to as a \textit{triplane}, which make sense when you consider removing a point in $e$ and consider gluing 3 together 3 half-planes along their boundary.
+\begin{definition}
+Any triple $\mathcal{P} = (\mathcal{P}_{12}, \mathcal{P}_{23},\mathcal{P}_{31})$ of planar diagrams for $b-$strand trivial tangles which has the property that $\mathcal{P}_{ij} \cup \overline{\mathcal{P}_{ki}}$ is a diagram for a $c_{i}-$component unlink is a $(b; c_{1}, c_{2}, c_{3})-$bridge triplane diagram.
+\end{definition}
+\begin{remark}
+Given a triplane diagram $\mathcal{P}$ there is an associated knotted surface $\mathcal{K}(\mathcal{P})$ which is obtained by gluing disk systems $\mathcal{D_{i}}$ together along their boundaries according to the diagram. This surface is naturally trisected. Of course you don't need to be overly careful when drawing such diagrams, there is a set of moves, called triplane moves, that one can perform on a triplane diagram without altering the knotted surface. Put another way, for any two triplane diagrams for the same knotted surface there is a sequence of moves transforming one diagram to the other. These moves will be talked about in detail in section ??
+\end{remark}
+
+\subsection{Banded links and their banded b-bridge splittings}
+
+\section{Lefshetz Fibrations}
+In ??, Castro and Ozbagci
+
+\section{Kirby Calculus}
+There is an alternative to the Heegaard diagrams discussed above. Using the fact that we can assume a compact, connected 3-manifold $M^{3}$ has a handle decomposition with a unique 0-handle and 3-handle (this is generally true for any dimension.) The 0-handle $B^{3}$ has boundary $S^{2} = \mathbb{R}^{2} \cup \{\infty\}$ and we may draw the attaching region for the 1-handles as pairs of disks in the plane. The result of attaching the 1-handles is equivalent to gluing together the pairs of disks (in a way that reverses their orientation) and we may draw the attaching circle for the 2-handles as curves in the boundary of the resulting handlebody. \newline \newline Why would we care about this perspective? Because we can generalize it up a dimension! Considering a 4-manifold $X^{4}$ there is a unique 0-handle $B^{4}$ with boundary $S^{3} = \mathbb{R}^{3} \cup \{\infty\}$ and we can draw the attaching region for the 1-handles as pairs, $B^{3} \cup B^{3},$ in $\mathbb{R}^{3}.$ Again the union of 0 and 1-handles may be achieved by gluing these pairs of balls together (in an orientation reversing way) and 2-handles are added along circles in the boundary of this 4-dimensional handlebody. But in $\mathbb{R}^{3}$ circles can be knotted and linked and you also have to deal with their framings.
+
+\section{Random Shit}
+
+
+
+Things that I'm not sure where else they fit:
+\begin{enumerate}
+\item Come up with an algorithm to determine Seifert 3-manifolds of a knotted surface from a triplane diagram.
+\item For a sattelite knot, can one determine its triplane diagram from triplane diagrams of the companion and knot and companion torus.
+\item WTF is monodromy
+\item WTF is a Lefshetz fibration 
+\item Figure out 
+\end{enumerate}
+
+
+\end{document}

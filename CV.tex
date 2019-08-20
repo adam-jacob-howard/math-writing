@@ -1,0 +1,227 @@
+%% start of file `template_en.tex'.
+%% Copyright 2007 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[10pt,letter]{moderncv}
+\usepackage{comment}
+\usepackage{amsfonts}
+
+
+
+% moderncv themes
+%\moderncvtheme[blue]{casual}                 % optional argument are 'blue' (default), 'orange', 'red', 'green', 'grey' and 'roman' (for roman fonts, instead of sans serif fonts)
+\moderncvtheme[blue]{classic}                % idem
+\setlength{\hintscolumnwidth}{7em}
+
+% character encoding
+\usepackage[utf8]{inputenc}                   % replace by the encoding you are using
+
+% adjust the page margins
+\usepackage[scale=0.8, margin=0.85in]{geometry}
+\recomputelengths                            % required when changes are made to page layout lengths
+
+
+
+% personal data
+\firstname{Adam}
+\familyname{Howard}
+\title{Curriculum Vitae}% \textbf{\color{red} [continue tweaking spacing]}} % \ae}               % optional, remove the line if not wanted
+%\address{\textup{\url{http://etale.site}}}
+\email{adam.howard1@montana.edu} % \email{aaron@math.berkeley.edu}                      % optional, remove the line if not wanted
+\phone{(406) 223-6320}                      % optional, remove the line if not wanted
+\address{Montana State University \\ Wilson Hall 2-232\\}{Bozeman, MT 59715}
+\extrainfo{% \urlstyle{same}\url{http://etale.site}
+% \\
+%\\
+%citizenship: U.S.
+} % optional, remove the line if not wanted
+%\photo[64pt]{mug.png}                         % '64pt' is the height the picture must be resized to and 'picture' is the name of the picture file; optional, remove the line if not wanted
+%\quote{"No man should escape our universities without knowing how little he knows." -- J. Robert Oppenheimer}                 % optional, remove the line if not wanted
+
+%\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
+
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+
+
+
+\newcommand{\blackhref}[3][black]{\href{#2}{\color{#1}{#3}}}%
+
+
+\AtBeginDocument{\hypersetup{colorlinks, urlcolor=gray}}
+
+
+\begin{document}
+\maketitle
+\vspace{-1em}
+
+%
+\section{Research Interests}
+Algebraic and Geometric Topology, Representation Theory, Mathematical Physics
+
+
+%\vspace{5pt}
+
+
+
+%This currently means: algebraic K-theory and the cyclotomic trace via factorization homology and Goodwillie calculus; shifted symplectic structures, shifted Poisson structures, and duality phenomena in quantum field theory; foliations and their characteristic classes via deformation theory; motivic modular forms (a motivic analog of $tm \! f$) via Goerss--Hopkins obstruction theory for $\infty$-categories.
+%% chromatic homotopy theory and its interactions with number theory; higher category theory and its applications to equivariant and motivic homotopy theory.
+%% Homotopy theory.  More specifically: higher category theory, abstract homotopy theory, and their applications to equivariant and motivic homotopy theory; chromatic homotopy theory and its interactions with number theory; derived (especially spectral) arithmetic, algebra, and algebraic geometry; factorization homology. {\color{cyan} [update this...]}
+
+\section{Education}
+\cventry{2016--present}{Ph.D. student in Mathematics}{Montana State University}{Bozeman}{MT}{Advisor: Ryan Grady.}{} %\\ Winner of the Kenneth Ribet \& Lisa Goldberg Award.}
+%\cventry{2012--2014}{M.S. Mathematics}{Montana State University}{Bozeman}{MT}{}%{Supervisor: David Ayala.}
+\cventry{2012--2016}{B.S. Mathematics}{University of Utah}{Salt Lake City}{UT}{}%{Minor: Computer Science}{}
+%\cventry{Jan--Dec 2012}{Visiting PhD student}{Max Planck Institute for Mathematics}{Bonn}{Germany}{}%{Supervisors: Justin Noel and Peter Teichner.}
+%\cventry{2005--2009}{ScM and ScB in Mathematics}{Brown University}{Providence}{RI}{}%{Magna cum laude (highest honor awarded), Phi Beta Kappa.}
+
+%\section{Employment}
+%\cventry{2016-present}{Zassenhaus Assistant Professor}{Ohio State University}{Columbus, OH}{}{}
+
+%\section{Publications}
+
+%\cventry{Nov, 2012}{Zero forcing number, maximum nullity, and path cover number of subdivided graphs}{}{}{Electronic Journal of Linear Algebra: Volume 23, pp. 906-922}{}
+
+
+%\cventry{Preprint}{Goerss--Hopkins obstruction theory for $\infty$-categories}{}{}{draft available upon request*}{}
+%\cventry{Oct 16, 2015}{Model $\infty$-categories III: the fundamental theorem}{}{}{arXiv:1510.04777*}{}
+%\cventry{Oct 15, 2015}{Model $\infty$-categories II: Quillen adjunctions}{}{}{arXiv:1510.04392*}{}
+%\cventry{Oct 14, 2015}{Hammocks and fractions in relative $\infty$-categories}{}{}{arXiv:1510.03961}{Under revision for \textit{Journal of Homotopy and Related Structures}.}
+%\cventry{Oct 13, 2015}{All about the Grothendieck construction}{}{}{arXiv:1510.03525}{Submitted.}
+%\cventry{Oct 12, 2015}{The universality of the Rezk nerve}{}{}{arXiv:1510.03150}{Under revision for \textit{Algebaic \& Geometric Topology}.}
+%\cventry{Oct 8, 2015}{A user's guide to co/cartesian fibrations}{}{}{arXiv:1510.02402}{Submitted.}
+%\cventry{Jan 13, 2015}{Quillen adjunctions induce adjunctions of quasicategories}{}{}{}{\textit{New York Journal of Mathematics} 22 (2016), 57-93.}
+%\cventry{Dec 29, 2014}{Model $\infty$-categories I: some pleasant properties of the $\infty$-category of simplicial spaces}{}{}{arXiv:1412.8411*}{}
+%\cventry{Sep 29, 2014}{From fractions to complete Segal spaces}{}{with Zhen Lin Low}{arXiv:1409.8192}{\textit{Homology, Homotopy, and Applications} 17 (2015), no.$\!$ 1, 321-338.}
+%\cventry{Aug 25, 2013}{A relative Lubin--Tate theorem via meromorphic formal geometry}{}{with Eric Peterson and Nathaniel Stapleton}{arXiv:1308.5435}{\textit{Algebraic \& Geometric Topology} 15 (2015), 2239-2268.}
+%\cventry{Sep 2, 2009}{A cubical antipodal theorem}{}{with Kyle E. Kinneberg, Tia Sondjaja, and Francis Su}{arXiv:0909.0471}{}
+
+%\vfill
+%\enlargethispage{\footskip}
+%{\small $^*$The four papers \textit{Model $\infty$-categories I-III} and \textit{Goerss--Hopkins obstruction theory for $\infty$-categories} have been collected to be submitted together as a memoir.}
+
+%\newpage
+
+%\cventry{Aug 2, 2006}{Maximum volume space quadrilaterals}{Expeditions in Mathematics}{with Thomas Banchoff and Nicholas Haber}{}{}
+
+
+
+\section{Awards}
+\cventry{Summer 2019}{Gary G. Sackett Research Fellowship}{Montana State University}{}{}{}
+\cventry{Fall 2016}{Meritorious Award}{The Graduate School, Montana State University}{}{}{}
+
+%\cventry{Spring 2016}{Outstanding Graduate Student Instructor Award}{UC Berkeley}{}{}{}
+%\cventry{2009-2014}{Graduate Student Research Fellowship}{National Science Foundation}{}{}{}
+%\cventry{2013}{Distinguished Graduate Student Speaker}{USTARS conference}{}{}{}
+%\cventry{2009}{Howell Prize for Excellence in Mathematics}{Brown University}{}{}{}
+%\cventry{2012}{Magna cum laude}{Bethany Lutheran College}{}{}{}
+
+
+%\section{Research Experience}
+%\cventry{Spring 2016 \\ Summer 2016 \\ Spring 2017 \\ Fall 2017\\Fall 2018}{Graduate Research Assistant}{Montana State University}{Under the advisement of David Ayala, broadly learn algebraic topology, and in particular, higher category theory and factorization homology; research manifolds using configuration spaces, as organized by higher category theory.}{}{}
+
+
+
+
+\section{Teaching Experience}
+
+\cventry{2016--present}{Instructor of Record}{Montana State University}{}{}{Responsibilities include organizing and delivering lectures, creating and grading weekly quizzes and assignments, writing and grading exams, holding office hours, and working in the Math Learning Center}{}{}
+
+
+\section{Courses Taught at Montana State University}
+\cventry{M 105}{Contemporary Mathematics}{}{}{(Spring '17)}{}
+\cventry{M 121}{College Algebra}{}{}{(Fall '16)}{}
+\cventry{M 171}{Calculus I}{}{}{(Summer '17, Fall '17)}{}
+\cventry{M 172}{Calculus II}{}{}{(Spring '18, Summer '18, Fall '18)}{}
+\cventry{M 221}{Linear Algebra (TA)}{}{}{(Spring '19)}{}
+
+
+
+
+\section{Service}
+\cventry{Summer 2019} {Mentor for Big Sky Youth Empowerment}{}{}{}{}
+\cventry{Spring 2019}{Mentor for Directed Reading Program}{John Schafer}{Naive Lie Theory}{}{}
+\cventry{Spring 2019}{Mentor for Big Sky Youth Empowerment}{}{}{}{}
+\cventry{Fall 2018}{Mentor for Directed Reading Program}{Miguel Kennard}{A Topological Apertif}{}{}
+\cventry{Fall 2018}{Tutor for Big Sky Youth Empowerment}{}{}{}{}
+
+%\cventry{2015}{Journal referee}{Topology and its Applications}{}{}{}
+
+
+
+
+% \newpage
+
+
+\section{Talks}
+
+\cventry{Jun, 2019}{Trisections of 4-Manifolds}{University of Wisconsin-Milwaukee}{36th Annual Workshop in Geometric Topology}{}{}
+\cventry{Apr, 2019}{Knotted Surfaces in 4-Manifolds}{Montana State University}{Graduate Student Seminar}{}{}
+\cventry{Oct, 2018}{Working with Differential Forms}{Montana State University}{Graduate Student Seminar}{}{}
+\cventry{Mar, 2018}{The Lamplighter Group}{Montana State University}{Graduate Student Seminar}{}{}
+\cventry{Oct, 2017}{The Braid Group}{Montana State University}{Graduate Student Seminar}{}{}
+\cventry{Sep, 2017}{Some Thoughts about Knots}{Montana State University}{Graduate Student Seminar}{}{}
+\cventry{Mar, 2017}{Prees a.k.a. Pregroups}{Montana State University}{Graduate Student Seminar}{}{}
+\cventry{Nov, 2016}{Folding Finite Graphs and Free Groups}{Montana State University}{Graduate Student Seminar}{}{}
+
+
+\section{Conferences and Workshops Attended}
+\cventry{July, 2019}{Perspectives on Dehn Surgery}{ICERM}{Providence, RI}{}{}
+\cventry{June, 2019}{36th Annual Workshop in Geometric Topology}{Milwaukee, WI}{}{}{}
+\cventry{May, 2019}{Moab Topology Conference}{Moab, UT}{}{}{}
+\cventry{May, 2018}{Arches Topology Conference}{Moab, UT}{}{}{}
+\cventry{Aug, 2017}{Topological and Geometric Methods in QFT}{Bozeman, MT}{}{}{}
+
+
+
+
+
+
+\section{References}
+
+\begin{minipage}[t]{0.16\textwidth}
+\
+\end{minipage}
+\begin{minipage}[t]{0.42\textwidth}
+
+
+Ryan Grady  (advisor)\\
+Montana State University \\
+\texttt{ryan.grady1@montana.edu} \\
+
+David Ayala \\
+Montana State University \\
+\texttt{david.ayala@montana.edu} \\
+
+
+
+\end{minipage}
+\begin{minipage}[t]{0.42\textwidth}
+Lukas Geyer\\
+Montana State University\\
+\texttt{geyer@math.montana.edu}
+
+
+\end{minipage}
+
+
+\end{document}
+
+
+
+
+
+
+
+\textbf{AND MORE}
+
+
+
+
+\end{document}

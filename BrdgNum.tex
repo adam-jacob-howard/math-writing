@@ -1,0 +1,66 @@
+\documentclass[11pt, oneside]{article}   
+\usepackage{geometry}                		
+\geometry{letterpaper}                   		   		
+\usepackage{graphicx}	
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[english]{babel}			
+\usepackage[usenames, dvipsnames]{color}								
+\usepackage{amssymb}
+\usepackage{amsmath, amsthm}
+\newtheorem*{problem*}{Problem}
+\newtheorem*{solution*}{Solution}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem*{definition*}{Definition}
+
+\title{Annotations to ``Additivity of Bridge Numbers of Knots''}
+\author{Adam Howard}
+\date{\today}							
+
+\begin{document}
+\maketitle
+
+
+
+\section*{The Result and the Setup}
+In Jennifer Schultens's paper ``Additivity of Bridge Numbers of knots'' the author gives a new proof that if $K = J \# L$ is the connect sum of knots, then $b(K) = b(J) + b(L) - 1.$ The connect sum of knots can be realized using the satellite construction and Schultens also proves that if $K$ is a satellite knot with companion $J$ and whose pattern has index $k$, then $b(K) \geq k\cdot b(J).$ These results were originally proven by Horst Schubert. \newline \newline The setting for this paper will be $K \subset V  \subset S^{3},$ where $K$ is a knot and $V$ is a knotted solid torus. We will also have $h: S^{3} \rightarrow \mathbb{R}^{3}$ a Morse function with exactly two critical points, which guarantees that $h$ induces a foliation of $S^{3}$ by spheres along with a max and min denoted $\infty$ and $-\infty$ respectively. 
+
+\section*{Definitions}
+\begin{enumerate}
+\item The \textbf{bridge number} of $K$ is the minimal number of maxima required for $h_{K}$ and is denoted $b(K).$ This coincides with the definition of  bridge number as the minimal number of bridges (arcs which are an overpass at least once) in a knot diagram.
+\item If $J$ is a knot in $S^{3}$ and $L$ is a knot in an unknotted solid torus $\hat{V}$, the knot $K$ obtained by replacing a tubular neighborhood of $J$ with $(\hat{V}, L)$ is called a \textbf{satellite knot} with \textbf{companion} J and \textbf{pattern} $(\hat{V}, L).$ The least number of times in which a meridian disk of $V$ intersects $L$ is called the \textbf{index} of the pattern.
+\item For $K$ a homotopically nontrivial knot in a solid torus $V,$ then $V$ is \textbf{taut} with respect to $b(K)$ if the number of critical points of $h_{T}$ ($T = \partial V$) is minimal subject to the condition that $h_{K}$ has $b(K)$ maxima.  
+\item Again if $T = \partial V$ and $\mathcal{F}_{T}$ is the foliation induced by $h_{T},$ then a leaf $\sigma$ corresponding to a saddle singularity consists of two circles $s_{1}$ and $s_{2}.$ If either $s_{1}$ or $s_{2}$ is inessential in $T$, then $\sigma$ is called an \textbf{inessential saddle}. 
+\end{enumerate}
+
+\section*{The Pop Over Lemma (Lemma 1)}
+This lemma precisely states that if there is an inessential saddle in the foliation $\mathcal{F}_{T},$ after an isotopy there is an inessential saddle $\sigma$ such that $s_{1}$ bounds and disk $D_{1} \subset T$ such that the following hold:
+\begin{enumerate}
+\item The foliation restricted to $D_{1}$ consists of only disjoint circles and either a max or a min
+\item In the level set $L$ containing $\sigma,$ $D_{1}$ cobounds a $3-$ball $B$ with a disk in $\tilde{D}_{1} \subset L - T,$ such that $B$ does not contain $\infty$ or $-\infty$ and $s_{2}$ is completely outside $\tilde{D}_{1}.$
+\end{enumerate} The first condition is satisfied by choosing the ``innermost'' inessential saddle in a given level set (if there is only one then it is automatically innermost.) Now $L - \partial D_{1}$ contains two disks $\hat{D}_{1}$ and $\hat{D}_{2}$ which cobound (with $D_{1}$) 3-balls $\hat{B}_{1}$ and $\hat{B}_{3}$ one of which either contain $\infty$ or $-\infty$ and the other contains neither. If $s_{2} \subset \hat{D}_{2}$ then take $B = \hat{B}_{1},$ so suppose $s_{2} \subset \hat{D}_{1}.$ Then essentially take a path $\alpha$ from the max in $D_{1}$ to $\infty$ and a tubular neighborhood of $\alpha$ and ``pop'' $D_{1}$ over $\infty$ using this neighborhood. This puts $\infty$ in $\hat{B}_{1}$ and shrinks $\hat{B}_{2}$ so it doesn't contain $\infty$ and we can take $B$ to be the shrunk version of $\hat{B}_{2}.$  
+
+
+% useful pictures
+
+\section*{The Pop Out Lemma (Lemma 2)}
+This lemma states that if $V$ is taut with respect to $b(K)$ then there are no inessential saddles in $\mathcal{F}_{T}.$ \newline \newline This is proven by contradiction. If $\mathcal{F}_{T}$ contained an inessential saddle we could alter it as in lemma 1. Then we can isotope any part of $K$ contained in the ball down below the disk $\tilde{D}_{1}$ and above any other critical points of $h_{T}$ without changing the number of critical points of $h_{K}.$ Now replacing $T$ by $\tilde{T} = (T - D_{1}) \cup \tilde{D}_{1}$ and tilting  we arrive at a torus containing $K$ such that $h_{K}$ still has $b(K)$ maxima but $h_{\tilde{T}}$ has two fewer critical points. Therefore $V$ was not taut with respect to $b(K)$ and we get our contradiction.
+
+
+\section*{Lemma 3}
+Consider a bicollar (pair of pants) of an essential saddle $\sigma$ in $\mathcal{F}_{T},$ it has three boundary components $c_{1}, c_{2},$ and $c_{3}$ where each $c_{i}$ is parallel to $s_{i}$ and lie in the same level set  for $i = 1, 2$. By an Euler characteristic argument $c_{3}$ must bound a disk containing either a max or a min $m_{\sigma},$ so if there are no inessential saddles then every max or min corresponds to a saddle. \newline \newline
+With an essential saddle and the pair of pants as above, since $c_{1}$ and $c_{2}$ are disjoint in the level set $L \approx S^{2},$ they cobound an annulus. If a collar neighborhood of $c_{1} \cup c_{2}$ \textcolor{blue}{in the pair of pants} is contained in $V,$ then $\sigma$ is a \textbf{nested saddle}. 
+% insert useful picture here
+\newline \newline Lemma 3 states that if $V$ is taut with respect to $b(K),$ then $\mathcal{F}_{T}$ has no nested saddles.
+% sketch of proof
+
+\section*{Proof of Theorem}
+By the preceding lemmas, if $V$ is a knotted solid torus that is taut with respect to $b(K)$ then there are no inessential saddles and no nested saddles. All the saddles $\sigma_{1}, \sigma_{2}, \hdots, \sigma_{n}$ correspond to a max or min $m_{\sigma_{i}}$. Letting $L_{i} = h^{-1}(h(\sigma_{i}))$ be the level sets containing the saddles, then $L_{1} \cup \hdots \cup L_{n}$ cuts $V$ into $3-$balls containing the maxima and minima as well as vertical cylinders. \newline \newline Now consider the satellite knot $K$ with companion $J$ and a pattern $(\hat{V}, L)$ of index $k.$ We can assume $K \subset V = \nu(J)$ and furthermore we can assume that $V$ is taut with respect to $b(K).$ We obtain a morse function on $J$ by collapsing $V$ to it's core, and we get that $b(J) \leq |\text{max of }h_{T}|$ where $T = \partial V.$ Now each max corresponds to a saddle $\sigma,$ and if $D_{1}$ and $D_{2}$ are the disks bounded by $s_{1}$ and $s_{2},$ then $D_{1} \cup D_{2}$ cuts a $3$-ball $B_{\sigma}$ containing $m_{\sigma}$ off of $V.$ Since the index of the pattern is $k,$ at least $k$ strands pass through both $D_{1}$ and $D_{2},$ thus $K$ has at least $k$ maxima in $B_{\sigma}.$ This is true for each maximum of $T,$ so we have that $b(K) \geq k\cdot |\text{max of }h_{T}| \geq k\cdot b(J).$ \newline \newline Now in the special case where $K = K_{1} \# K_{2},$ suppose $b(K_{1}) \geq b(K_{2})$ and in the satellite construction take $K_{1}$ to be the companion knot with $(\hat{V}, K_{2})$ the pattern of index 1. Again we can obtain a Morse function on $K_{1}$ by shrinking $V = \nu(K_{1})$ down to its core. Then for each maximum of $T = \partial V$ there is an associated saddle $\sigma$ and again $s_{1}$ and $s_{2}$ bound disks $D_{1}$ and $D_{2}.$ \textcolor{blue}{If} for each max $|K \cap D_{i}| \geq 2,$ then $K$ must obtain at least two maxima and thus $b(K) \geq 2\cdot b(K_{1}) \geq b(K_{1}) + b(K_{2}) \geq b(K_{1}) + b(K_{2}) - 1.$ \textcolor{blue}{So} we need to consider the case when $|K \cap D_{i}| = 1.$ Recall we can decompose $V$ into $3$-balls containing the minima and maxima of $T$ along with solid vertical cylinders. In a vertical cylinder, a meridinal disk. 
+
+\section*{The Whitehead Double}
+In the specific case where the pattern $(\hat{V}, L)$ is the Whitehead double pattern of index 2, we get that for any nontrivial knot $K \subset  S^{3}$ its Whitehead double $K_{WD}$ has bridge number $b(K_{WD}) \geq 2\cdot b(K).$ \textbf{Claim:} $b(K_{WD}) \leq 2\cdot b(K)$ and therefore $b(K_{WD}) = 2 \cdot b(K).$ \begin{proof} Let $K \subset S^{3}$ be a nontrivial knot and $h: S^{3} \rightarrow \mathbb{R}$ a Morse function such that $h_{K}$ has $b(K)$ maxima. Then let $L = K \cup K'$ be the link consisting of $K$ along with a parallel copy of $K, K',$ obtained by the 0-framing of $K.$ This implies that $h_{K'}$ also has $b(K)$ maxima. Choose some minima $m \in K$ and let $m' \in K'$ be the corresponding minima in $K'.$ Now let $\alpha$ be the path (you know the one I'm thinking about) connecting $m$ to $m'$ with no critical points and let $b \approx I \times I$ be a band with core $\alpha$ (i.e. $\alpha = \{0\} \times I$) and with one full twist such that $b \cap L = \{-1, 1\} \times I.$ Then we have (after smoothing corners) that $K_{WD}$ is the result of resolving the band $b,$ i.e. $K_{WD} = L_{b} =( L- (\{-1, 1\} \times I)) \cup (I \times \{-1, 1\}).$ In this construction we have introduced no new maxima, so $K_{WD}$ has $2 \cdot b(K)$ maxima and thus $b(K_{WD}) \leq 2 \cdot b(K).$
+
+%We may assume that $V = \nu(K)$ is taut with respect to $b(K_{WD})$ and therefore $V$ is comprised of 3-balls $B_{\sigma_{1}}, \hdots, B_{\sigma_{n}}$ corresponding to saddles $\sigma_{i}$ separated by vertical cylinders. Then inside $V$ there is an isotopy of $K_{WD}$ such that two parallel strands pass through all vertical cylinders without critical points, all $B_{\sigma_{i}}$ corresponding to maxima contain two parallel strands with a single maximum, all $B_{\sigma_{i}}$ corresponding to minima contain either two parallel strands with a single min or the nontrivial crossing which again has only two minima. So $b(K_{WD}) \leq 2\cdot \#(\text{maxima of T = $\partial V $}) \geq 2 \cdot b(K).$
+\end{proof}
+
+\end{document}
