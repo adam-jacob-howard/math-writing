@@ -11,7 +11,7 @@
 
 \def\ryan{\textcolor{purple}{RG: }\textcolor{purple}}
 
-\usepackage{graphicx,tikz,tikz-cd}                      %Drawing stuff and necessary for \todo
+\usepackage{graphicx,tikz,tikz-cd}                   %Drawing stuff and necessary for \todo
 \def\todo#1{\textcolor{red}{\textbf{TODO: }{#1}}}
 \def\quest#1{\textcolor{blue}{\textbf{Question: }{#1}}}
 \def\thought#1{\textcolor{violet}{\textbf{Thought: }{#1}}}
@@ -28,8 +28,8 @@
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{question}[theorem]{Question}
 
-\title{Adam Notes}
-\author{}
+\title{Low-Dimensional Topology Notes}
+\author{Adam Howard}
 \date{\today}
 
 \begin{document}
@@ -58,7 +58,7 @@ Orientable surfaces are very well understood and easily visualized, so it would 
 A Heegaard diagram is a tuple $(\Sigma, \alpha, \beta)$ where $\Sigma$ is a genus-$g$ surface and $\alpha = (\alpha_{1}, \alpha_{2}, \hdots, \alpha_{g})$ and $\beta = (\beta_{1}, \beta_{2}, \hdots, \beta_{g})$ are collections of curves on $\Sigma$ such that $(\Sigma, \alpha)$ and $(\Sigma, \beta)$ are diffeomorphic to the standard genus$-g$ cut system $(\Sigma_{g}, \alpha_{g}).$ A curve system $(\Sigma, \alpha)$ being diffeomorphic to the standard genus$-g$ cut system is characterized by when cutting the surface along $\alpha,$ the result is a punctured sphere. 
 \end{definition}
 
-\begin{lemma}
+\begin{lemma} \hspace{2pt}\newline
 \begin{enumerate}
 \item For every diagram $\textbf{D} = (\Sigma, \alpha, \beta)$ there is an associated 3-manifold $M(\textbf{D})$ with a Heegaard splitting $M(\textbf{D}) = U_{0} \cup_{\Sigma} U_{1}$ where $\alpha$ bounds disks in $U_{0}$ and $\beta$ bounds disks in $U_{1}.$
 \item Any other 3-manifold with a Heegaard splitting $Y = V_{0} \cup_{\Sigma} V_{1}$ satisfying the above conditions is diffeomorphic the above Heegaard splitting, i.e. $Y \approx M(\textbf{D}).$
@@ -71,7 +71,7 @@ A Heegaard diagram is a tuple $(\Sigma, \alpha, \beta)$ where $\Sigma$ is a genu
 A manifold can have many different Heegaard splittings. The following process, called stabilization, takes a genus-$g$ splitting of $Y$ and transforms it into a genus-$(g + 1)$ splitting. Let $Y = U_{0} \cup_{\Sigma_{g}} U_{1}$ be a genus-$g$ Heegaard splitting of $Y$ and let $\alpha$ be a boundary parallel curve in $U_{0}$ and a tubular neighborhood $\nu$ such that $\nu \cap \Sigma_{g} = D^{2} \times \partial \alpha.$ Now $Y = U_{0}' \cup_{\Sigma_{g + 1}} U_{1}'$ is a genus-$(g+1)$ splitting where $U_{1}' = U_{1} \cup \nu$ and $U_{0}' = U_{0} - \mathring{\nu}.$ \newline \newline This process of stabilization is related to connect summing a  Heegaard splitting of a manifold with the genus-$1$ splitting of $S^{3}.$  The \textit{standard} genus-1 Heegaard diagram for $S^{3}$ is $\textbf{D}^{*} = (T^{2}, \mu, \lambda)$ where        $\mu$ and $\lambda$ are the meridian and latitude of the torus. \todo{consider how connect summing diagrams corresponds to stabilization.}
 
 \subsection{Heegaard Floer Homology}
-Heegaard Floer Homology is a mysterious invariant of 3-manifolds
+Heegaard Floer Homology is a mysterious invariant of 3-manifolds.
 
 \section{Morse 2-theory}
 A Morse function is a smooth map on a manifold $f: M \rightarrow \mathbb{R}$ such that all of its critical points are non-degenerate, i.e. the Hessian of $f$ is non-singular at all critical points. For a compact manifold $M, f(M)$ will be some interval $[a,b] \subset \mathbb{R}$ and we can look at preimages $M_{c} = f^{-1}([a, c]) \subset X$ with $a \leq c \leq b$ and the topology of $M_{c}$ only changes as $c$ passes over critical values. \newline \newline The target of a Morse function doesn't necessarily have to be $\mathbb{R},$ it could be another 1-dimensional manifold such as $S^{1}$ in which case we would call it a circle valued Morse function. A Morse 2-function is a smooth map $f: M \rightarrow \Sigma^{2}$ such that for each point $p \in M$ their are coordinate charts $\mathbb{R} \times \mathbb{R}^{n-1}$ around $p$ and $\mathbb{R} \times \mathbb{R}$ around $f(p)$ so that for $x$ in a neighborhood of $p,$ $f(x) = f(t, y) = (t, f_{t}(y))$ where $f_{t}: \mathbb{R}^{n-1} \rightarrow \mathbb{R}$ is a one parameter family of Morse functions. The set of points where $Z = \{p \in M : Df_{p} \text{  has rank 1} \}$ will be an embedded 1-manifold and $Z' := f(Z)$ will be an immersed 1-manifold (with cusps) of $\Sigma$ called the ``fold curves.''
@@ -173,17 +173,14 @@ In ??, Castro and Ozbagci
 \section{Kirby Calculus}
 There is an alternative to the Heegaard diagrams discussed above. Using the fact that we can assume a compact, connected 3-manifold $M^{3}$ has a handle decomposition with a unique 0-handle and 3-handle (this is generally true for any dimension.) The 0-handle $B^{3}$ has boundary $S^{2} = \mathbb{R}^{2} \cup \{\infty\}$ and we may draw the attaching region for the 1-handles as pairs of disks in the plane. The result of attaching the 1-handles is equivalent to gluing together the pairs of disks (in a way that reverses their orientation) and we may draw the attaching circle for the 2-handles as curves in the boundary of the resulting handlebody. \newline \newline Why would we care about this perspective? Because we can generalize it up a dimension! Considering a 4-manifold $X^{4}$ there is a unique 0-handle $B^{4}$ with boundary $S^{3} = \mathbb{R}^{3} \cup \{\infty\}$ and we can draw the attaching region for the 1-handles as pairs, $B^{3} \cup B^{3},$ in $\mathbb{R}^{3}.$ Again the union of 0 and 1-handles may be achieved by gluing these pairs of balls together (in an orientation reversing way) and 2-handles are added along circles in the boundary of this 4-dimensional handlebody. But in $\mathbb{R}^{3}$ circles can be knotted and linked and you also have to deal with their framings.
 
-\section{Random Shit}
+\section{Problems I'd Like Answers To}
 
-
-
-Things that I'm not sure where else they fit:
 \begin{enumerate}
-\item Come up with an algorithm to determine Seifert 3-manifolds of a knotted surface from a triplane diagram.
-\item For a sattelite knot, can one determine its triplane diagram from triplane diagrams of the companion and knot and companion torus.
-\item WTF is monodromy
-\item WTF is a Lefshetz fibration 
-\item Figure out 
+\item Is the bridge number for knotted surfaces additive? This may be too challenging for me. If I could show that it was in the special case of $S(K) \# \mathbb{RP}^{2}$ where $K = T_{b < q}$ is a torus knot, then I could prove that there are infinitely many knotted surfaces with bridge number $3b - 1$ and therefore infinitely many knotted surfaces with every bridge number.
+\item By looking at a triplane diagram, or any other representation of a 2-knot, can I calculate the immersion invariant David described. The invariant is $\mathbb{Z}$ valued, so it hopefully might just amount to counting something (crossings, strands, framing on bands.) I think the most fruitful route is starting with a banded link diagram, then move over to the triplane diagram if I can.
+\item Figure out a way to construct some sort of ``Whitehead Double'' for a knotted surface similar to what we did with resolving bands along parallel copies of classical knots. First maybe consider doing this construction to a classical knot and then spinning it (some weird adaptions need to be made) to see what kind of diagram you get. Really any idea on how cabling works in this setting would be cool.
+\item Find some sort of Wirtinger presentation for $\pi_{1}$ of the complement of a 2-knot (or any knotted surface) based on its triplane diagram. A good starting place for this might be looking at Carter/Saito. 
+
 \end{enumerate}
 
 
