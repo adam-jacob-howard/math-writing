@@ -1,0 +1,827 @@
+\documentclass[a4paper, 12 pt, reqno]{amsart}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{comment}
+\usepackage{epsfig}
+\usepackage{psfrag}
+\usepackage{mathrsfs}
+\usepackage{amscd}
+\usepackage[all,cmtip]{xy}
+\usepackage{rotating}
+\usepackage{lscape}
+\usepackage{amsbsy}
+\usepackage{verbatim}
+\usepackage{moreverb}
+\usepackage{color}
+\usepackage{bbm}
+\usepackage{eucal}
+\usepackage{tikz-cd} 
+
+
+
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{cor}[theorem]{Corollary}
+\newtheorem{conj}[theorem]{Conjecture}
+
+
+
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{summary}[theorem]{Summary}
+\newtheorem{note}[theorem]{Note}
+\newtheorem{ack}[theorem]{Acknowledgments}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{terminology}[theorem]{Terminology}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{q}[theorem]{Question}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{notation}[theorem]{Notation}
+
+
+\theoremstyle{remark}
+
+
+\definecolor{orange}{rgb}{.95,0.5,0}
+\definecolor{light-gray}{gray}{0.75}
+\definecolor{brown}{cmyk}{0, 0.8, 1, 0.6}
+\definecolor{plum}{rgb}{.5,0,1}
+
+
+\DeclareMathOperator{\Link}{\sf Link}
+\DeclareMathOperator{\Fin}{\sf Fin}
+\DeclareMathOperator{\vect}{\sf Vect}
+\DeclareMathOperator{\Vect}{\cV{\sf ect}}
+\DeclareMathOperator{\Sfr}{S-{\sf fr}}
+\DeclareMathOperator{\nfr}{\mathit{n}-{\sf fr}}
+
+
+
+\DeclareMathOperator{\CAlg}{\sf CAlg}
+
+
+\DeclareMathOperator{\Alg}{\sf Alg}
+\DeclareMathOperator{\man}{\sf Man}
+\DeclareMathOperator{\Man}{\cM{\sf an}}
+\DeclareMathOperator{\Mod}{\sf Mod}
+\DeclareMathOperator{\unzip}{\sf Unzip}
+\DeclareMathOperator{\Snglr}{\cS{\sf nglr}}
+\DeclareMathOperator{\TwAr}{\sf TwAr}
+\DeclareMathOperator{\cSpan}{\sf cSpan}
+\DeclareMathOperator{\Kan}{\sf Kan}
+\DeclareMathOperator{\Psh}{\sf PShv}
+\DeclareMathOperator{\PShv}{\sf PShv}
+
+
+\DeclareMathOperator{\cpt}{\sf cpt}
+\DeclareMathOperator{\Aut}{\sf Aut}
+\DeclareMathOperator{\colim}{{\sf colim}}
+\DeclareMathOperator{\relcolim}{{\sf rel.\!colim}}
+\DeclareMathOperator{\limit}{{\sf lim}}
+\DeclareMathOperator{\cone}{\sf cone}
+\DeclareMathOperator{\Der}{\sf Der}
+\DeclareMathOperator{\Ext}{\sf Ext}
+\DeclareMathOperator{\hocolim}{\sf hocolim}
+\DeclareMathOperator{\holim}{\sf holim}
+\DeclareMathOperator{\Hom}{\sf Hom}
+\DeclareMathOperator{\End}{\sf End}
+\DeclareMathOperator{\ulhom}{\underline{\Hom}}
+\DeclareMathOperator{\fun}{\sf Fun}
+\DeclareMathOperator{\Fun}{{\sf Fun}}
+\DeclareMathOperator{\Iso}{\sf Iso}
+\DeclareMathOperator{\map}{\sf Map}
+\DeclareMathOperator{\Map}{{\sf Map}}
+\DeclareMathOperator{\Mapc}{{\sf Map}_{\sf c}}
+\DeclareMathOperator{\Gammac}{{\Gamma}_{\!\sf c}}
+\DeclareMathOperator{\Tot}{\sf Tot}
+\DeclareMathOperator{\Spec}{\sf Spec}
+\DeclareMathOperator{\Spf}{\sf Spf}
+\DeclareMathOperator{\Def}{\sf Def}
+\DeclareMathOperator{\stab}{\sf Stab}
+\DeclareMathOperator{\costab}{\sf Costab}
+\DeclareMathOperator{\ind}{\sf Ind}
+\DeclareMathOperator{\coind}{\sf Coind}
+\DeclareMathOperator{\res}{\sf Res}
+\DeclareMathOperator{\Ker}{\sf Ker}
+\DeclareMathOperator{\coker}{\sf Coker}
+\DeclareMathOperator{\pt}{\sf pt}
+\DeclareMathOperator{\Sym}{\sf Sym}
+
+\DeclareMathOperator{\str}{\sf str}
+
+\DeclareMathOperator{\exit}{\sf Exit}
+\DeclareMathOperator{\Exit}{\bcE{\sf xit}}
+
+\DeclareMathOperator{\cylr}{{\sf Cylr}}
+
+
+
+
+\DeclareMathOperator{\Cat}{{\sf Cat}}
+\DeclareMathOperator{\cat}{{\sf Cat}}
+\DeclareMathOperator{\fcat}{{\sf fCat}}
+\DeclareMathOperator{\Dcat}{{\sf fcat}}
+\DeclareMathOperator{\dcat}{\fG\fC{\sf at}}
+\DeclareMathOperator{\Mcat}{\cM{\sf Cat}}
+\DeclareMathOperator{\mcat}{\fD{\sf Cat}}
+
+\DeclareMathOperator{\CAT}{{\sf CAT}}
+
+\DeclareMathOperator{\fCAT}{{\sf fCAT}}
+\DeclareMathOperator{\fCat}{{\sf fCat}}
+\DeclareMathOperator{\fGpd}{{\sf fGpd}}
+
+
+\DeclareMathOperator{\sfN}{\sf fN}
+
+\DeclareMathOperator{\Ar}{{\sf Ar}}
+\DeclareMathOperator{\twar}{{\sf TwAr}}
+
+
+\DeclareMathOperator{\diskcat}{\sf {\cD}isk_{\mathit n}^\tau-Cat_\infty}
+\DeclareMathOperator{\mfdcat}{\sf {\cM}fd_{\mathit n}^\tau-Cat_\infty}
+\DeclareMathOperator{\diskone}{\sf {\cD}isk_{1}^{\vfr}-Cat_\infty}
+
+\DeclareMathOperator{\symcat}{\sf Sym-fCAT}
+\DeclareMathOperator{\encat}{\cE_{\mathit n}-\sf Cat}
+\DeclareMathOperator{\moncat}{\sf Mon-Cat_\infty}
+
+\DeclareMathOperator{\inrshv}{\sf inr-shv}
+\DeclareMathOperator{\clsshv}{\sf cls-shv}
+
+
+
+\DeclareMathOperator{\qc}{\sf QC}
+\DeclareMathOperator{\m}{\sf Mod}
+\DeclareMathOperator{\bi}{\sf Bimod}
+\DeclareMathOperator{\perf}{\sf Perf}
+\DeclareMathOperator{\shv}{\sf Shv}
+\DeclareMathOperator{\Shv}{\sf Shv}
+
+
+
+\DeclareMathOperator{\psh}{\sf PShv}
+\DeclareMathOperator{\gshv}{\sf GShv}
+\DeclareMathOperator{\csh}{\sf Coshv}
+\DeclareMathOperator{\comod}{\sf Comod}
+\DeclareMathOperator{\M}{\mathsf{-Mod}}
+\DeclareMathOperator{\coalg}{\mathsf{-coalg}}
+\DeclareMathOperator{\ring}{\mathsf{-rings}}
+\DeclareMathOperator{\alg}{\mathsf{Alg}}
+\DeclareMathOperator{\artin}{{\sf Artin}}
+\DeclareMathOperator{\art}{\mathsf{Art}}
+\DeclareMathOperator{\triv}{\mathsf{Triv}}
+\DeclareMathOperator{\cobar}{\mathsf{cBar}}
+\DeclareMathOperator{\ba}{\mathsf{Bar}}
+
+\DeclareMathOperator{\shvp}{\sf Shv_{\sf p}^{\sf cbl}}
+
+\DeclareMathOperator{\lkan}{{\sf LKan}}
+\DeclareMathOperator{\rkan}{{\sf RKan}}
+
+\DeclareMathOperator{\Diff}{{\sf Diff}}
+\DeclareMathOperator{\sh}{\sf shv}
+
+
+
+\DeclareMathOperator{\calg}{\mathsf{CAlg}}
+\DeclareMathOperator{\op}{\mathsf{op}}
+\DeclareMathOperator{\relop}{\mathsf{rel.op}}
+\DeclareMathOperator{\com}{\mathsf{Com}}
+\DeclareMathOperator{\bu}{\cB\mathsf{un}}
+\DeclareMathOperator{\bun}{\sf Bun}
+
+\DeclareMathOperator{\cMfld}{{\sf c}\cM\mathsf{fld}}
+\DeclareMathOperator{\cBun}{{\sf c}\cB\mathsf{un}}
+\DeclareMathOperator{\cExit}{{\sf c}\bcE\mathsf{xit}}
+\DeclareMathOperator{\cMan}{{\sf c}\cM{\sf an}}
+\DeclareMathOperator{\Bun}{\cB\mathsf{un}}
+
+\DeclareMathOperator{\dbu}{\mathsf{DBun}}
+
+\DeclareMathOperator{\dbun}{\mathsf{DBun}}
+
+\DeclareMathOperator{\bsc}{\mathsf{Bsc}}
+\DeclareMathOperator{\snglr}{\sf Snglr}
+
+\DeclareMathOperator{\Bsc}{\cB\mathsf{sc}}
+
+
+\DeclareMathOperator{\arbr}{\mathsf{Arbr}}
+\DeclareMathOperator{\Arbr}{\cA\mathsf{rbr}}
+\DeclareMathOperator{\Rf}{\cR\mathsf{ef}}
+\DeclareMathOperator{\drf}{\mathsf{Ref}}
+
+
+\DeclareMathOperator{\st}{\mathsf{st}}
+\DeclareMathOperator{\sk}{\mathsf{sk}}
+\DeclareMathOperator{\ev}{\mathsf{ev}}
+\DeclareMathOperator{\Ex}{\mathsf{Ex}}
+
+\DeclareMathOperator{\sd}{\mathsf{sd}}
+
+\DeclareMathOperator{\inr}{\mathsf{inr}}
+
+\DeclareMathOperator{\cls}{\mathsf{cls}}
+\DeclareMathOperator{\act}{\mathsf{act}}
+\DeclareMathOperator{\rf}{\mathsf{ref}}
+\DeclareMathOperator{\pcls}{\mathsf{pcls}}
+\DeclareMathOperator{\opn}{\mathsf{open}}
+\DeclareMathOperator{\emb}{\mathsf{emb}}
+
+
+\DeclareMathOperator{\cbl}{\mathsf{cable}}
+
+\DeclareMathOperator{\pcbl}{\mathsf{p.cbl}}
+
+
+\DeclareMathOperator{\gl}{\mathsf{GL}_1}
+
+\DeclareMathOperator{\Top}{\mathsf{Top}}
+\DeclareMathOperator{\Mfd}{{\cM}\mathsf{fd}}
+\DeclareMathOperator{\cMfd}{{\sf c}{\cM}\mathsf{fd}}
+\DeclareMathOperator{\Mfld}{{\cM}\mathsf{fd}}
+\DeclareMathOperator{\mfd}{\mathsf{Mfd}}
+\DeclareMathOperator{\Emb}{\mathsf{Emb}}
+\DeclareMathOperator{\enr}{\fE\mathsf{nr}}
+\DeclareMathOperator{\LEnr}{\mathsf{LEnr}}
+\DeclareMathOperator{\diff}{\mathsf{Diff}}
+\DeclareMathOperator{\conf}{\mathsf{Conf}}
+
+\DeclareMathOperator{\MC}{\mathsf{MC}}
+\DeclareMathOperator{\strat}{\mathsf{Strat}}
+\DeclareMathOperator{\Strat}{\cS\mathsf{trat}}
+\DeclareMathOperator{\kan}{\mathsf{Kan}}
+
+\DeclareMathOperator{\dd}{{\cD}\mathsf{isk}}
+
+\DeclareMathOperator{\loc}{\mathsf{Loc}}
+
+
+
+\DeclareMathOperator{\poset}{\mathsf{Poset}}
+
+
+\DeclareMathOperator{\spaces}{\cS\mathsf{paces}}
+\DeclareMathOperator{\Spaces}{\cS\mathsf{paces}}
+
+
+\DeclareMathOperator{\Set}{\cS\mathsf{et}}
+
+\DeclareMathOperator{\SPACES}{\cS\mathsf{PACES}}
+
+
+\DeclareMathOperator{\Space}{{\cS}\sf paces}
+\DeclareMathOperator{\spectra}{\cS\mathsf{pectra}}
+\DeclareMathOperator{\mfld}{\mathsf{Mfld}}
+\DeclareMathOperator{\Disk}{\cD{\mathsf{isk}}}
+\DeclareMathOperator{\cdisk}{{\sf c}\cD{\mathsf{isk}}}
+\DeclareMathOperator{\cDisk}{{\sf c}\cD{\mathsf{isk}}}
+\DeclareMathOperator{\sing}{\mathsf{Sing}}
+\DeclareMathOperator{\set}{{\mathsf{Sets}}}
+\DeclareMathOperator{\Aux}{\cA{\mathsf{ux}}}
+\DeclareMathOperator{\Adj}{\cA{\mathsf{dj}}}
+
+\DeclareMathOperator{\Dtn}{\cD{\mathsf{isk}^\tau_{\mathit n}}}
+
+
+\DeclareMathOperator{\sm}{\mathsf{sm}}
+\DeclareMathOperator{\vfr}{\sf vfr}
+\DeclareMathOperator{\fr}{\sf fr}
+\DeclareMathOperator{\sfr}{\sf sfr}
+\DeclareMathOperator{\Fr}{\sf Fr}
+
+
+\DeclareMathOperator{\bord}{\mathsf{Bord}}
+\DeclareMathOperator{\Bord}{\cB{\sf ord}}
+
+\DeclareMathOperator{\Morita}{{\sf Morita}}
+\DeclareMathOperator{\Corr}{{\sf Corr}}
+\DeclareMathOperator{\corr}{{\sf Corr}}
+
+
+\DeclareMathOperator{\fcorr}{{\sf FCorr}}
+\DeclareMathOperator{\pcorr}{{\sf PCorr}}
+\DeclareMathOperator{\LCorr}{{\sf LCorr}}
+\DeclareMathOperator{\RCorr}{{\sf RCorr}}
+
+\DeclareMathOperator{\Sing}{\mathsf{Sing}}
+
+
+\DeclareMathOperator{\BTop}{\sf BTop}
+\DeclareMathOperator{\BO}{{\sf BO}}
+
+
+\DeclareMathOperator{\Lie}{\sf Lie}
+
+
+
+\def\ot{\otimes}
+
+\DeclareMathOperator{\fin}{\sf Fin}
+
+\DeclareMathOperator{\oo}{\infty}
+
+
+\DeclareMathOperator{\hh}{\sf HC}
+
+\DeclareMathOperator{\free}{\sf Free}
+\DeclareMathOperator{\fpres}{\sf FPres}
+
+
+\DeclareMathOperator{\fact}{\sf Fact}
+\DeclareMathOperator{\ran}{\sf Ran}
+
+\DeclareMathOperator{\disk}{\sf Disk}
+
+\DeclareMathOperator{\ccart}{\sf cCart}
+\DeclareMathOperator{\cart}{\sf Cart}
+\DeclareMathOperator{\rfib}{\sf RFib}
+\DeclareMathOperator{\lfib}{\sf LFib}
+\DeclareMathOperator{\kfib}{\sf KanFib}
+
+
+
+
+\DeclareMathOperator{\tr}{\triangleright}
+\DeclareMathOperator{\tl}{\triangleleft}
+
+
+\newcommand{\lag}{\langle}
+\newcommand{\rag}{\rangle}
+
+
+\newcommand{\w}{\widetilde}
+\newcommand{\un}{\underline}
+\newcommand{\ov}{\overline}
+\newcommand{\nn}{\nonumber}
+\newcommand{\nid}{\noindent}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\xra}{\xrightarrow}
+\newcommand{\xla}{\xleftarrow}
+
+\newcommand{\weq}{\xrightarrow{\sim}}
+\newcommand{\cofib}{\hookrightarrow}
+\newcommand{\fib}{\twoheadrightarrow}
+
+\def\llarrow{   \hspace{.05cm}\mbox{\,\put(0,-2){$\leftarrow$}\put(0,2){$\leftarrow$}\hspace{.45cm}}}
+\def\rrarrow{   \hspace{.05cm}\mbox{\,\put(0,-2){$\rightarrow$}\put(0,2){$\rightarrow$}\hspace{.45cm}}}
+\def\lllarrow{  \hspace{.05cm}\mbox{\,\put(0,-3){$\leftarrow$}\put(0,1){$\leftarrow$}\put(0,5){$\leftarrow$}\hspace{.45cm}}}
+\def\rrrarrow{  \hspace{.05cm}\mbox{\,\put(0,-3){$\rightarrow$}\put(0,1){$\rightarrow$}\put(0,5){$\rightarrow$}\hspace{.45cm}}}
+
+\def\cA{\mathcal A}\def\cB{\mathcal B}\def\cC{\mathcal C}\def\cD{\mathcal D}
+\def\cE{\mathcal E}\def\cF{\mathcal F}\def\cG{\mathcal G}\def\cH{\mathcal H}
+\def\cI{\mathcal I}\def\cJ{\mathcal J}\def\cK{\mathcal K}\def\cL{\mathcal L}
+\def\cM{\mathcal M}\def\cN{\mathcal N}\def\cO{\mathcal O}\def\cP{\mathcal P}
+\def\cQ{\mathcal Q}\def\cR{\mathcal R}\def\cS{\mathcal S}\def\cT{\mathcal T}
+\def\cU{\mathcal U}\def\cV{\mathcal V}\def\cW{\mathcal W}\def\cX{\mathcal X}
+\def\cY{\mathcal Y}\def\cZ{\mathcal Z}
+
+\def\AA{\mathbb A}\def\BB{\mathbb B}\def\CC{\mathbb C}\def\DD{\mathbb D}
+\def\EE{\mathbb E}\def\FF{\mathbb F}\def\GG{\mathbb G}\def\HH{\mathbb H}
+\def\II{\mathbb I}\def\JJ{\mathbb J}\def\KK{\mathbb K}\def\LL{\mathbb L}
+\def\MM{\mathbb M}\def\NN{\mathbb N}\def\OO{\mathbb O}\def\PP{\mathbb P}
+\def\QQ{\mathbb Q}\def\RR{\mathbb R}\def\SS{\mathbb S}\def\TT{\mathbb T}
+\def\UU{\mathbb U}\def\VV{\mathbb V}\def\WW{\mathbb W}\def\XX{\mathbb X}
+\def\YY{\mathbb Y}\def\ZZ{\mathbb Z}
+
+\def\sA{\mathsf A}\def\sB{\mathsf B}\def\sC{\mathsf C}\def\sD{\mathsf D}
+\def\sE{\mathsf E}\def\sF{\mathsf F}\def\sG{\mathsf G}\def\sH{\mathsf H}
+\def\sI{\mathsf I}\def\sJ{\mathsf J}\def\sK{\mathsf K}\def\sL{\mathsf L}
+\def\sM{\mathsf M}\def\sN{\mathsf N}\def\sO{\mathsf O}\def\sP{\mathsf P}
+\def\sQ{\mathsf Q}\def\sR{\mathsf R}\def\sS{\mathsf S}\def\sT{\mathsf T}
+\def\sU{\mathsf U}\def\sV{\mathsf V}\def\sW{\mathsf W}\def\sX{\mathsf X}
+\def\sY{\mathsf Y}\def\sZ{\mathsf Z}
+
+\def\bA{\mathbf A}\def\bB{\mathbf B}\def\bC{\mathbf C}\def\bD{\mathbf D}
+\def\bE{\mathbf E}\def\bF{\mathbf F}\def\bG{\mathbf G}\def\bH{\mathbf H}
+\def\bI{\mathbf I}\def\bJ{\mathbf J}\def\bK{\mathbf K}\def\bL{\mathbf L}
+\def\bM{\mathbf M}\def\bN{\mathbf N}\def\bO{\mathbf O}\def\bP{\mathbf P}
+\def\bQ{\mathbf Q}\def\bR{\mathbf R}\def\bS{\mathbf S}\def\bT{\mathbf T}
+\def\bU{\mathbf U}\def\bV{\mathbf V}\def\bW{\mathbf W}\def\bX{\mathbf X}
+\def\bY{\mathbf Y}\def\bZ{\mathbf Z}
+\def\bdelta{\mathbf\Delta}
+\def\bTheta{\mathbf\Theta}
+\def\blambda{\mathbf\Lambda}
+
+
+\def\fA{\frak A}\def\fB{\frak B}\def\fC{\frak C}\def\fD{\frak D}
+\def\fE{\frak E}\def\fF{\frak F}\def\fG{\frak G}\def\fH{\frak H}
+\def\fI{\frak I}\def\fJ{\frak J}\def\fK{\frak K}\def\fL{\frak L}
+\def\fM{\frak M}\def\fN{\frak N}\def\fO{\frak O}\def\fP{\frak P}
+\def\fQ{\frak Q}\def\fR{\frak R}\def\fS{\frak S}\def\fT{\frak T}
+\def\fU{\frak U}\def\fV{\frak V}\def\fW{\frak W}\def\fX{\frak X}
+\def\fY{\frak Y}\def\fZ{\frak Z}
+
+\def\bcA{\boldsymbol{\mathcal A}}\def\bcB{\boldsymbol{\mathcal B}}\def\bcC{\boldsymbol{\mathcal C}}
+\def\bcD{\boldsymbol{\mathcal D}}\def\bcE{\boldsymbol{\mathcal E}}\def\bcF{\boldsymbol{\mathcal F}}
+\def\bcG{\boldsymbol{\mathcal G}}\def\bcH{\boldsymbol{\mathcal H}}\def\bcI{\boldsymbol{\mathcal I}}
+\def\bcJ{\boldsymbol{\mathcal J}}\def\bcK{\boldsymbol{\mathcal K}}\def\bcL{\boldsymbol{\mathcal L}}
+\def\bcM{\boldsymbol{\mathcal M}}\def\bcN{\boldsymbol{\mathcal N}}\def\bcO{\boldsymbol{\mathcal O}}\def\bcP{\boldsymbol{\mathcal P}}\def\bcQ{\boldsymbol{\mathcal Q}}\def\bcR{\boldsymbol{\mathcal R}}
+\def\bcS{\boldsymbol{\mathcal S}}\def\bcT{\boldsymbol{\mathcal T}}\def\bcU{\boldsymbol{\mathcal U}}
+\def\bcV{\boldsymbol{\mathcal V}}\def\bcW{\boldsymbol{\mathcal W}}\def\bcX{\boldsymbol{\mathcal X}}
+\def\bcY{\boldsymbol{\mathcal Y}}\def\bcZ{\boldsymbol{\mathcal Z}}
+
+\def\ccD{{\sf c}\boldsymbol{\mathcal D}}
+
+\DeclareMathOperator{\Stri}{\boldsymbol{\cS}{\sf tri}}
+\DeclareMathOperator{\btheta}{\boldsymbol{\Theta}}
+\DeclareMathOperator{\adj}{{\sf adj}}
+
+\DeclareMathOperator{\Idem}{{\sf Idem}}
+\DeclareMathOperator{\id}{{\sf id}}
+
+\DeclareMathOperator{\Isom}{\sf Isom}
+\DeclareMathOperator{\Inj}{\sf Inj}
+\DeclareMathOperator{\Gr}{\sf Gr}
+\DeclareMathOperator{\Gpd}{\sf Gpd}
+
+\DeclareMathOperator{\pr}{\sf pr}
+\DeclareMathOperator{\Ref}{\sf Ref}
+\DeclareMathOperator{\Exp}{\sf EFib}
+
+\DeclareMathOperator{\Span}{\sf Span}
+
+\DeclareMathOperator{\cEnd}{\sf cEnd}
+
+
+\def\bDelta{\mathbf\Delta}
+\DeclareMathOperator{\Min}{\sf Min}
+\DeclareMathOperator{\Max}{\sf Max}
+\DeclareMathOperator{\FCorr}{\sf FCorr}
+\DeclareMathOperator{\EFib}{\sf EFib}
+\DeclareMathOperator{\efib}{\sf EFib}
+\DeclareMathOperator{\uno}{\mathbbm{1}}
+\DeclareMathOperator{\Poset}{\sf POSe}
+\DeclareMathOperator{\PCorr}{\sf PCorr}
+\newcommand{\nGpd}{n\Gpd}
+\DeclareMathOperator{\Vcd}{\cV{\sf ect}^{\sf c.dir}}
+\DeclareMathOperator{\Vinj}{\cV{\sf ect}^{\sf inj}}
+\DeclareMathOperator{\Obj}{\sf Obj}
+\newcommand{\Pcd}{{\cP(\un{n})^{\sf c.dir}}}
+\newcommand{\ncd}{{[n]^{\sf c.dir}}}
+\DeclareMathOperator{\cKer}{\sf cKer}
+
+\title{A Construction of Cabled Knotted Tori}
+\author{Ryan Grady \& Adam Howard}
+\date{\today}							
+
+\begin{document}
+\maketitle
+
+
+%Section 1 - INTRODUCTION - Not great, but it's a starting point
+\section{Introduction}\label{sec.intro}
+A rope is maybe not so interesting on its own. However, by how we might arrange it in space we can use it to tie two things together or to help us keep our shoes on our feet. In the same fashion, mathematical knots are simply circles but their arrangement in space is what makes them an interesting and rich subject. In this note we consider a particular operation one can perform on a knot called cabling. Cabling takes a knot and replaces it with several parallel strands orbiting and twisting around the original knot, the resulting knot is reminiscent of a cable one might see on a suspension bridge. \newline 
+\indent In this note we offer a description of cable knots as bundles maps between self covers of the circle, $S^{1} \rightarrow S^{1},$ and the sphere bundle of a knot $S(\nu_{K}) \rightarrow S^{1}.$ This has the advantage that it then can be generalized to knots of other spaces with their own self covers. In particular, we can define cablings of knotted tori as bundle maps between self covers, $T^{2} \rightarrow T^{2},$ and the sphere bundle of a knotted torus $S(\nu_{\cT}) \rightarrow T^{2}$ analogous to the case of classical knots. \newline \indent An interesting problem to consider is whether cabling results in a more complicated knot. In the classical case it is well known that cabling often adds complexity, but that there are simple cables that do not differ from the original knot. For instance, it is not difficult to see that the $(1, n)-$cable of a knot is isotopic to the original knot. However, for $p > 1$ Shubert's bound on bridge number distinguishes cable knots from their companion knot, that is $b(K_{(p, q)}) = p \cdot b(K)$. 
+
+Cables of knotted surfaces are much less studied so we explore the effect of our cable construction on spun tori, a family of knotted tori arising from classical knots. A brief outline is as follows:
+\begin{itemize}
+\item In section 2 we will review some preliminaries necessary for the remainder of the paper. In particular, we will go over the necessary aspects of bundle theory.
+\item In section 3 we will see how bundle maps can be used to construct the classical cabled knots.
+\item In section 4 we will generalize our techniques used in the previous section to construct cables for knotted tori.
+\item In section 5 we will discuss many of the standard methods to obtain knotted surfaces such as knot spinning. We will then implement our cable construction on the class of spun tori, and see that these new knotted tori can be described as deform spun cable knots.
+\item In section 6 we introduce some ways one can represent knotted surfaces diagrammatically, and we will consider cabling operations on these objects. 
+\end{itemize}
+
+
+
+%SECTION 2 - EMBEDDINGS - I think this is good enough
+\section{Some Recollections on Embeddings} 
+
+
+Recall that a fiber bundle, with fiber $F,$ consists of a surjective map $p: E \rightarrow B,$ where for each $b \in B$ the preimage $p^{-1}(b) = F$ and there is a neighborhood $U_{b}$ and a fiber-preserving homeomorphism $$\psi_{U_{b}}: U_{b} \times F \rightarrow p^{-1}(U_{b}).$$ These neighborhoods $U_{b}$ are referred to as locally trivial patches and transitioning between them determines a homeomorphism of the fiber. That is, for $x \in U_{a} \cap U_{b}$ there is a fiber preserving homeomorphism $$\psi_{U_{a}}^{-1} \circ \psi_{U_{b}}: (U_{a} \cap U_{b}) \times F \rightarrow p^{-1}(U_{a} \cap U_{b}) \rightarrow  (U_{a} \cap U_{b}) \times F,$$ i.e. a homeomorphism from $F$ to itself. The group $Homeo(F)$ is called the structure group of a bundle and it acts naturally on the fibers.
+
+A familiar example is a covering space $p: C \rightarrow X$ where the fiber $p^{-1}(x_{0})$ is a discrete set of points with some discrete group as the structure group. Another example that will be relevant comes from a smooth embedding of manifolds $e: N \hookrightarrow M,$ where we quotient the tangent bundle of $M$ to get a bundle $$\nu_{e} := TM|_{N}/TN \rightarrow N$$ where the fiber of $p \in N$ is the normal space at $p$ of $N$ in $M.$ Even more, we can assign a metric to the tangent bundle $TM,$ which $\nu_{e}$ inherits, and only consider vectors of length 1 in the fibers of $TM$ or $\nu_{e}.$ The associated bundles are called the unit sphere bundles and are denoted by $S(TM) \rightarrow M$ and $S(\nu_{e}) \rightarrow N.$
+
+Let $X$ be a closed manifold and $\pi : E \to X$ and $p : F \to X$ smooth fiber bundles with respective structure groups $G_\pi$ and $G_p$ respectively. The data of an embedding, over $X$, $f: E \hookrightarrow F$ consists of a group homomorphism $\rho : G_\pi \to G_p$ and a proper embedding $f_{x_{0}}: \pi^{-1} (x_0) \hookrightarrow p^{-1} (x_0)$ for each $x_0 \in X$; further, the following must commute
+
+\[\begin{tikzcd}
+\pi^{-1} (x_0) \arrow{r}{f_{x_{0}}} \arrow[swap]{d}{g \cdot (-)} & p^{-1} (x_0) \arrow{d}{\rho(g) \cdot (-)} \\
+\pi^{-1} (x_0) \arrow{r}{f_{x_{0}}} & p^{-1} (x_0)
+\end{tikzcd}
+\] i.e. for every $x \in \pi^{-1}(x_{0},)$ we have that $f_{x_{0}}(g \cdot x) = \rho(g) \cdot f_{x_{0}}(x).$ Note that if our bundles are oriented, then we may ask that the actions are orientation preserving. This is all to say that we can define a bundle map \[\begin{tikzcd}
+E \arrow{r}{f} \arrow[swap]{d}{\pi} & F \arrow{d}{p} \\
+X \arrow{r}{id} & X
+\end{tikzcd}
+\] by giving $\rho-$equivariant embeddings of the fibers.
+
+
+\begin{lemma}
+If $\pi : E \to X$ is a fiber bundle and $\varphi: E \to S(\nu_e)$ an embedding over $X$, then there is an embedding over $X$
+\[
+\widetilde{\varphi} : \cylr (\pi) \hookrightarrow D(\nu_e)
+\]
+of the mapping cylinder of $\pi$ into the disc bundle of $\nu_e$.
+\end{lemma}
+
+\begin{proof}
+This follows from the identification
+\[
+\cylr(S(\nu_e) \to X) \cong D(\nu_e).
+\]
+\end{proof}
+
+\begin{remark}
+In the case of $S^1$, the mapping cylinder is only a manifold if the degree of the cover is 1 or 2.
+\end{remark}
+
+%%? I don't really see how this fits into the picture
+It is perhaps illustrative to consider a non-example one dimension lower. Let $i : S^1 \hookrightarrow \RR^2$ be the inclusion as the unit circle, and $\pi : S^1 \xrightarrow{\times 2} S^1$ the non-trivial double cover. Note that $SO(1) \subset O(1)$ is a single element, and the obvious action of $C_2$ on $S^0$ is the swap action, so there is no compatible map of $S^0 \to S^0$ over $S^1$. 
+
+
+%\begin{prop} Let $\cT (K)$ be a knotted torus obtained by spinning a knot $K$. For each $n \in \NN$, $\cbl_{(1,n,0)} \cT (K)$ is isotopic to $\cT(K)$.
+%\end{prop}
+
+
+%\begin{prop} Let $\cT$ be a knotted torus with diagram blah, then the $\cbl_{(n, 1, 0)} \cT$ has the following diagram.
+%\end{prop}
+
+
+%\textcolor{red}{Ryan: can you do the general $(a,b,d)$ diagram?}
+
+%\begin{prop}
+%\textcolor{red}{Ryan: statement about invariant from index 2 case}
+%\end{prop}
+
+
+%SECTION 3 - CABLE KNOTS
+\section{Cable Knots} We are interested in cable knots, which are a particular examples of satellite knots whose patterns are torus knots. We will follow the convention where a $(p, q)-$torus knot is knot living on an unknotted torus $T^{2}$ wrapping $p$ times in the longitudinal direction and $q$ times in the meridional direction. In particular we are interested in the connection between cable knots and embeddings over covering spaces of $S^{1}$  viewed as discrete fiber bundles. 
+
+\begin{definition} 
+Let $J$ be a knot in $S^{3}$ and $L$ a knot in an unknotted solid torus $\hat{V}$. Let $C \subset \hat{V}$ be the core of our unknotted solid torus. Then for an embedding $\phi: \hat{V} \rightarrow S^{3}$ such that $\phi(C) = J,$ the knot $K = \phi(L)$ is called the \textbf{satellite knot} with \textbf{companion} J and \textbf{pattern} $(\hat{V}, L).$ We call $\phi(\partial\hat{V})$ the \textbf{companion torus} for J.
+\end{definition} %% A figure of all these parts may be useful, i think I'll probably use adobe illustrator for some of these, maybe talk to holt
+
+\begin{definition} 
+The \textbf{$(p,q)-$cable knot} of $J$ is the satellite knot $K$ whose companion is $J$ and pattern is $(\hat{V}, L)$ where $L \subset \partial\hat{V}$ is a $(p, q)-$torus knot. In other words, cable knots are torus knots which are mapped onto the companion torus.
+\end{definition}
+%%
+
+
+Let $K : S^1 \to S^3$ be a knot and $\pi : S^1 \xrightarrow{\times 2} S^1$ the non-trivial double cover.  Note that the structure group of $\pi$ is the cyclic group of order two $\ZZ/2\ZZ$, and the structure group associated to oriented sphere bundle of the embedding $K$ is the special orthogonal group $SO(2)$.  Let $\rho : \ZZ/2\ZZ \to SO(2)$ be the non-trivial homomorphism.  It is then clear that the natural inclusion $S^0 \hookrightarrow S^1$ is compatible with $\rho$ and hence defines an embedding $\widetilde{K} : S^1 \hookrightarrow S(\nu_K) \subseteq S^3$.  (The action of $\ZZ/2\ZZ$ is the ``swap" action.)
+
+\begin{prop}
+The $(2,1)$-cable of a knot $K$ corresponds to a choice $\widetilde{K}.$ %Needs better wording
+\end{prop}
+
+%%
+\begin{proof} %Needs a figure.
+Considering $S^{1}$ as the unit complex numbers and $\pi : S^1 \xrightarrow{\times 2} S^1$ given by $z \mapsto z^{2},$ then we have that the preimage of $e^{i\theta} \in S^{1}$ is $$\pi^{-1}(e^{i\theta}) = \{e^{i\frac{\theta}{2}}, e^{i(\frac{\theta}{2} + \pi)}\} \approx S^{0}.$$ Now let $p: S(\nu_{K}) \rightarrow S^{1}$ be the associated sphere bundle for the normal bundle of $K.$ As $S(\nu_{K})$ is homeomorphic to the torus $K \times S^{1}$ we have that $p$ is realized as projection onto the first coordinate $(z, w) \mapsto z.$ Therefore the preimage of $K(e^{i\theta}) \in K$ is $$p^{-1}(K(e^{i\theta})) = \{K(e^{i\theta}) \}\times S^{1} \approx S^{1}.$$ 
+Now define the embedding $\widetilde{K} : S^{1} \hookrightarrow S(\nu_{K})$ over $S^{1}$ by mapping \textcolor{blue}{This is where some problems start, as K is an embedding into S3 or whatever}$$e^{i\phi} \mapsto (K(e^{i2\phi}), e^{i\phi}).$$ This map is compatible with the homomorphism $\rho: \ZZ/2\ZZ \rightarrow SO(2)$ sending $1 \mapsto \{\text{rotate by $\pi$}\}.$ Let $j \in \ZZ/2\ZZ$ and $e^{i\gamma} \in \pi^{-1}(e^{i\theta}).$ Then $$\widetilde{K}(j \cdot e^{i\gamma}) = \widetilde{K}(e^{i(\gamma + \pi)}) = (K(e^{i(2\gamma + 2\pi)}), e^{i(\gamma + \pi)}) = \rho(j) \cdot (K(e^{i2\gamma}), e^{i\gamma}).$$
+Now $S(\nu_{K})$ is isotopic to the companion torus of $K,$ and we see that the embedding $\widetilde{K}$ wraps twice in the longitudinal direction and once in the meridional direction of $S(\nu_{K}),$ i.e. $\widetilde{K}$ is the $(2,1)-$cable of $K.$
+\end{proof}
+%%
+
+In considering these embeddings, it is important to note that there may be multiple different embeddings over a space, corresponding to a choice of group homomorphism and choice of proper embedding of the fiber. For instance, in the above construction we could have added a constant, $e^{i\phi} \mapsto (K(e^{2i\phi}), e^{i\phi + k}),$ obviously giving an isotopic knot. However, we can obtain that the $(2, -1)-$cable of $K$ by defining the map $-\widetilde{K}: S^{1} \rightarrow S(\nu_{k}),$ where $e^{i\phi} \mapsto (K(e^{i2\phi}), e^{-i\phi}),$ which is also compatible with our homomorphism $\rho$, but is not (generally) an isotopic knot. Through these choices we can generalize the construction above to realize all cable knots.
+%%
+
+\begin{prop}
+For $p,q$ relatively prime, the $(p,q)-$cable of a knot $K$ can be realized as an embedding over $S^{1}.$
+\end{prop}
+
+\begin{proof}
+Let $\pi: S^{1} \rightarrow S^{1}$ be the $p-$sheeted cover $z \mapsto z^{p}.$ Then for a knot $K: S^{1} \rightarrow S^{3},$ define the map $K_{(p,q)}: S^{1} \rightarrow S(\nu_{k})$ by $z \mapsto (K(\pi(z)), z^{q}).$ \textcolor{blue}{A schematic for this is seen below...} Now take the homomorphism $\rho: \ZZ/p\ZZ \rightarrow SO(2)$ where $1 \mapsto \{\text{rotation by } \frac{2q\pi}{p}\}.$ This embedding is compatible with the cover and our choice of homomorphism: let $e^{i\gamma} \in \pi^{-1}(e^{i\theta}),$ then $$l \cdot e^{i\gamma} = e^{i(\gamma + \frac{l2\pi}{p})}$$ which implies $$K_{(p,q)}(l \cdot e^{i\gamma}) = K_{(p,q)}(e^{i(\gamma + \frac{l2\pi}{p})}) = (K(\pi(e^{i(\gamma + \frac{l2\pi}{p})})), e^{i(q\gamma + \frac{ql2\pi}{p})}) = $$ $$\rho(l) \cdot (K(e^{i\theta}), e^{iq\gamma}) = \rho(l) \cdot K_{(p, q)}(e^{i\gamma}).$$
+Again we have that $K_{(p,q)}$ wraps around the longitudinal direction of $S(\nu_{K})$ $p$ times and around the meridianal direction $q$ times, so it's the $(p, q)-$cable of $K$. 
+\end{proof}
+%% Needs its own figure
+
+\subsection{Diagrams of Cable Knots} % Reference Hedden, this section needs figures
+The definition of a knot is usually given as and embedding $K: S^{1} \rightarrow S^{3}.$ However, we often think of knots as the image of this map, a subspace of $S^{3}$. Furthermore, if we want to visualize or draw a knot we must further reduce the image of $K$ in $S^{3}$ to a projection onto a $2-$dimensional subspace (a portion of a central $S^{2}$ does the trick) with crossing information. 
+
+As there are many different projections of a knot, not to mention isotopy, a knot does not have a unique diagram. However, Reidiemiester was able to show that any two diagrams of the same knot are related by a finite sequence of moves. In this section, we will demonstrate how to produce a diagram for the $(p,q)-$cable of $K,$ given a diagram of $K.$ First we start with another definition.
+
+\begin{definition}
+Given a knot $K \subset S^{3},$ the $0-$framed $n-$cable of $K$ is the link obtained by taking mapping $(T^{2}, L)$ onto the companion torus of $K,$ where $L$ is a collection of $n$ disjoint longitudes on an unknotted torus $T^{2}.$
+\end{definition}
+
+Given a diagram of $K$ with writhe equal to $0$, one can obtain a diagram for the $0-$framed $n-cable$ of $K$ by taking $n$ parallel strands pushed off of the blackboard framing of $K.$ \textcolor{blue}{(at least for n = 2)} To obtain a diagram for the $(p, q)-$cable of $K,$ first take the $0-$framed $p-$cable of $K,$ and then do relevant band surgeries...
+
+%SECTION 4 - CABLING TORI
+\section{Cabling Knotted Tori} 
+The above discussion of Cable Knots may seem needlessly complicated, and one might be easily satisfied with their quick definition and a sketch. However, we can extend this construction to knotted tori in 4-space, which are much less understood and much more difficult to visualize.  
+
+\subsection{2-Satellites}\label{sect:2sat}
+
+%\textcolor{red}{Ryan: Insert references Carter-Saito Yellow book, PAMS 1997, Giller 1982.}
+
+
+The definition of 2-satellite knotted surfaces mimics the theory for knots, except that one needs to be cognizant of the topological type of the total space of the normal bundle which is not necessarily trivial. That is, let $\sS : \Sigma \hookrightarrow S^4$ be a knotted surface, $\nu_{\sS} \to \Sigma$ the corresponding normal bundle, and $D(\nu_{\sS})$ the associated disc bundle. A 2-pattern is an embedding $\cP : \Sigma' \hookrightarrow D(\nu_{\sS})$ and the corresponding satellite knotted surface $\sK$, given companion $\sS$, is obtained as
+\[
+\sK : \Sigma' \hookrightarrow D(\nu_{\sS}) \subseteq S^4 .
+\]
+Equivalently, the total space of $D(\nu_{\sS})$ is diffeomorphic to a warped product $\Sigma \widetilde{\times} D^2$, so the pattern can be given by an embedding $\Sigma' \hookrightarrow \Sigma \widetilde{\times} D^2$ and the satellite knotted surface is obtained by the standard surgery procedure. Defining {\em cabled} knotted surfaces is then straightforward.
+
+%\textcolor{red}{Ryan: because we just need the normal bundle, should remark works in other 4-manifolds, but we will focus on the sphere.}
+
+
+\begin{definition}
+A {\em cabled knotted surface} $\Sigma' \hookrightarrow S^4$ is a 2-satellite knotted surface such that image of the 2-pattern $\cP : \Sigma' \hookrightarrow \Sigma \widetilde{\times} D^2$ can be ambiently isotoped to the boundary $\partial (\Sigma \widetilde{\times} D^2) \cong \Sigma \widetilde{\times} S^1$.
+\end{definition}
+
+The possible topological types of $\nu_{\sS}$ are enumerated by the Whitney-Massey Theorem. In particular, if $\Sigma$ is orientable, then $\nu_{\sS}$ has vanishing Euler number and is trivializable. 
+ 
+
+%%Notes on my difficulties
+%%\textcolor{blue}{Potential Issue} For the cover $\rho_{(2,2,0)}: T^{2} \rightarrow T^{2},$ the structure group/deck transformations? is $\ZZ/2 \times \ZZ/2$ and the only nontrivial homomorphism $\phi: \ZZ/2 \times \ZZ/2 \rightarrow SO(2)$ sends $(0,1), (1, 0) \mapsto \{\text{roatate by } \pi\}$ and $(0, 0), (1, 1) \mapsto id.$ \newline \newline 
+%But! $\cT_{\rho} ((1,1) \cdot \rho^{-1}(z, w)) \neq \cT_{\rho} (\rho^{-1}(z, w)) = \cT_{\rho} (\phi((1,1)) \cdot \rho^{-1}(z, w))$.....
+%\newline \newline For this construction to work I believe that the cover has to have a cyclic structure group, limiting us to ``skinny'' covers.
+%\newline \newline Also, note that $\rho_{(2,2,0)} = \rho_{(1,2,0)} \circ \rho_{(2,1,0)} = \rho_{(2,1,0)} \circ \rho_{(1,2,0)}.$ However! $\cT_{(1,2,0)} \neq \cT_{(2,1,0)}$ so $S(\nu_{\cT_{(1,2,0)}}) \neq S(\nu_{\cT_{(2,1,0)}})$. So I don't think it is necessarily true that $(\cT_{(1,2,0)})_{(2,1,0)} = (\cT_{(2,1,0)})_{(1,2,0)}.$
+
+\subsection{Cabling Tori}
+We saw in Section 3 that we could arrive at cable knots by using self covers of $S^{1},$ and defining an embedding between the total spaces of $\pi: S^{1} \rightarrow S^{1}$ and $p: S(\nu_{K}) \rightarrow K.$ In this section we will show that we can consider a similar construction for knotted tori. As $T^{2}$ has finite index self covers $\rho: T^{2} \rightarrow T^{2}$ and an embedding $\cT$ will have a trivial sphere bundle $S(\nu_{\cT})$, we again consider embeddings between the total spaces of these bundles. First we consider what the finite index self covers of $T^{2}$ are and how many of them there are.
+
+
+\begin{prop}
+The covering correspondence yields a bijection
+\[
+\mathsf{Cov}(T^2, T^2) \cong \hom^{inj} (\ZZ^2 \to \ZZ^2)/GL_2 (\ZZ).
+\]
+In particular for index$-n$ covers, $|\mathsf{Cov}_{n}(T^2, T^2)| = \sigma(n)$ where $\sigma(n)$ is the sum of the divisors of $n.$ 
+\end{prop}
+
+
+\begin{proof}
+By the covering correspondence (Theorem 1.48 in Hatcher), the $n-$fold covers of $T^{2}$ correspond to the conjugacy classes of index$-n$ subgroups $\pi_{1}(T^{2}) \cong \ZZ^{2}.$ As $\ZZ^{2}$ is abelian, the conjugacy classes of any subgroup is itself. \newline  \newline Any index$-n$ subgroup of $\ZZ^{2}$ corresponds to a sublattice of $\ZZ^{2}$ generated by linearly independent vectors $v_{1}, v_{2} \in \ZZ^{2},$ such that the paralleogram they produce has area $n$. Such a lattice is determined, up to change of basis, by an injective homomorphism $\phi : \ZZ^{2} \rightarrow \ZZ^{2}$ mapping $e_{1} \mapsto v_{1}$ and $e_{2} \mapsto v_{2}.$ Such a map is realized my a matrix $M$ with columns $v_{1}$ and $v_{2}$ with $det(M) = n.$ After a change of basis, i.e. (right) actions of $GL_{2}(\ZZ),$ we can realize this map by the linear transformation associated to the matrix  
+$$\begin{pmatrix}
+a & 0\\
+b & d 
+\end{pmatrix}   \text{ such that } ad = n \text{ and } 0 \leq b < d.$$ So for each divisor $d$ of $n,$ there are $d$ distinct maps corresponding to having $b$ equal $d -1, d -2, \hdots, 1, 0.$ So we see that there are $\sigma(n)$ distinct index $n$ self covers of $T^{2}.$
+\end{proof}
+
+
+The self cover corresponding to the matrix above can be written as a map $\rho_{(a,d,b)}: T^{2} \rightarrow T^{2}$ where $(z, w) \mapsto (z^{a}, z^{b}w^{d}).$ Then given a knotted torus $\cT$ and viewing these self covers as discrete fiber bundles we can ask if there is an embedding over $\cT$,  $$\widetilde{\cT}: T^{2} \hookrightarrow S(\nu_{\cT}),$$ and for particular covers we will see that there are many. 
+
+
+\begin{prop} %Construction. Needs better wording
+Let $\cT$ be a knotted torus. Given a finite index self cover of the torus, $\rho,$ whose deck transformation are cyclic, there is an embedding over $\cT.$
+\end{prop}
+
+\begin{proof} 
+Let $\rho_{a,d,b}$ be the cover definied above where $$ad = n \text{ and } gcd(a, d) = 1.$$ Then the deck transformations of $\rho_{a,d,b}: T^{2} \rightarrow T^{2}$ are isomorphic to $\ZZ/a \times \ZZ/d \cong \ZZ/n.$ Consider the homomorphism 
+$$h: \ZZ/a \times \ZZ/d \rightarrow SO(2)$$ where $(1, 0) \mapsto \{\text{rotate by } \frac{2\pi}{a}\}$ and $(0, 1) \mapsto \{\text{rotate by } \frac{2\pi}{d}\}.$ Then the embedding $\cT_{\rho}: T^{2} \rightarrow S(\nu_{\cT}) \approx \cT \times S^{1}$ where $$(z,w) \mapsto (\cT(\rho(z,w)), zw)$$ will define an embedding over $\cT.$ To show this take $(e^{i\theta}, e^{i\phi}) \in T^{2},$ then we have that $\rho^{-1}(e^{i\theta}, e^{i\phi}) = \{(e^{ix}, e^{iy})\}$ for $(x, y)$ in the preimage array:
+
+$$
+\begin{Bmatrix} %%% Needs formatting help and maybe make this into an image...
+(\frac{\theta}{a} , \frac{\phi}{d} - \frac{b\theta}{da}), & (\frac{\theta + 2\pi}{a}, \frac{\phi}{d} - \frac{b(\theta + 2\pi)}{da}), &  \hdots & (\frac{\theta + (a - 1)2\pi}{a}, \frac{\phi}{d} - \frac{b(\theta + (a - 1)2\pi)}{da})\\
+(\frac{\theta}{a}, \frac{\phi + 2\pi}{d} - \frac{b\theta}{da}) & \ddots & \ddots & \vdots\\
+\vdots & \ddots & \ddots & \vdots\\
+(\frac{\theta}{a}, \frac{\phi + (d - 1)2\pi}{d} - \frac{b\theta}{da}) & \hdots & \hdots & (\frac{\theta + (a-1)2\pi}{a} , \frac{\phi + (d - 1)2\pi}{d} - \frac{b(\theta + (a - 1)2\pi)}{da} 
+\end{Bmatrix}
+$$
+
+ We have that $(m, n) \in \ZZ/a\ZZ \times \ZZ/d\ZZ$ acts on $(e^{i\gamma}, e^{i\beta}) \in \rho^{-1}(e^{i\theta}, e^{i\phi})$ by $(m, n) \cdot (e^{i\gamma}, e^{i\beta}) = (e^{i(\gamma + \frac{m2\pi}{a})}, e^{i(\beta + \frac{n2\pi}{d})}).$ So the action takes an element of the preimage $m$ places to the right  (mod $a)$ and $n$ places down (mod $d)$ in the list above. \newline \newline Again, let $(e^{i\gamma}, e^{i\beta}) \in \rho^{-1}(e^{i\theta}, e^{i\phi}).$ We can then see that $$\cT_{\rho}((m, n) \cdot (e^{i\gamma}, e^{i\beta})) = \cT_{\rho}((e^{i(\gamma + \frac{m2\pi}{a})}, e^{i(\beta + \frac{n2\pi}{d})})) = $$
+$$(\cT(\rho((e^{i(\gamma + \frac{m2\pi}{a})}, e^{i(\beta + \frac{n2\pi}{d})})), e^{i(\gamma + \frac{m2\pi}{a} + \beta + \frac{n2\pi}{d})}) = $$ 
+$$(\cT((e^{i\theta}, e^{i\phi})), e^{i(\gamma + \beta + \frac{m2\pi}{a} + \frac{n2\pi}{d})}) = $$
+$$h(m,n) \cdot (\cT((e^{i\theta}, e^{i\phi})), e^{i(\gamma + \beta)})  =$$
+$$h(m,n) \cdot (\cT(\rho((e^{i\gamma}, e^{i\beta})), e^{i(\gamma + \beta)})  = $$
+$$h(m,n) \cdot \cT_{\rho}(e^{i\gamma}, e^{i\beta}).$$
+\end{proof}
+
+Again this is not necessarily the only interesting embedding over $\cT.$ In particular, if either $a$ or $d$ equals 1, then one of the factors of our deck transformations is trivial along with it's image in $SO(2)$ which allows for more freedom in our choice of embedding. 
+
+\begin{prop}
+Take the self cover $\rho_{1, d, b}$ of $T^{2}$ and an embedding $\cT$ into $S^{4}$. There are an integers worth of embeddings over $\cT,$ $$\cT_{1, d, b}^{m}: T^{2} \rightarrow S(\nu_{\cT})$$ $$(z, w) \mapsto (\cT(\rho(z, w)), z^{m}w).$$  Similarly, for the self covers $\rho_{a, 1, b}$, there are an integers worth of embeddings $$\cT_{a, 1, b}^{m}: T^{2} \rightarrow S(\nu_{\cT})$$ $$(z, w) \mapsto (\cT(\rho(z, w)), zw^{m}).$$
+\end{prop}
+
+\begin{proof}
+This is a quick adaption of the proof of proposition 4.3. For the case of $a = 1,$ we have that the preimage of a point $(e^{i\theta}, e^{i\phi}) \in T^{2}$ is the first column of our preimage array: $$\rho^{-1}(e^{i\theta}, e^{i\phi}) = \left\{(\frac{\theta}{a} , \frac{\phi}{d} - \frac{b\theta}{da}), (\frac{\theta}{a}, \frac{\phi + 2\pi}{d} - \frac{b\theta}{da}), \hdots, (\frac{\theta}{a}, \frac{\phi + (d - 1)2\pi}{d} - \frac{b\theta}{da}) \right\}$$ and $(0, n) \in \ZZ/\ZZ \times \ZZ/d\ZZ$ acts on it by shifting over by $n$ (mod d) Therefore, for $(e^{i\gamma}, e^{i\beta}) \in \rho^{-1}(e^{i\theta}, e^{i\phi}) $$$\cT_{\rho}((0, n) \cdot (e^{i\gamma}, e^{i\beta})) = \cT_{\rho}((e^{i\gamma}, e^{i(\beta + \frac{n2\pi}{d})})) = $$
+$$(\cT(\rho((e^{i\gamma}, e^{i(\beta + \frac{n2\pi}{d})})), e^{i(m\gamma + \beta + \frac{n2\pi}{d})}) = $$ 
+$$(\cT((e^{i\theta}, e^{i\phi})), e^{i(m\gamma + \beta + \frac{n2\pi}{d})}) = $$
+$$h(0,n) \cdot (\cT((e^{i\theta}, e^{i\phi})), e^{i(\gamma + \beta)})  =$$
+$$h(0,n) \cdot (\cT(\rho((e^{i\gamma}, e^{i\beta})), e^{i(m\gamma + \beta)})  = $$
+$$h(0,n) \cdot \cT_{\rho}(e^{i\gamma}, e^{i\beta}).$$
+The case for $d = 1$ is essentially identical, where the preimage of $\rho_{a, 1, b}$ is the first row of the preimage array in proposition 4.3. 
+\end{proof}
+
+As the sphere bundle $S(\nu_{\cT})$ is trivializable with $S^{1}$ fibers, this $m$ introduces an extra wrapping in the fiber as one moves in either the longitudinal or meridional direction. Note that in both cases, setting $m = 1$ recovers the general embedding that we saw in proposition 4.3. 
+
+%SECTION 5 - INEDX 2 CABLES
+\section{Application of Index 2 Cables} 
+We hope to understand the effect our cabling operation has on some genuinely knotted tori and in order to do so we need some examples. The most basic way to arrive at a knotted torus is by spinning a classical knot. This is slight modification of Artin's original construction, in which one take a knotted arc $\alpha \subset B^{3} \approx R^{3}_{\geq 0}$ whose endpoints lie on the boundary and spin it like a jump rope to get a knotted sphere. Instead, to get a knotted torus, take the entire knot $K \subset int(B^{3}) $ and {\em spin} it to obtain a knotted torus in $S^{4}.$ Specifically for a classical knot $K$, we will let $\cT(K)$ denote the spun torus $$(S^{4}, \cT(K)) = ((B^{3}, K) \times S^{1}_{spin}) \cup (S^{2} \times D^{2}).$$ We will study the effects of the cabling operations of the previous section on spun tori. In this section we will focus our attention on the effects of index-2 cables of spun tori. Before we do this, we will take a brief digression to look at a generalization of spinning referred to as \textit{deform spinning}. 
+
+\subsection{Deform Spinning}
+Stated simply, deform spinning introduces an isotopy of the arc or knot within $B^{3}$ during the spin so long as it returns to its original position. An example of this is called twist spinning, given a knotted arc in $\alpha \subset B^{3}$ with end points on the North and South pole, you can consider the isotopy of $\alpha$ which twists a full rotation (or any integer number of full rotations) around the axis connecting the poles. Twist spun knots ($S^{2}$s) were initially studied by Zeeman, and a fun fact is that the $1-$twist spin of any knot results in an unknotted $S^{2}.$
+
+
+As one might expect, Zeeman's twist spin construction can be be adapted to a full knot resulting in twist spun tori. To do this, take a smaller ball $D^{3} \subset B^{3},$ so that $K \cap D^{3}$ is a knotted arc $\beta$ whose closure is $K$ with endpoints at the North and South pole of $D^{3}.$ Then while spinning $B^{3}$ around, introduce a twist (or many) of $\beta$ inside $D^{3}.$ If we we're to simply twist the entire knot $K$ around some axis in $B^{3}$ we'd also get a knotted torus referred to as the \textit{turned torus} which was studied by Boyle and the reader should look here for more details.
+
+In the cases above, the isotopies performed while spinning are pretty simple and have the advantage that they can be performed on any knot $K \subset B^{3}.$ However, if we have more information on the structure of a knot, we might be able to come up with interesting isotopies specific to the knot. 
+
+The isotopies that will be most relevant for us are isotopies of torus knots, which enjoy several nice symmetries. First consider the linear flows on the unknotted torus $$M_{t}: T^{2} \rightarrow T^{2} \hspace{15pt}\text{where} \hspace{15pt} M_{t}(x,y) = (x, y + t)$$ and $$L_{t}: T^{2} \rightarrow T^{2} \hspace{15pt}\text{where} \hspace{15pt} L_{t}(x, y) = (x + t, y).$$ We will call these the meridional and longitudinal flows respectively. Then take the $(p, q)-$torus knot $T_{(p, q)} \subset T^{2}$ to be the embedding $$T_{(p,q)}: S^{1} \rightarrow S^{1} \times S^{1}$$ $$e^{i\theta} \mapsto (e^{iq\theta}, e^{ip\theta})$$ on the unknotted torus. Then for any $a \in \{0, 1, \hdots , p - 1\}$ we have that $M_{\frac{a2\pi}{p}}(T_{p,q}) = T_{(p, q)}$ as subsets. Similarly, we can flow in longitudinal direction and for any $b \in \{0, 1, \hdots , q - 1\}$  we have that $L_{\frac{b2\pi}{p}}(T_{(p, q)})= T_{(p, q)}.$ So while spinning the torus knot $T_{(p,q)}$ we can introduce the isotopy that flows in the longitudinal direction or the meridional direction so long as the knot returns to itself. Even better, we can get isotopies of cable knots by flowing around the companion torus, i.e. we can define meridional and longitudinal flows on $S(\nu_{k}) \subset B^{3}$. Then for a cable knot $K_{p, q} \subset S(\nu_{K}),$ we can think about the deform spins of $K_{(p, q)}$ which flow along $S(\nu_{K})$ while spinning.
+
+Another object to consider would the $0-$framed 2 cable of a knot $K,$ which naturally lives on $S(\nu_{K}).$ This can be thought of as taking two parallel longitudes on an unknotted torus $T^{2}$ and mapping them onto $S(\nu_{K}).$ Suppose we embed these two longitudes so that they differ meridionally by $\pi,$ then flowing around $S(\nu_{K})$ meridionally is periodic and we can consider the deform spin of this link. More generally the $m-$framed $n$ cable of a knot is the link living on $S(\nu_{K})$ obtained by taking $n$ parallel copies of an $m-$section of the knot $K.$ Again we can space out all the strands of this link on $S(\nu_{K})$ so that they meridionally differ by $\frac{2\pi}{n}$ and again we have that flowing this link around $S(\nu_{K})$ is periodic.
+%%^----Double check and write better in a little bit.
+
+% Maybe write a little about this 
+\textcolor{blue}{Note to self: stopping with the torus knots would be an example of a cover over an unknotted torus which are classified in Nakamura.}
+
+
+%% Maybe not necessary. 
+\begin{lemma}
+For a spun torus $\cT(K),$ its sphere bundle $S(\nu_{\cT(K)})$ is isotopic to the spin of the sphere bundle of $K$. That is $S(\nu_{\cT(K)}) \approx S(\nu_{K}) \times S^{1}_{spin}$
+\end{lemma}
+
+
+\subsection{Index 2 Cables}
+Let $T^{2} = S^{1} \times S^{1}$ be the unknotted torus parameterized by $(e^{i\theta}, e^{i\phi})$ where the first coordinate represents the longitudinal angle and the second corresponding to the meridinal angle. From proposition 3.3 we have that there are $3$ distinct (up to isomorphism) index $2$ covers of $T^{2},$ so given a knotted torus, $\cT: T^{2} \rightarrow S^{4},$ we will look at the cables that arise from these covers. \newline
+\indent For the remainder of this section let $\cT(K)$ denote the knotted torus obtained by spinning a classical knot $K.$ We can consider $\cT(K)$ as an embedding of the unknotted torus into $B^{3} \times S^{1} \subset S^{4},$ $$\cT(K): T^{2} \rightarrow B^{3} \times S^{1}$$ $$(z, w) \mapsto (K(w), z).$$
+
+
+\subsubsection{The $\rho_{(2,1,0)}$ cables} Here we consider the effect of the $\rho_{(2,1,0)}$ cables on $\cT(K).$ From proposition 4.3, we have that our embeddings look like $$\cT(K)^{m}_{(2, 1, 0)}: T^{2} \rightarrow S(\nu_{\cT})$$ $$(z, w) \mapsto (\cT(K)(z^{2}, w), zw^{m}  ).$$ 
+
+First take $m = 0,$ and fix some longitude $z_{0}.$ Now and consider the image $\cT(K)^{0}_{(2, 1, 0)}(z_{0}, w) = \cT(K)((z_{0}^{2}, w), z_{0}),$ which is just a copy of $K$ living on $S(\nu_{\cT(K)})$ at $z_{0} \in S^{1}_{bun}$ and $z_{0}^{2} \in S^{1}_{spin}.$ However, if we chose $z_{0} + \pi$ this would map to $$\cT(K)(((z_{0} + \pi)^{2}, w), z_{0} + \pi) = \cT(K)((z_{0}^{2}, w), z_{0} + \pi)$$ which is again a copy of $K$ living on $S(\nu_{\cT(K)})$ at $z_{0} + \pi \in S^{1}_{bun}$ and $z_{0}^{2} \in S^{1}_{spin}.$ So restricting $S(\nu_{\cT(K)})$ to the specific ``spin'' slice at $z_{0}^{2}$ we see that our cabled surface intersects at a $0-$framed 2 cable of $K.$ So as we trace around $S^{1}_{spin},$ each slice will be a $0-framed$ 2 cable of $K$ and as we spin we see that it flows meridionally around $S(\nu_{K})$ until it joins the other component of the link. See figure \textcolor{blue}{A} for a schematic of this description. 
+
+Another description would be to take a zero section of K living on $S(\nu_{K}),$ and as we spin around once the zero section flows in the meridional direction from $0$ to $\pi,$ then it does this again as it spins around once more to finally connect to itself. In this description we see that we are doubling in the longitudinal direction of $\cT(K).$
+
+
+Now as we let $m$ vary we introduce some more wrapping on the fiber dependent on the meridional angle. For $m = 1$ we start with a $1-$framed 2 cable, and again as we mover around in the spinning direction we flow in the meridional direction until we finally return to the other component. Similarly for any other $m,$ we start with the $m-$framed 2 cable and as we spin we flow to the opposite component.
+ 
+\subsubsection{The $\rho_{(1,2,0)}$ cables} In this case we are doubling in the meridinal direction. We claim the following:
+
+\begin{prop}\label{prop:commute}
+Let $K$ be a knot (in $S^3$) and $\widetilde{K}$ the $(2, 1)$-cable of $K$.  Further, let $\cT (K)$ be the knotted torus (in $S^4$) obtained by spinning $K$. We have an equivalence
+\[
+ \cT(K)_{(1,2,0)}^{0} \cong \cT (\widetilde{K}).
+\]
+\end{prop}
+
+\begin{proof}[Proof of Proposition \ref{prop:commute}]
+Here it is good to keep track of the spinning and bundle directions, which we will denote by $S^{1}_{spin}$ and $S^{1}_{bun}$ respectively. The left hand side is the map $$\cT(K)^{0}_{(1, 2, 0)}: T^{2} \rightarrow S(\nu_{\cT(K)}) \approx \cT(K) \times S^{1}_{bun}$$ where $$(z, w) \mapsto (\cT(K)(z, w^{2}), w) =$$ $$((K(w^{2}), z), w) \in K \times S^{1}_{spin} \times S^{1}_{bun}.$$
+Now the righthand side is the map $\cT(\widetilde{K}): T^{2} \rightarrow B^{3} \times S^{1}_{spin}$ where $$(z, w) \mapsto (\widetilde{K}(w), z).$$ From proposition 3.4 we have that $\widetilde{K}: S^{1} \mapsto S(\nu_{K}) \approx K \times S^{1}_{bun},$ and we have that $$(\widetilde{K}(w), z) \in B^{3} \times S^{1}_{spin}$$ is equal to  $$((K(w^{2}), w), z) \in K \times S^{1}_{bun} \times S^{1}_{spin}.$$ Transposing the bundle and spin $S^{1}$ factors we that the two maps above are the same.
+\end{proof}
+
+
+This shows that there is commutativity between some of our cabling operations and the spinning operation. This is not terribly surprising since spun knots are a product $K \times S^{1}_{spin}$ and some of our torus cables arise from a product of covering spaces. One could easily adapt the argument above to show that $\cT(K)^{0}_{(1,n, 0)} = \cT(K_{(n, 0)}).$ 
+
+So now consider varying our $m.$ Again we start with a $(2, 1)-$cable of $K$ and as we spin we flow meridionally around $S(\nu_{K})$ for $m$ complete rotations. See figure (some number) for an example of the case where m = 1. So we see that our construction applied to a spun torus $\cT(K)$ is the deform spin of $K_{(2, 1)}.$
+
+%Finish this discussion today
+\subsubsection{The $\rho_{(1,2,1)}$ cables} Again we first consider the case $m = 0.$ Here if we fix the longitude $z_{0},$ we see that the image of $(z_{0}, w)$ under our cable is $$\cT(K)^{0}_{(1, 2, 1)} = (\cT(K)(z_{0}, z_{0}w^{2}), w)$$ which is again isotopic to a $(2, 1)-$cable of $K$ in living on $S(\nu_{K}).$ How this differs from the cable above is that as we spin, i.e. vary $z_{0}$ from $e^{i0}$ to $e^{i2\pi},$ is that we shift our $(2, 1)-$cable on $S(\nu_{K})$ in the longitudinal direction by $z_{0}.$ So we have that this knotted torus can be described as the deform spin of the $(2, 1)-$cable of $K$ where the isotopy is one complete longitudinal flow while spinning. Again, changing $m$ adds a meridional flow as in the example above. See figures \textcolor{blue}{X and Y} for the cases of $m = 0$ and $m = 1.$
+ 
+
+\section{Diagrams of Knotted Surfaces}
+As we have discussed already, classical knots are embeddings into 3-dimensional space and when we visualize them we can only see their 2-dimensional projection onto our plane of sight. What we arrive at are knot projections and we can use them to compute knot invariants which may distinguish various knots from others. For instance, we can use a knot diagram of a knot $K$ to compute a presentation for $\pi_{1}(S^{3} - K).$ 
+
+So as we represent classical knots by knot diagrams, one might wonder if there is a way to represent a knotted surface in 4-dimensional space with some lower dimensional data. It turns out there exist several ways to represent knotted surface in $S^{4},$ and in this section we will discuss some of these and look at ways they are related. The hope would be to use these representations to define knot invariants which could distinguish various knotted surfaces. We will start with what will be the description of a knotted surface that we will place the most emphasis on in this paper.
+
+\subsection{Banded Unlink Diagrams} 
+We will first recall the notion of a banded unlink digram. For any knotted surface $\cK \subset S^{4},$ there exists a Morse function $h: S^{4} \rightarrow \RR$ such that 
+\begin{enumerate}
+\item $h_{S^{4}}$ has exactly two critical points, a maximum and minimum
+\item Every minimum of $h_{\cK}$ is contained in $h^{-1}(-1)$
+\item Every maximum of $h_{\cK}$ is contained in $h^{-1}(1)$
+\item Every saddle of $h_{\cK}$ is contained in $h^{-1}(0).$
+\end{enumerate}
+Such a Morse function is called a {\em hyperbolic splitting} of $(S^{4}, \cK).$ From a hyperbolic splitting of a knotted surface $(S^{4}, \cK)$ one can obtain a diagram $(L, v) \subset S^{3}$ where 
+\begin{enumerate}
+\item $L = h^{-1}({-\epsilon}) \cap \cK$ is an unlink
+\item $v$ is a collection of bands, $I^{2}$, such that $h^{-1}(0) \cap \cK = L \cup v.$
+\item $L_{v},$ the link obtained from resolving along all bands, is the unlink $h^{-1}(\epsilon) \cap \cK.$
+\end{enumerate}
+Such a diagram $(L, v)$ is called a {\em banded unlink diagram} for $\cK.$ One can also start with a banded unlink diagram $(L, v) \subset S^{3}$ and recover a knotted surface $\cK(L, v) \subset S^{4}.$ Start by taking $S^{3}$ with the banded unlink diagram as a central $S^{3}$ of $S^{4}$, then glue two collection of disks $\cD_{1}$ and $\cD_{2}$ into $B^{4}_{i}$ of $S^{4} = B^{4}_{1} \cup_{S^{3}} B^{4}_{2}$ such that $\cD_{1} \cap S^{3} = L$ and $\cD_{2} \cap S^{3} = L_{v}.$
+
+
+We can arrive at a banded unlink diagram for spun tori by considering an alternative description for the spun tori.
+Consider the pair $(B^{4}, C) = (B^{3}, K) \times I$ which has boundary $\partial(B^{4}, C) = (S^{3}, K \sqcup -K).$ Now taking the double of this pair results in $S^{4}$ containing the spun torus $\cT(K)$, $$(B^{4}, C) \cup (B^{4}, C) = (S^{4}, \cT(K)).$$ \newline
+\indent We will call $C$ the half spun cylinder of $\cT(K).$ We can think of constructing $C$ by taking an unlink $U$ and attaching bands $v$ to it such that $U_{v} = K \sqcup - K.$ Then doubling the half spun cylinder $C$ corresponds to adding a collection of dual bands $v'$ so our banded unlink diagram is $(U, v \cup v').$ Figure (some number) shows the banded unlink diagram a spun torus. This is a clear adaptation from MZ15 and the reader should look there for further details, one can also arrive at diagrams for twist spun tori by a quick adaptation.   
+
+%Finish this discussion tomorrow
+\subsection{Triplane Diagrams}
+Banded unlink diagrams are essentially a careful splitting of a knotted surface where we push all of the interesting features into a central $S^{3}$ of the decomposition of $S^{4} = B^{4}_{1} \cup_{S^{3}} B^{4}_{2}.$ However, $S^{4}$ has other decompositions (as we've already seen) one of which is $S^{4} = B^{4}_{1} \cup B^{4}_{2} \cup B^{4}_{3}.$ Considering $$S^{4} =\{(x_{1}, x_{2}, x_{3}, x_{4}, x_{5}) : \Sigma x_{i}^{2} = 1\} \subset \mathbb{R}^{5}$$ let $p: S^{4} \rightarrow B^{2} \subset \mathbb{R}^{2}$ where $(x_{1}, x_{2}, x_{3}, x_{4}, x_{5}) \mapsto (x_{1}, x_{2}).$ Then given three sectors $A_{1}, A_{2}, A_{3}$ of $B^{2}$ such that their union is $B^{2},$ we have that $B_{i}^{4} = p^{-1}(A_{i})$ to give us our decomposition of $S^{4}.$ This is an example of a {\em trisection} of $S^{4},$ specifically the genus-0 trisection where $p^{-1}((0,0)) = B_{1} \cap B_{2} \cap B_{3} \approx S^{2}.$ Notice that we could have divided $B^{2}$ into any number of sectors and arrived at something called a {\em multisection} of $S^{4},$ however we'll focus our attention on the trisection. In particular, we would like to have some way to represent a knotted surface in a trisected $S^{4}$ which motivates our next definition.
+\begin{definition}
+A $(b; c_{1}, c_{2}, c_{3})-$bridge trisection of a knotted surface $\cK \subset S^{4}$ is a decomposition $$(S^{4}, \cK) = (X_{1}, \cD_{1}) \cup  (X_{2}, \cD_{2}) \cup  (X_{3}, \cD_{3})$$ such that 
+\begin{enumerate}
+\item $S^{4} = X_{1} \cup X_{2} \cup X_{3}$ is a genus-0 trisection.
+\item $(X_{i}, \cD_{i})$ is a trivial disk system, i.e. homeomorphic to a collection of $c_{i}$ boundary parallel disks in $X_{i}$ with $\partial \cD_{i} \subset \partial X_{i}.$
+\item $(X_{i}, \cD_{i}) \cap (X_{j}, \cD_{j})$ is a trivial tangle with $b-$strands.
+\end{enumerate} 
+\end{definition}
+
+Meier and Zupan proved that every knotted surface admits such a decomposition, and that all of this data can be recovered from $$(B_{ij}, \alpha_{ij}) = (X_{i}, \cD_{i}) \cap (X_{j}, \cD_{j}).$$ That is, given three trivial tangles $(B_{12}, \alpha_{12}), (B_{23}, \alpha_{23}),$ and $(B_{31}, \alpha_{31})$ one can ... do a bunch of shit to recover the original knot... This leads to the notion of a triplane diagram... Blah blah Blah...
+
+Again, one can adapt the work done in MZ15 to move our banded unlink diagram for a spun torus into bridge position and to finally get a triplane diagram for these things... 
+
+\subsection{Diagrams of Cabled Surfaces}
+
+So given a diagrammatic representation of a knotted torus, an interesting questions is whether there is some algorithm that would produce a digram for our cabled knotted tori. 
+
+\section{Ways To Distinguish These Knots}
+
+\begin{enumerate}
+\item Differences inherited from differences between spun knots
+\item Description of the knot complement. i.e. compute fundamental group or distinguish diffeomorphism type.
+\item Effect of cable on Log Transform. 
+\item Combinatorial Diagrammatic Information
+\end{enumerate}
+
+
+\end{document}

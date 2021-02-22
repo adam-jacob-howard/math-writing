@@ -1,0 +1,1495 @@
+\documentclass{amsart}
+
+\headheight=8pt
+\topmargin=0pt
+\textheight=624pt
+\textwidth=432pt
+\oddsidemargin=18pt
+\evensidemargin=18pt
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{comment}
+\usepackage{epsfig}
+\usepackage{psfrag}
+\usepackage{mathrsfs}
+\usepackage{amscd}
+\usepackage[all]{xy}
+\usepackage{rotating}
+\usepackage{lscape}
+\usepackage{amsbsy}
+\usepackage{verbatim}
+\usepackage{moreverb}
+\usepackage{color}
+\usepackage{bbm}
+\usepackage{eucal}
+
+\usepackage{tikz-cd}
+\usetikzlibrary{patterns,shapes.geometric,arrows,decorations.markings}
+\usepackage{tikz-3dplot}
+
+\usepackage{caption}
+\usepackage{subcaption}
+
+\colorlet{lightgray}{black!15}
+
+\tikzset{->-/.style={decoration={
+  markings,
+  mark=at position .5 with {\arrow{>}}},postaction={decorate}}}
+\tikzset{midarrow/.style={decoration={
+    markings,
+    mark=at position {#1} with {\arrow{>}}},postaction={decorate}}}
+
+
+
+\pagestyle{plain}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{cor}[theorem]{Corollary}
+\newtheorem{conj}[theorem]{Conjecture}
+
+
+
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{summary}[theorem]{Summary}
+\newtheorem{note}[theorem]{Note}
+\newtheorem{ack}[theorem]{Acknowledgments}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{construction}[theorem]{Construction}
+\newtheorem{terminology}[theorem]{Terminology}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{q}[theorem]{Question}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{convention}[theorem]{Convention}
+
+
+
+
+\theoremstyle{remark}
+
+
+\definecolor{orange}{rgb}{.95,0.5,0}
+\definecolor{light-gray}{gray}{0.75}
+\definecolor{brown}{cmyk}{0, 0.8, 1, 0.6}
+\definecolor{plum}{rgb}{.5,0,1}
+
+
+\DeclareMathOperator{\Link}{\sf Link}
+\DeclareMathOperator{\Fin}{\sf Fin}
+\DeclareMathOperator{\vect}{\sf Vect}
+\DeclareMathOperator{\Vect}{\cV{\sf ect}}
+\DeclareMathOperator{\Sfr}{S-{\sf fr}}
+\DeclareMathOperator{\nfr}{\mathit{n}-{\sf fr}}
+
+\DeclareMathOperator{\pr}{\mathsf{pr}}
+\DeclareMathOperator{\ev}{\mathsf{ev}}
+
+
+\DeclareMathOperator{\bBar}{\sf Bar}
+\DeclareMathOperator{\Alg}{\sf Alg}
+\DeclareMathOperator{\man}{\sf Man}
+\DeclareMathOperator{\Man}{\cM{\sf an}}
+\DeclareMathOperator{\Mod}{\sf Mod}
+\DeclareMathOperator{\unzip}{\sf Unzip}
+\DeclareMathOperator{\Snglr}{\cS{\sf nglr}}
+\DeclareMathOperator{\TwAr}{\sf TwAr}
+\DeclareMathOperator{\cSpan}{\sf cSpan}
+\DeclareMathOperator{\Kan}{\sf Kan}
+\DeclareMathOperator{\Psh}{\sf PShv}
+\DeclareMathOperator{\LFib}{\sf LFib}
+\DeclareMathOperator{\CAlg}{\sf CAlg}
+
+
+\DeclareMathOperator{\cpt}{\sf cpt}
+\DeclareMathOperator{\Aut}{\sf Aut}
+\DeclareMathOperator{\colim}{{\sf colim}}
+\DeclareMathOperator{\relcolim}{{\sf rel.\!colim}}
+\DeclareMathOperator{\limit}{{\sf lim}}
+\DeclareMathOperator{\cone}{\sf cone}
+\DeclareMathOperator{\Der}{\sf Der}
+\DeclareMathOperator{\Ext}{\sf Ext}
+\DeclareMathOperator{\hocolim}{\sf hocolim}
+\DeclareMathOperator{\holim}{\sf holim}
+\DeclareMathOperator{\Hom}{\sf Hom}
+\DeclareMathOperator{\End}{\sf End}
+\DeclareMathOperator{\ulhom}{\underline{\Hom}}
+\DeclareMathOperator{\fun}{\sf Fun}
+\DeclareMathOperator{\Fun}{{\sf Fun}}
+\DeclareMathOperator{\Iso}{\sf Iso}
+\DeclareMathOperator{\map}{\sf Map}
+\DeclareMathOperator{\Map}{{\sf Map}}
+\DeclareMathOperator{\Mapc}{{\sf Map}_{\sf c}}
+\DeclareMathOperator{\Gammac}{{\Gamma}_{\!\sf c}}
+\DeclareMathOperator{\Tot}{\sf Tot}
+\DeclareMathOperator{\Spec}{\sf Spec}
+\DeclareMathOperator{\Spf}{\sf Spf}
+\DeclareMathOperator{\Def}{\sf Def}
+\DeclareMathOperator{\stab}{\sf Stab}
+\DeclareMathOperator{\costab}{\sf Costab}
+\DeclareMathOperator{\ind}{\sf Ind}
+\DeclareMathOperator{\coind}{\sf Coind}
+\DeclareMathOperator{\res}{\sf Res}
+\DeclareMathOperator{\Ker}{\sf Ker}
+\DeclareMathOperator{\coker}{\sf Coker}
+\DeclareMathOperator{\pt}{\sf pt}
+\DeclareMathOperator{\Sym}{\sf Sym}
+
+\DeclareMathOperator{\str}{\sf str}
+
+\DeclareMathOperator{\exit}{\sf Exit}
+\DeclareMathOperator{\Exit}{\bcE{\sf xit}}
+
+\DeclareMathOperator{\cylr}{{\sf Cylr}}
+
+\DeclareMathOperator{\shift}{\sf shift}
+
+
+
+
+\DeclareMathOperator{\Cat}{{\sf Cat}}
+\DeclareMathOperator{\fCat}{{\sf fCat}}
+\DeclareMathOperator{\cat}{\fC{\sf at}}
+\DeclareMathOperator{\Gcat}{{\sf GCat}_{\oo}}
+\DeclareMathOperator{\gcat}{{\sf GCat}}
+\DeclareMathOperator{\Dcat}{{\sf GCat}}
+\DeclareMathOperator{\dcat}{\fG\fC{\sf at}}
+\DeclareMathOperator{\Mcat}{\cM{\sf Cat}}
+\DeclareMathOperator{\mcat}{\fD{\sf Cat}}
+
+
+
+
+
+
+\DeclareMathOperator{\Ar}{{\sf Ar}}
+\DeclareMathOperator{\twar}{{\sf TwAr}}
+
+
+\DeclareMathOperator{\diskcat}{\sf {\cD}isk_{\mathit n}^\tau-Cat_\infty}
+\DeclareMathOperator{\mfdcat}{\sf {\cM}fd_{\mathit n}^\tau-Cat_\infty}
+\DeclareMathOperator{\diskone}{\sf {\cD}isk_{1}^{\vfr}-Cat_\infty}
+
+\DeclareMathOperator{\symcat}{\sf Sym-Cat_\infty}
+\DeclareMathOperator{\encat}{\cE_{\mathit n}-\sf Cat}
+\DeclareMathOperator{\moncat}{\sf Mon-Cat_\infty}
+
+\DeclareMathOperator{\inrshv}{\sf inr-shv}
+\DeclareMathOperator{\clsshv}{\sf cls-shv}
+
+
+
+\DeclareMathOperator{\qc}{\sf QC}
+\DeclareMathOperator{\m}{\sf Mod}
+\DeclareMathOperator{\bi}{\sf Bimod}
+\DeclareMathOperator{\perf}{\sf Perf}
+\DeclareMathOperator{\shv}{\sf Shv}
+\DeclareMathOperator{\Shv}{\sf Shv}
+
+
+
+\DeclareMathOperator{\psh}{\sf PShv}
+\DeclareMathOperator{\gshv}{\sf GShv}
+\DeclareMathOperator{\csh}{\sf Coshv}
+\DeclareMathOperator{\comod}{\sf Comod}
+\DeclareMathOperator{\M}{\mathsf{-Mod}}
+\DeclareMathOperator{\coalg}{\mathsf{-coalg}}
+\DeclareMathOperator{\ring}{\mathsf{-rings}}
+\DeclareMathOperator{\alg}{\mathsf{Alg}}
+\DeclareMathOperator{\artin}{{\sf Artin}}%{\disk_{\mathit n}\alg^{\sf Art}_{\mathit k}}
+\DeclareMathOperator{\art}{\mathsf{Art}}
+\DeclareMathOperator{\triv}{\mathsf{Triv}}
+\DeclareMathOperator{\cobar}{\mathsf{cBar}}
+\DeclareMathOperator{\ba}{\mathsf{Bar}}
+
+\DeclareMathOperator{\shvp}{\sf Shv_{\sf p}^{\sf cbl}}
+
+\DeclareMathOperator{\lkan}{{\sf LKan}}
+\DeclareMathOperator{\rkan}{{\sf RKan}}
+
+\DeclareMathOperator{\Diff}{{\sf Diff}}
+\DeclareMathOperator{\sh}{\sf shv}
+
+
+
+\DeclareMathOperator{\calg}{\mathsf{CAlg}}
+\DeclareMathOperator{\op}{\mathsf{op}}
+\DeclareMathOperator{\relop}{\mathsf{rel.op}}
+\DeclareMathOperator{\com}{\mathsf{Com}}
+\DeclareMathOperator{\bu}{\cB\mathsf{un}}
+\DeclareMathOperator{\bun}{\sf Bun}
+
+\DeclareMathOperator{\pbun}{\sf PBun}
+
+
+
+
+\DeclareMathOperator{\cMfld}{{\sf c}\cM\mathsf{fld}}
+\DeclareMathOperator{\cBun}{{\sf c}\cB\mathsf{un}}
+\DeclareMathOperator{\Bun}{\cB\mathsf{un}}
+
+\DeclareMathOperator{\dbu}{\mathsf{DBun}}
+
+\DeclareMathOperator{\dbun}{\mathsf{DBun}}
+
+\DeclareMathOperator{\bsc}{\mathsf{Bsc}}
+\DeclareMathOperator{\snglr}{\sf Snglr}
+
+\DeclareMathOperator{\Bsc}{\cB\mathsf{sc}}
+
+
+\DeclareMathOperator{\arbr}{\mathsf{Arbr}}
+\DeclareMathOperator{\Arbr}{\cA\mathsf{rbr}}
+\DeclareMathOperator{\Rf}{\cR\mathsf{ef}}
+\DeclareMathOperator{\drf}{\mathsf{Ref}}
+
+
+\DeclareMathOperator{\st}{\mathsf{st}}
+\DeclareMathOperator{\sk}{\mathsf{sk}}
+\DeclareMathOperator{\Ex}{\mathsf{Ex}}
+
+\DeclareMathOperator{\sd}{\mathsf{sd}}
+
+\DeclareMathOperator{\inr}{\mathsf{inr}}
+
+\DeclareMathOperator{\cls}{\mathsf{cls}}
+\DeclareMathOperator{\act}{\mathsf{act}}
+\DeclareMathOperator{\rf}{\mathsf{ref}}
+\DeclareMathOperator{\pcls}{\mathsf{pcls}}
+\DeclareMathOperator{\opn}{\mathsf{open}}
+\DeclareMathOperator{\emb}{\mathsf{emb}}
+\DeclareMathOperator{\Cylo}{\mathsf{Cylo}}
+\DeclareMathOperator{\Cylr}{\mathsf{Cylr}}
+
+
+\DeclareMathOperator{\cbl}{\mathsf{cbl}}
+
+\DeclareMathOperator{\pcbl}{\mathsf{p.cbl}}
+
+
+\DeclareMathOperator{\gl}{\mathsf{GL}_1}
+
+\DeclareMathOperator{\Top}{\mathsf{Top}}
+\DeclareMathOperator{\Mfd}{{\cM}\mathsf{fd}}
+\DeclareMathOperator{\cMfd}{{\sf c}{\cM}\mathsf{fd}}
+\DeclareMathOperator{\Mfld}{{\cM}\mathsf{fld}}
+\DeclareMathOperator{\mfd}{\mathsf{Mfd}}
+\DeclareMathOperator{\Emb}{\mathsf{Emb}}
+\DeclareMathOperator{\enr}{\fE\mathsf{nr}}
+\DeclareMathOperator{\LEnr}{\mathsf{LEnr}}
+\DeclareMathOperator{\diff}{\mathsf{Diff}}
+\DeclareMathOperator{\conf}{\mathsf{Conf}}
+
+\DeclareMathOperator{\MC}{\mathsf{MC}}
+\DeclareMathOperator{\strat}{\mathsf{Strat}}
+\DeclareMathOperator{\Strat}{\cS\mathsf{trat}}
+\DeclareMathOperator{\kan}{\mathsf{Kan}}
+
+\DeclareMathOperator{\dd}{{\cD}\mathsf{isk}}
+
+\DeclareMathOperator{\loc}{\mathsf{Loc}}
+
+
+
+\DeclareMathOperator{\poset}{\mathsf{Poset}}
+
+
+
+\DeclareMathOperator{\spaces}{\cS\mathsf{paces}}
+\DeclareMathOperator{\Spaces}{\cS\mathsf{paces}}
+
+\DeclareMathOperator{\Space}{{\cS}\sf paces}
+\DeclareMathOperator{\spectra}{\cS\mathsf{pectra}}
+\DeclareMathOperator{\Spectra}{\cS\mathsf{pectra}}
+\DeclareMathOperator{\mfld}{\mathsf{Mfld}}
+\DeclareMathOperator{\Disk}{\cD{\mathsf{isk}}}
+\DeclareMathOperator{\cdisk}{{\sf c}\cD{\mathsf{isk}}}
+\DeclareMathOperator{\cDisk}{{\sf c}\cD{\mathsf{isk}}}
+\DeclareMathOperator{\sing}{\mathsf{Sing}}
+\DeclareMathOperator{\set}{{\mathsf{Sets}}}
+\DeclareMathOperator{\Aux}{\cA{\mathsf{ux}}}
+\DeclareMathOperator{\Adj}{\mathsf{Adj}}
+
+
+\DeclareMathOperator{\Dtn}{\cD{\mathsf{isk}^\tau_{\mathit n}}}
+
+
+\DeclareMathOperator{\sm}{\mathsf{sm}}
+\DeclareMathOperator{\vfr}{\sf vfr}
+\DeclareMathOperator{\fr}{\sf fr}
+\DeclareMathOperator{\sfr}{\sf sfr}
+
+
+\DeclareMathOperator{\bord}{\mathsf{Bord}}
+\DeclareMathOperator{\Bord}{{\sf Bord}_1^{\fr}}
+\DeclareMathOperator{\Bordk}{\cB{\sf ord}_1^{\fr}(\RR^k)}
+
+\DeclareMathOperator{\Corr}{{\sf Corr}}
+\DeclareMathOperator{\corr}{{\sf Corr}}
+
+\DeclareMathOperator{\fcorr}{{\sf FCorr}}
+\DeclareMathOperator{\pcorr}{{\sf PCorr}}
+
+
+
+\DeclareMathOperator{\Sing}{\mathsf{Sing}}
+
+
+\DeclareMathOperator{\BTop}{\sf BTop}
+\DeclareMathOperator{\BO}{{\mathsf BO}}
+
+
+\DeclareMathOperator{\Lie}{\sf Lie}
+
+
+
+\def\ot{\otimes}
+
+\DeclareMathOperator{\fin}{\sf Fin}
+
+\DeclareMathOperator{\oo}{\infty}
+
+
+\DeclareMathOperator{\hh}{\sf HC}
+
+\DeclareMathOperator{\free}{\sf Free}
+\DeclareMathOperator{\fpres}{\sf FPres}
+
+
+\DeclareMathOperator{\fact}{\sf Fact}
+\DeclareMathOperator{\ran}{\sf Ran}
+
+\DeclareMathOperator{\disk}{\sf Disk}
+
+\DeclareMathOperator{\ccart}{\sf cCart}
+\DeclareMathOperator{\cart}{\sf Cart}
+\DeclareMathOperator{\rfib}{\sf RFib}
+\DeclareMathOperator{\lfib}{\sf LFib}
+
+
+\DeclareMathOperator{\tr}{\triangleright}
+\DeclareMathOperator{\tl}{\triangleleft}
+
+
+\newcommand{\lag}{\langle}
+\newcommand{\rag}{\rangle}
+
+
+\newcommand{\w}{\widetilde}
+\newcommand{\un}{\underline}
+\newcommand{\ov}{\overline}
+\newcommand{\nn}{\nonumber}
+\newcommand{\nid}{\noindent}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\xra}{\xrightarrow}
+\newcommand{\xla}{\xleftarrow}
+
+\newcommand{\weq}{\xrightarrow{\sim}}
+\newcommand{\cofib}{\hookrightarrow}
+\newcommand{\fib}{\twoheadrightarrow}
+
+\def\llarrow{   \hspace{.05cm}\mbox{\,\put(0,-2){$\leftarrow$}\put(0,2){$\leftarrow$}\hspace{.45cm}}}
+\def\rrarrow{   \hspace{.05cm}\mbox{\,\put(0,-2){$\rightarrow$}\put(0,2){$\rightarrow$}\hspace{.45cm}}}
+\def\lllarrow{  \hspace{.05cm}\mbox{\,\put(0,-3){$\leftarrow$}\put(0,1){$\leftarrow$}\put(0,5){$\leftarrow$}\hspace{.45cm}}}
+\def\rrrarrow{  \hspace{.05cm}\mbox{\,\put(0,-3){$\rightarrow$}\put(0,1){$\rightarrow$}\put(0,5){$\rightarrow$}\hspace{.45cm}}}
+
+\def\cA{\mathcal A}\def\cB{\mathcal B}\def\cC{\mathcal C}\def\cD{\mathcal D}
+\def\cE{\mathcal E}\def\cF{\mathcal F}\def\cG{\mathcal G}\def\cH{\mathcal H}
+\def\cI{\mathcal I}\def\cJ{\mathcal J}\def\cK{\mathcal K}\def\cL{\mathcal L}
+\def\cM{\mathcal M}\def\cN{\mathcal N}\def\cO{\mathcal O}\def\cP{\mathcal P}
+\def\cQ{\mathcal Q}\def\cR{\mathcal R}\def\cS{\mathcal S}\def\cT{\mathcal T}
+\def\cU{\mathcal U}\def\cV{\mathcal V}\def\cW{\mathcal W}\def\cX{\mathcal X}
+\def\cY{\mathcal Y}\def\cZ{\mathcal Z}
+
+\def\AA{\mathbb A}\def\BB{\mathbb B}\def\CC{\mathbb C}\def\DD{\mathbb D}
+\def\EE{\mathbb E}\def\FF{\mathbb F}\def\GG{\mathbb G}\def\HH{\mathbb H}
+\def\II{\mathbb I}\def\JJ{\mathbb J}\def\KK{\mathbb K}\def\LL{\mathbb L}
+\def\MM{\mathbb M}\def\NN{\mathbb N}\def\OO{\mathbb O}\def\PP{\mathbb P}
+\def\QQ{\mathbb Q}\def\RR{\mathbb R}\def\SS{\mathbb S}\def\TT{\mathbb T}
+\def\UU{\mathbb U}\def\VV{\mathbb V}\def\WW{\mathbb W}\def\XX{\mathbb X}
+\def\YY{\mathbb Y}\def\ZZ{\mathbb Z}
+
+\def\sA{\mathsf A}\def\sB{\mathsf B}\def\sC{\mathsf C}\def\sD{\mathsf D}
+\def\sE{\mathsf E}\def\sF{\mathsf F}\def\sG{\mathsf G}\def\sH{\mathsf H}
+\def\sI{\mathsf I}\def\sJ{\mathsf J}\def\sK{\mathsf K}\def\sL{\mathsf L}
+\def\sM{\mathsf M}\def\sN{\mathsf N}\def\sO{\mathsf O}\def\sP{\mathsf P}
+\def\sQ{\mathsf Q}\def\sR{\mathsf R}\def\sS{\mathsf S}\def\sT{\mathsf T}
+\def\sU{\mathsf U}\def\sV{\mathsf V}\def\sW{\mathsf W}\def\sX{\mathsf X}
+\def\sY{\mathsf Y}\def\sZ{\mathsf Z}
+
+\def\bA{\mathbf A}\def\bB{\mathbf B}\def\bC{\mathbf C}\def\bD{\mathbf D}
+\def\bE{\mathbf E}\def\bF{\mathbf F}\def\bG{\mathbf G}\def\bH{\mathbf H}
+\def\bI{\mathbf I}\def\bJ{\mathbf J}\def\bK{\mathbf K}\def\bL{\mathbf L}
+\def\bM{\mathbf M}\def\bN{\mathbf N}\def\bO{\mathbf O}\def\bP{\mathbf P}
+\def\bQ{\mathbf Q}\def\bR{\mathbf R}\def\bS{\mathbf S}\def\bT{\mathbf T}
+\def\bU{\mathbf U}\def\bV{\mathbf V}\def\bW{\mathbf W}\def\bX{\mathbf X}
+\def\bY{\mathbf Y}\def\bZ{\mathbf Z}
+\def\bdelta{\mathbf\Delta}
+\def\bDelta{\mathbf\Delta}
+\def\blambda{\mathbf\Lambda}
+
+
+\def\fA{\frak A}\def\fB{\frak B}\def\fC{\frak C}\def\fD{\frak D}
+\def\fE{\frak E}\def\fF{\frak F}\def\fG{\frak G}\def\fH{\frak H}
+\def\fI{\frak I}\def\fJ{\frak J}\def\fK{\frak K}\def\fL{\frak L}
+\def\fM{\frak M}\def\fN{\frak N}\def\fO{\frak O}\def\fP{\frak P}
+\def\fQ{\frak Q}\def\fR{\frak R}\def\fS{\frak S}\def\fT{\frak T}
+\def\fU{\frak U}\def\fV{\frak V}\def\fW{\frak W}\def\fX{\frak X}
+\def\fY{\frak Y}\def\fZ{\frak Z}
+
+\def\bcA{\boldsymbol{\mathcal A}}\def\bcB{\boldsymbol{\mathcal B}}\def\bcC{\boldsymbol{\mathcal C}}
+\def\bcD{\boldsymbol{\mathcal D}}\def\bcE{\boldsymbol{\mathcal E}}\def\bcF{\boldsymbol{\mathcal F}}
+\def\bcG{\boldsymbol{\mathcal G}}\def\bcH{\boldsymbol{\mathcal H}}\def\bcI{\boldsymbol{\mathcal I}}
+\def\bcJ{\boldsymbol{\mathcal J}}\def\bcK{\boldsymbol{\mathcal K}}\def\bcL{\boldsymbol{\mathcal L}}
+\def\bcM{\boldsymbol{\mathcal M}}\def\bcN{\boldsymbol{\mathcal N}}\def\bcO{\boldsymbol{\mathcal O}}\def\bcP{\boldsymbol{\mathcal P}}\def\bcQ{\boldsymbol{\mathcal Q}}\def\bcR{\boldsymbol{\mathcal R}}
+\def\bcS{\boldsymbol{\mathcal S}}\def\bcT{\boldsymbol{\mathcal T}}\def\bcU{\boldsymbol{\mathcal U}}
+\def\bcV{\boldsymbol{\mathcal V}}\def\bcW{\boldsymbol{\mathcal W}}\def\bcX{\boldsymbol{\mathcal X}}
+\def\bcY{\boldsymbol{\mathcal Y}}\def\bcZ{\boldsymbol{\mathcal Z}}
+
+\def\ccD{{\sf c}\boldsymbol{\mathcal D}}
+\def\bcM{\boldsymbol{\mathcal M}}
+
+\DeclareMathOperator{\Stri}{\boldsymbol{\cS}{\sf tri}}
+\DeclareMathOperator{\btheta}{\boldsymbol{\Theta}}
+\DeclareMathOperator{\adj}{{\sf adj}}
+
+
+\DeclareMathOperator{\uno}{\mathbbm{1}}
+
+
+
+
+
+\DeclareMathOperator{\Braid}{\sf Braid}
+\DeclareMathOperator{\GL}{\sf GL}
+\DeclareMathOperator{\SL}{\sf SL}
+\DeclareMathOperator{\quot}{\sf quot}
+\DeclareMathOperator{\Fr}{\sf Fr}
+\DeclareMathOperator{\id}{\sf id}
+\DeclareMathOperator{\Act}{\sf Act}
+\DeclareMathOperator{\trans}{\sf trans}
+\DeclareMathOperator{\Bdl}{\sf Bdl}
+\DeclareMathOperator{\sHH}{\sf HH}
+\DeclareMathOperator{\Obj}{\sf Obj}
+\DeclareMathOperator{\Perf}{\sf Perf}
+
+
+\begin{document}
+
+
+\title{Framed diffeomorphisms of a torus}
+
+
+\author{Adam Howard}
+
+
+
+
+\address{Department of Mathematics\\Montana State University\\Bozeman, MT 59717}
+\email{david.ayala@montana.edu}
+\thanks{The author was supported by ...}
+
+
+
+
+
+
+\begin{abstract}
+We identify the topological group of framed diffeomorphisms of the standardly framed torus as a semi-direct product of the torus and a braid group on 3 strands.  
+It follows that the framed mapping class group is the braid group on 3 strands.  
+\end{abstract}
+
+
+
+\keywords{??.}
+
+\subjclass[2010]{Primary ??. Secondary ??.}
+
+\maketitle
+
+
+\tableofcontents
+
+
+\section*{Introduction}
+
+Vector addition, as well as the standard vector norm, gives $\RR^2$ the structure of a topological abelian group.
+Consider its closed subgroup $\ZZ^2\subset \RR^2$.  
+The \textit{\textbf{torus}} is the quotient in the short exact sequence of topological abelian groups:
+\[
+0
+\longrightarrow
+\ZZ^2
+\xra{\rm inclusion}
+\RR^2 
+\xra{~\quot~}
+\TT^2
+\longrightarrow
+0
+~.
+\] 
+Because $\RR^2$ is connected, and because $\ZZ^2$ acts cocompactly by translations on $\RR^2$, the torus $\TT^2$ is connected and compact.  
+The quotient map $\RR^2 \xra{\quot} \TT^2$ endows the torus with the structure of a Lie group, and in particular a smooth manifold.
+Using that the smooth map $\RR^2 \xra{\quot} \TT^2$ is a covering space and $\TT^2$ is connected, the canonical homomorphism between groups
+\begin{equation}
+\label{e2}
+\GL_2(\ZZ)
+~:=~
+\Aut_{\sf Groups}(\ZZ^2)
+\xla{~\cong~}
+\Aut_{\sf LieGroups}\bigl( \ZZ^2 \hookrightarrow \RR^2)
+\xra{~\cong~}
+\Aut_{\sf LieGroups}(\TT^2)
+~,
+\end{equation}
+\[
+A
+\mapsto 
+\Bigl(
+q
+\mapsto 
+Aq
+:=
+\quot( A\w{q} )
+\Bigr)
+\qquad
+{\Small (\text{for any }\w{q} \in \quot^{-1}(q)) }
+~,
+\]
+is an isomorphism. Note that (\ref{e2}) does not depend on $\w{q} \in \quot^{-1}(q)$ and this homomorphism defines a semi-direct product topological group:
+\begin{equation}
+\label{e6}
+\TT^2 \underset{(\ref{e2})}\rtimes \GL_2(\ZZ)
+~.
+\end{equation}
+
+%I'm sure this could be said better //// Where to place this... 
+% \noindent Even more $\RR^2 \xra{\quot} \TT^2$ is a local diffeomorphism. So for every $\tilde{q} \in \RR^{2}$ the map $$D_{\tilde{q}}\quot: T_{\tilde{q}}\RR^{2} \rightarrow T_{q}\TT^{2}$$ is an isomorphism and we can define the inverse isomorphism $$D_{q}\quot^{-1}: T_{q}\TT^{2} \rightarrow T_{\tilde{q}}\RR^{2}$$ for $\tilde{q} = \bigl( \quot^{-1}(q) \cap [0, 1) \times [0, 1) \bigr).$
+
+%Transition 
+
+Consider the space of smooth diffeomorphisms of the torus:
+\[
+\Diff(\TT^2)
+~\subset~
+\Map(\TT^2 , \TT^2)
+~,
+\] 
+which is endowed with the subspace topology of the $\sC^\infty$ topology on the set of smooth self-maps of the torus.
+Consider the following map.
+\begin{equation}
+\label{e7}
+{\sf Aff}: \TT^2 \underset{(\ref{e2})}\rtimes \GL_2(\ZZ)
+\longrightarrow
+\Diff(\TT^2)
+~,\qquad
+(p,A)
+\mapsto
+\Bigl(
+q\mapsto 
+Aq + p
+\Bigr)
+~.
+\end{equation}
+The following lemmas show that ${\sf Aff}$ is a continuous homomorphism and a homotopy equivalence.
+\begin{lemma} \label{t98}
+The map defined in ~(\ref{e7}) $${\sf Aff}: \TT^2 \underset{(\ref{e2})}\rtimes \GL_2(\ZZ)
+\longrightarrow
+\Diff(\TT^2), 
+ \qquad {\sf Aff}(p, A) = (q \mapsto Aq + p)$$
+is a continuous homomorphism.
+\end{lemma}
+\begin{proof}
+Since the maps $\GL_{2}(\ZZ) \xrightarrow{A \mapsto (q \mapsto{Aq})} \Diff(\TT^{2})$ and $\TT^{2} \xrightarrow{p \mapsto (q \mapsto q + p)} \Diff(\TT^{2})$ are both continuous, we have that ${\sf Aff}$ is also continuous. Now, for $(p_{1}, A_{1}), (p_{2}, A_{2}) \in  \TT^2 \underset{(\ref{e2})}\rtimes \GL_2(\ZZ)$ we have that $$(p_{1}, A_{1}) \cdot (p_{2}, A_{2}) = (A_{1}p_{2} + p_{1}, A_{1}A_{2}).$$ So the image of this map is $${\sf Aff}((p_{1}, A_{1}) \cdot (p_{2}, A_{2})) = {\sf Aff}((A_{1}p_{2} + p_{1}, A_{1}A_{2})) = (q \mapsto  A_{1}A_{2}q + A_{1}p_{2} + p_{1}).$$ The product structure on $\Diff(\TT^2)$ is composition, so $${\sf Aff}(p_{1}, A_{1}) \cdot {\sf Aff}(p_{2}, A_{2}) = (q\mapsto A_{1}q + p_{2}) \circ (q\mapsto A_{2}q + p_{2}) = (q \mapsto A_{2}q + p_{2} \mapsto A_{1}(A_{2}q + p_{2}) + p_{1})$$ $$= (q \mapsto A_{1}A_{2}q + A_{1}p_{2} + p_{1}).$$ Therefore we have that ${\sf Aff}((p_{1}, A_{1}) \cdot (p_{2}, A_{2})) = {\sf Aff}(p_{1}, A_{1}) \cdot {\sf Aff}(p_{2}, A_{2}),$ showing that ${\sf Aff}$ is indeed a group homomorphism. 
+\end{proof}
+
+
+\begin{lemma}\label{t1}
+The continuous homomorphism 
+$
+{\sf Aff}: \TT^2 \underset{(\ref{e2})}\rtimes \GL_2(\ZZ)
+\xra{~(\ref{e7})~}
+\Diff(\TT^2)
+$
+is a homotopy equivalence.
+\end{lemma}
+\begin{proof}
+For $G$ a locally-connected topological group, denote by $G_e \subset G$ the path-component containing the identity element in $G$.
+This subspace $G_e\subset G$ is a normal subgroup, and the sequence of continuous homomorphisms
+\[
+1
+\longrightarrow
+G_e
+\xra{~\rm inclusion~}
+G
+\xra{~\rm quotient~}
+\pi_0(G)
+\longrightarrow
+1
+\]
+is a short-exact sequence.
+This short-exact sequence is evidently functorial in the argument $G$.
+In particular, there is a commutative diagram among topological groups 
+\[
+\xymatrix{
+1 \ar[d]_-= \ar[r]
+&
+\TT^{2} = \bigl( \TT^{2} \underset{(\ref{e2})}\rtimes \GL_2(\ZZ) \bigr)_e
+\ar[d]_-{{\sf Aff}_e}
+\ar[r]^-{\rm inc}
+&
+\TT^{2} \underset{(\ref{e2})}\rtimes \GL_2(\ZZ) 
+\ar[d]_-{{\sf Aff}} 
+\ar[r]^-{\rm quot}
+&
+\pi_0 \bigl( \TT^{2} \underset{(\ref{e2})}\rtimes \GL_2(\ZZ)  \bigr)
+=
+\GL_2(\ZZ)
+\ar[d]_-{\pi_0({\sf Aff})}
+\ar[r]
+&
+1 \ar[d]_-=
+\\
+1
+\ar[r]
+&
+\Diff(\TT^2)_e
+\ar[r]^-{\rm inc}
+&
+\Diff(\TT^2) 
+\ar[r]^-{\rm quot}
+&
+\pi_0 \bigl( \Diff(\TT^2) \bigr)
+\ar[r]
+&
+1
+.
+}
+\] 
+Theorem 2.D.4. of~\cite{rolf} along with the Kirby torus trick gives us that the vertical homomorphism $\pi_0({\sf Aff})$ is an isomorphism.  %Get a better citation here.
+Because both horizontal sequences are exact, if the vertical homomorphism ${\sf Aff}_{e}$ is a homotopy equivalence, then the vertical homomorphism ${\sf Aff}$ will aslo be a homotopy equivalence by the five lemma. We will now show that ${\sf Aff}_{e}$ is a homotopy equivalence. 
+With respect to the canonical action of $\Diff(\TT^2)_e$ on $\TT^2$, the orbit of the identity element $0\in \TT^2$ is the evaluation map 
+\begin{equation}\label{e25}
+\ev_0
+\colon 
+\Diff(\TT^2)_e
+\longrightarrow
+\TT^2
+~.
+\end{equation}
+Note that the composition,
+\[
+\id_{\TT^2}
+\colon
+\TT^2
+\xra{~({\sf Aff})_e~}
+\Diff(\TT^2)_e
+\xra{~(\ref{e25})~}
+\TT^2
+~,
+\]
+is the identity map.
+Therefore, to show that ${\sf Aff}_e$ is a homotopy equivalence, it is sufficient to show that the stabilizer, ${\sf Stab}_0\bigl(\Diff(\TT^2)_e\bigr) \subset \Diff(\TT^2)$ of $0\in \TT^2$ (elements $f \in \Diff(\TT^2)_e$ for which $f(0) = 0$) is contractible. Theorem 1b of \cite{ee} shows that the space diffeomorphisms of the torus which leave a specified point fixed is contractible, and therefore ${\sf Stab}_0\bigl(\Diff(\TT^2)_e\bigr)$ is contractible. %This might work quicker
+%{\color{red}
+%By the isotopy-extension theorem, the canonical map %Clear up some of this language/notation
+%\[
+%{\sf Stab}_0\bigl(\Diff(\TT^2)_e\bigr)
+%\longrightarrow
+%\Emb_0(\TT^1 \vee \TT^1 , \TT^2)_e %Specifically state what this thing is
+%\]
+%is a Serre fibration. 
+%By ??, the base of this Serre fibration is contractible.  
+%The sought contractibility of ${\sf Stab}_0\bigl(\Diff(\TT^2)_e\bigr)$ therefore follows from contractibility of
+%$\Diff(\TT^2~\rm rel~ \TT^1 \vee \TT^1)$.   
+%The quotient map $\RR^2 \xra{\quot} \TT^2$ determines an isomorphism between topological groups
+%\[
+%\Diff(\TT^2~\rm rel~ \TT^1 \vee \TT^1)
+%\cong
+%\Diff(\II^2~\rm rel~ \partial \II^2 )
+%~.
+%\]
+%Finally, the Alexander Lemma ~\cite{alexander}, grants that $\Diff(\II^2~\rm rel~ \partial \II^2 )$ is contractible.  
+%}
+\end{proof}
+
+%%MAYBE A BETTER TRANSITION HERE
+
+The quotient map $\RR^2\xra{\quot}\TT^2$ endows the smooth manifold $\TT^2$ with a standard framing (ie, a trivialization of its tangent bundle): 
+for 
+\[
+\trans\colon \TT^2 \times \TT^2 
+\xra{~(p,q)\mapsto \trans_p(q) := p+q~} 
+\TT^2
+\]
+the abelian multiplication rule of the Lie group $\TT^2$, 
+\begin{equation}
+\label{e5}
+\varphi_0
+\colon
+\epsilon^2_{\TT^2}
+\xra{~\cong~}
+\tau_{\TT^2}
+~,\qquad
+\TT^2 \times \RR^2 \ni (p,v)
+\mapsto
+\bigl(p,\sD_{0}(\trans_p \circ \quot) (v) \bigr)
+\in \sT \TT^2
+~.
+\end{equation}
+In this way we regard $\TT^2$ as a \textit{\textbf{framed smooth 2-manifold}}.
+Consider the space of framings of the torus:
+\[
+\Fr(\TT^2)
+~:=~
+\Iso_{\Bdl_{\TT^2}}\bigl( \epsilon^2_{\TT^2} , \tau_{\TT^2} \bigr)
+~\subset~
+\Map(\TT^2 \times \RR^2 , \sT \TT^2 )
+~,
+\]
+which is endowed with the subspace topology of the $\sC^\infty$ topology on the set of smooth maps between total spaces.  
+Note the evident continuous conjugation action of $\Diff(\TT^2)$ on $\Fr(\TT^2)$:
+\begin{eqnarray}
+\nonumber
+\Act\colon
+\Diff(\TT^2)\times \Fr(\TT^2)
+&
+\xra{~(f,\varphi)\mapsto (Df , \varphi , (f^{-1} , \id_{\RR^2}))~}
+&
+\Aut_{\Bdl_{\TT^2}}(\tau_{\TT^2})
+\times 
+\Iso_{\Bdl_{\TT^2}}\bigl( \epsilon^2_{\TT^2} , \tau_{\TT^2} \bigr)
+\times
+\Aut_{\Bdl_{\TT^2}}(\epsilon^2_{\TT^2})^{\op}
+\\
+\label{e9}
+&
+\xra{~(a,\varphi , b )\mapsto a \circ \varphi \circ b~}
+&
+\Fr(\TT^2)
+~,
+\end{eqnarray}
+\[
+(f,\varphi)
+\mapsto 
+\Bigl(
+\TT^2 \times \RR^2 \xra{(p,v)\mapsto \sD f \bigl( \varphi(f^{-1}(p),v) \bigr)  }
+\sT \TT^2
+\Bigr)
+~.
+\]
+
+Consider the orbit map of $\varphi_0$ for this continuous action:
+\begin{equation}\label{e10}
+\Diff(\TT^2)
+\xra{~(~\id_{\Diff(\TT^2)}~ ,~ {\sf constant}_{\varphi_0}~)~}
+\Diff(\TT^2)\times \Fr(\TT^2)
+\xra{~(\ref{e9})~}
+\Fr(\TT^2)
+~.
+\end{equation}
+The fiber of~(\ref{e10}) is the stabilizer of $\varphi_0$ under the action~(\ref{e9}), which consists of those diffeomorphisms that `strictly' preserve the standard framing $\varphi_0$ of $\TT^2$.
+The homotopy fiber of~(\ref{e10}) is the homotopy stabilizer of $\varphi_0$ under the action of~(\ref{e9}), which consists of those diffeomorphisms that `homotopy coherently' preserve the standard framing $\varphi_0$ of $\TT^2$.
+\begin{definition}\label{d1}
+The topological space of \textit{\textbf{framed diffeomorphisms}} of the framed smooth manifold $(\TT^2,\varphi_0)$ is
+\begin{equation}\label{e11}
+\Diff^{\sf fr}(\TT^2)
+~:=~
+\Diff^{\sf fr}(\TT^2,\varphi_0)
+~:=~
+{\sf hofib}_{\varphi_0}\Bigl( 
+\Diff(\TT^2)
+\xra{~(\ref{e10})~}
+\Fr(\TT^2)
+\Bigr)
+~.
+\end{equation}
+\end{definition}
+In other words, there is a homotopy-pullback diagram among topological spaces:
+\begin{equation}\label{e13}
+\xymatrix{
+\Diff^{\fr}(\TT^2) \ar[rr] \ar[d]
+&&
+\Diff(\TT^2) \ar[d]^-{(\ref{e10})}
+\\
+\ast \ar[rr]^-{\lag \varphi_0\rag}
+&&
+\Fr(\TT^2)
+.
+}
+\end{equation}
+
+
+\begin{remark}\label{r5} 
+The image of $f$ under (\ref{e10}) is the framing
+\begin{equation}\label{e299}
+\xymatrix{
+\TT^{2} \times \RR^{2} \ar[d] \ar[rr]^-{f^{-1} \times id} && \TT^{2} \times \RR^{2} \ar[rr]^-{\varphi_{0}} 
+\ar[d] && {\sT}\TT^{2} \ar[rr]^-{\sD f} \ar[d] && {\sT}\TT^{2} \ar[d] \\
+\TT^{2} \ar[rr]^-{f^{-1}} && \TT^{2}  \ar[rr]^-{id} && \TT^{2} \ar[rr]^-{f} && \TT^{2},}
+\end{equation} 
+so the strict fiber of (\ref{e10}) over $\varphi_{0}$, will be those diffeomorphisims $f$ such that diagram (\ref{e299}) is precisely $\varphi_{0}.$ The only diffeomorphisms of $\TT^{2}$ which satisfy this rigid condition are translations. In considering the homotopy fiber of (\ref{e10}), we get all diffeomorphisms $f$ such that (\ref{e299}) is homotopic to $\varphi_{0}.$ This results in $\Diff^{\sf fr}(\TT^2)$ being a much larger class of diffeomorphisms including small perturbations such as multiplication by bump functions in neighborhoods of $\TT^{2}.$
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{lemma}\label{t3}
+There is a canonical equivalence
+\[
+\Diff^{\fr}(\TT^2)
+\xra{~\simeq~}
+\Omega \bigl( \Fr(\TT^2)_{{\sf h} \Diff(\TT^2)} \bigr)
+\]
+over $\Diff(\TT^2) \xra{\simeq}  \Omega \bigl( \ast_{{\sf h} \Diff(\TT^2)} \bigr)$.
+In particular, the underlying space of $\Diff^{\fr}(\TT^2)$ can be endowed with the structure of a group-object in the $\infty$-category $\Spaces$, with respect to which the canonical map $\Diff^{\fr}(\TT^2) \to \Diff(\TT^2)$ is a morphism between group-objects in $\Spaces$,.
+\end{lemma}
+
+
+\begin{proof}
+The commutative diagram among topological spaces~(\ref{e13}) extends as a commutative diagram among topological spaces:
+\begin{equation}\label{e18}
+\xymatrix{
+\Diff^{\fr}(\TT^2) \ar[rr] \ar[d]
+&&
+\Diff(\TT^2) \ar[d]^-{(\ref{e10})} \ar[rr]^-{\rm quotient}
+&&
+\Diff(\TT^2)_{{\sf h}\Diff(\TT^2)} \ar[d]^-{(\ref{e10})_{{\sf h}\Diff(\TT^2)}}
+\\
+\ast \ar[rr]^-{\lag \varphi_0\rag}
+&&
+\Fr(\TT^2)
+\ar[rr]^-{\rm quotient}
+&&
+\Fr(\TT^2)_{{\sf h}\Diff(\TT^2)}
+,
+}
+\end{equation}
+in which the rightmost terms are homotopy coinvariants.  
+Observe the canonical contractibility $\Diff(\TT^2)_{{\sf h}\Diff(\TT^2)}\simeq\ast$.
+Through this contractibility, notice that the right square is a homotopy pullback square.  
+Because the lefthand square is defined as a homotopy pullback square, it follows that the outer square is a homotopy pullback square, from which the result follows.
+\end{proof}
+
+
+
+Consider the composable sequence of group homomorphism 
+The \textit{\textbf{braid group on 3 strands}} has a standard presentation, generated by adjacent twists:
+\begin{equation}\label{e15}
+\Braid_3 
+~\cong~
+\Bigl \lag~ \tau_{1,2}~,~ \tau_{2,3}~ \mid ~ \tau_{1,2}\tau_{2,3}\tau_{1,2} ~=~ \tau_{2,3} \tau_{1,2} \tau_{2,3} ~\Bigr\rag
+~.
+\end{equation}
+Lemma~\ref{t95} below verifies that the assignments
+\begin{equation}
+\label{e1}
+\Braid_3
+\xra{~\tau_{1,2} \mapsto \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}~,~\tau_{2,3}\mapsto \begin{bmatrix} 1 & 0 \\ -1 & 1 \end{bmatrix} ~}
+\GL_2(\ZZ)
+\end{equation}
+define a homomorphism between groups.
+
+\begin{remark}\label{r1}
+The homomorphism $\Braid_3\xra{~(\ref{e1})~} \GL_2(\ZZ)$ factors through the subgroup $\SL_2(\ZZ)\subset \GL_2(\ZZ)$.  
+This factorization is surjective, with central kernel freely generated by the element $(\tau_{1,2}\tau_{2,3})^6 \in \Braid_3$.
+In other words, there is a central extension among groups:
+\begin{equation}\label{e16}
+1
+\longrightarrow
+\ZZ
+\xra{~\bigl\lag (\tau_{1,2}\tau_{2,3})^6 \bigr\rag~}
+\Braid_3
+\xra{~(\ref{e1})~}
+\SL_2(\ZZ)
+\longrightarrow
+1
+~.
+\end{equation}
+
+\end{remark}
+The composite homomorphism 
+\begin{equation}
+\label{e3}
+\Braid_3
+\xra{~(\ref{e1})~}
+\GL_2(\ZZ)
+\xra{~(\ref{e2})~}
+\Aut_{\sf Groups}(\TT^2)
+\end{equation}
+defines the semi-direct product topological group:
+\begin{equation}
+\label{e4}
+\TT^2 \underset{(\ref{e3})}\rtimes \Braid_3
+~.
+\end{equation}
+There results a composite continuous group homomorphism
+\begin{equation}\label{e8}
+\TT^2 \underset{(\ref{e3})}\rtimes \Braid_3
+\xra{~\id_{\TT^2} \rtimes (\ref{e1})~}
+\TT^2 \underset{(\ref{e3})}\rtimes \GL_2(\ZZ)
+\xra{~(\ref{e7})~}
+\Diff(\TT^2)
+~.
+\end{equation}
+We now state our main result; its proof occupies Section~\ref{s1}.  
+\begin{theorem}\label{main.theorem}
+
+There is a canonical homotopy-commutative diagram among topological spaces:
+\begin{equation}\label{e14}
+\xymatrix{
+\TT^2 \underset{(\ref{e3})}\rtimes \Braid_3  \ar[rr]^-{(\ref{e8})} \ar[d]
+&&
+\Diff(\TT^2) \ar[d]^-{(\ref{e10})}
+\\
+\ast \ar[rr]^-{\lag \varphi_0\rag}
+&&
+\Fr(\TT^2)
+.
+}
+\end{equation}
+From the universal property of homotopy-pullbacks, this induces a continuous map 
+\begin{equation}\label{e12}
+\TT^2 \underset{(\ref{e3})}\rtimes \Braid_3
+\longrightarrow
+\Diff^{\fr}(\TT^2)
+\end{equation}
+Even more, the continuous map (\ref{e12}) is an equivalence between group-objects in $\Spaces$.
+\end{theorem}
+
+
+
+\begin{cor}\label{t2}
+The \emph{framed mapping class group of $\TT^2$} is canonically isomorphic with the braid group on 3 strands:
+\[
+\Braid_3
+\xra{~\cong~}
+{\sf MCG}^{\fr}(\TT^2)
+~:=~
+\pi_0\Bigl(
+\Diff^{\fr}(\TT^2)
+\Bigr)
+~.
+\]
+\end{cor}
+
+
+\begin{proof}
+We explain the sequence of homomorphisms among groups:
+\begin{eqnarray}
+\nonumber
+\Braid_3 
+&
+\xra{\cong}
+&
+\pi_0(\Braid_3) 
+\\
+\nonumber
+&
+\xla{\cong} 
+&
+\pi_0(\TT^2) \underset{\pi_0(\ref{e3})}\rtimes \pi_0(\Braid_3)
+\\
+\nonumber
+&
+\xla{\cong}
+&
+\pi_0(\TT^2 \underset{(\ref{e3})}\rtimes \Braid_3)
+\\
+\nonumber
+&
+\xra{\cong}
+&
+\pi_0\bigl(\Diff^{\fr}(\TT^2) \bigr)
+~=:~
+{\sf MCG}^{\fr}(\TT^2)
+~.
+\end{eqnarray}
+The first isomorphism follows from the topological space $\Braid_3$ being endowed with the discrete topology.
+The second isomorphism follows from $\pi_0(\TT^2)$ being a singleton, which is so because $\TT^2$ is connected.  
+The third isomorphism is $[(p, \omega)] \mapsto ([p], [\omega]).$ The fourth map is the induced map on homotopy of (\ref{e12}), and as (\ref{e12}) is a homotopy equivalence its induced map on homotopy groups is an isomorphism.
+\end{proof}
+
+
+
+
+\begin{remark}\label{r2}
+Corollary~\ref{t2} is compatible with the standard isomorphism $\SL_2(\ZZ) \cong {\sf MCG}^{\sf or}(\TT^2) =: \pi_0\Bigl(
+\Diff^{\sf or}(\TT^2)
+\Bigr)$, in the sense that the diagram among groups
+\[
+\xymatrix{
+\Braid_3 \ar[rrrr]^-{(\ref{e1})} \ar[d]_-{\cong}
+&&
+&&
+\SL_2(\ZZ) \ar[d]^-{\cong}
+\\
+{\sf MCG}^{\fr}(\TT^2)  \ar[rrrr]^-{\rm forget~structure}
+&&
+&&
+{\sf MCG}^{\sf or}(\TT^2)
+}
+\]
+commutes. 
+Remark~\ref{r1} thusly grants a central extension among groups:
+\begin{equation}\label{e17}
+1
+\longrightarrow
+\ZZ
+\longrightarrow
+{\sf MCG}^{\fr}(\TT^2)
+\longrightarrow
+{\sf MCG}^{\sf or}(\TT^2)
+\longrightarrow
+1
+~.
+\end{equation}
+\end{remark}
+
+
+
+
+\begin{remark}\label{r3}
+Let $(\cV,\ot)$ be a presentably symmetric monoidal $\infty$-category.\footnote{
+For example, for $\Bbbk$ a commutative ring, take $(\cV,\ot) = \bigl({\sf Ch}_\Bbbk[\{{\sf quasi\text{-}isos}\}^{-1}],\underset{\Bbbk}\otimes^{\LL}\bigr)$ is the $\infty$-categorical localization of chain complexes over $\Bbbk$ on quasi-isomorphisms, with derived tensor product over $\Bbbk$.
+More generally, for $R$ a commutative ring spectrum, take $(\cV,\ot) := (\Mod_R,\underset{R}\wedge)$ to be $R$-module spectra and smash product over $R$.
+}
+Let $A \in \Alg\Bigl( \Alg(\cV) \bigr)$ an associative algebra among associative algebras in $\cV$.
+Consider its iterated Hochschild homology
+\[
+\sHH\bigl( \sHH( A ) \bigr)
+~\in~
+\cV
+~.
+\]
+Through Dunn's additivity~(\cite{dunn??}), this object is canonically identified as factorization homology (in the sense of~\cite{old.fact}) over the framed torus:
+\[
+\int_{\TT^2} A
+~\simeq~
+\sHH\bigl( \sHH( A ) \bigr)
+~\in~
+\cV
+~.
+\]
+There results an action of the topological group $\Diff^{\fr}(\TT^2)$ on $\sHH\bigl( \sHH( A ) \bigr)$.
+Through Theorem~\ref{main.theorem} is identical with a morphism between group-objects in spaces:
+\[
+\TT^2 \underset{(\ref{e3})}\rtimes \Braid_3
+\longrightarrow
+\Aut_\cV\Bigl( 
+\sHH\bigl( \sHH( A ) \bigr)
+\Bigr)
+~.
+\]
+\end{remark}
+
+
+
+
+\begin{remark}\label{r4}
+We follow up on Remark~\ref{r3}.
+Let $A \in \CAlg(\Spectra)$ be a commutative ring spectrum, which forgets as an algebra among ring spectra.  
+It is known~(\cite{??}) that the iterated cyclotomic trace map
+\[
+\sK\bigl( \sK( A ) \bigr) 
+\longrightarrow
+{\sf TC}\bigl( {\sf TC}( A ) )
+\]
+is not locally constant (in the argument $A$).  
+Well, there is a canonical factorization of the iterated trace, from iterated $\sK$-theory:
+\[
+\xymatrix{
+\Obj\Bigl( \Perf\bigl( \sK(A) \bigr) \Bigr) \ar[rr] \ar[dd]
+&&
+\sHH\Bigl( \sHH\bigl( \Perf\bigl( \Perf(A) \bigr) \bigr) \Bigr)^{{\sf h} ( \TT^2 \underset{(\ref{e3})}\rtimes \Braid_3) }  \ar[d]
+&&
+\sHH\bigl( \sHH( A ) \bigr)^{{\sf h} ( \TT^2 \underset{(\ref{e3})}\rtimes \Braid_3) } \ar[d] \ar[ll]^-{\simeq}
+\\
+&&
+\sHH\Bigl( \sHH\bigl( \Perf\bigl( \Perf(A) \bigr)^{{\sf h} \TT}  \bigr) \Bigr)^{{\sf h} \TT}  \ar[d]
+&&
+\sHH\bigl( \sHH( A )^{{\sf h} \TT} \bigr)^{{\sf h} \TT} \ar[d] \ar[ll]^-{\simeq}
+\\
+\sK\bigl( \sK( A ) \bigr) \ar[rr]^-{{\sf tr}({\sf tr})}
+\ar@{-->}[urr]^-{{\sf tr}^-({\sf tr}^-)}
+\ar@(-,u)@{-->}[uurr]
+&&
+\sHH\Bigl( \sHH\bigl( \Perf\bigl( \Perf(A) \bigr) \bigr) \Bigr)
+&&
+\sHH\bigl( \sHH( A ) \bigr) \ar[ll]^-{\simeq}_-{\rm Morita~invariance}
+.
+}
+\]
+This suggests that the group $\Braid_3$, as it acts on $\TT^2$, could play a fundamental role in improving the iterated cyclotomic trace map
+\[
+\sK\bigl( \sK( A ) \bigr) 
+\longrightarrow
+{\sf TC}\bigl( {\sf TC}( A ) \bigr)
+\]
+toward being closer to locally constant (in the argument $A$).
+\end{remark}
+
+
+
+\section{Proof of Theorem~\ref{main.theorem}}\label{s1}
+Here we prove Theorem~\ref{main.theorem}. First consider the following maps:
+
+\begin{equation}\label{e201}
+\Fr(\mathbb{T}^{2}) \rightarrow \Map(\mathbb{T}^{2}, \GL_{2}(\mathbb{R}), \qquad \psi \mapsto (p \mapsto (\phi_{0}^{-1} \circ \psi)_{p}).
+\end{equation}
+
+\begin{equation}\label{e202}
+\Map(\mathbb{T}^{2}, \GL_{2}(\mathbb{R}) \rightarrow \Map_\ast \Bigl( \bigl( 0 \in \TT^2 \bigr) , \bigl( \uno \in \GL_2(\RR) \bigr) \Bigr) \times \GL_2(\RR),
+\end{equation}
+
+$$(\mathbb{T}^{2} \xrightarrow{f} GL_{2}(\mathbb{R})) \mapsto ((\mathbb{T}^{2}, 0) \xrightarrow{(f(0))^{-1}f} (GL_{2}(\mathbb{R}), Id), f(\textbf{0})).$$ \newline
+%Let ${\sf{Sk}}_{1}(\TT^{2}) = \TT^{1}_{1} \vee \TT^{1}_{2}$ be the 1-skeleton of $\TT^{2}$ and $[\TT^{1}_{i}]$ be the corresponding generators of $\pi_1\bigl( 0 \in \TT^2 \bigr).$ Then define the map:
+
+%\begin{equation} \label{e203}
+%{\sf Homo}\Bigl( \pi_1\bigl( 0 \in \TT^2 \bigr) , \pi_1\bigl( \uno \in \GL_2(\RR) \bigr) \Bigr) \longrightarrow \ZZ \times \ZZ
+%\end{equation}
+%$$h \mapsto (h([\TT^{1}_{1}]), h([\TT^{1}_{2}])).$$
+
+
+\begin{lemma}\label{t5}
+Each of the continuous maps
+\begin{eqnarray}\label{e21}
+\Fr(\TT^2) 
+&
+\xra{~(\ref{e201})~}
+&
+\Map\bigl( \TT^2 , \GL_2(\RR) \bigr)
+\\
+\nonumber
+&
+\xra{~(\ref{e202})~}
+&
+\Map_\ast \Bigl( \bigl( 0 \in \TT^2 \bigr) , \bigl( \uno \in \GL_2(\RR) \bigr) \Bigr) \times \GL_2(\RR) 
+\\
+\nonumber
+&
+\xra{~\pi_1 \times \id_{\GL_2(\RR)}~}
+&
+{\sf Homo}\Bigl( \pi_1\bigl( 0 \in \TT^2 \bigr) , \pi_1\bigl( \uno \in \GL_2(\RR) \bigr) \Bigr) \times \GL_2(\RR) 
+\\
+\nonumber
+&
+\xra{(\ref{e203}) \times \id_{\GL_{2}(\RR)}}
+&
+\ZZ\times \ZZ \times \GL_2(\RR)
+\end{eqnarray}
+is a homotopy equivalence. 
+In particular, the composite continuous map is a homotopy equivalence.  
+\end{lemma}
+
+
+\begin{proof} 
+The map ~(\ref{e201})~ is a homeomorphism. It's a continuous map with a continuous inverse sending $(\mathbb{T}^{2} \xrightarrow{f} GL_{2}(\mathbb{R}))$ to the framing  \[ \begin{tikzcd}
+\mathbb{T}^{2} \times \mathbb{R}^{2} \arrow{r}{F} \arrow{d} & \mathbb{T}^{2} \times \mathbb{R}^{2} \arrow{r}{\phi_{0}} \arrow{d}{} & T\mathbb{T}^{2} \arrow{d} \\
+\mathbb{T}^{2} \arrow{r}{id} & \mathbb{T}^{2}  \arrow{r}{id} & \mathbb{T}^{2}
+\end{tikzcd} \]
+where the map $F$ is defined by $F(p, v) = (p, f(p)v).$
+The map ~(\ref{e202})~ is also a homeomorphism. It's a continuous map with continuous inverse $$ \Map_\ast \Bigl( \bigl( 0 \in \TT^2 \bigr) , \bigl( \uno \in \GL_2(\RR) \bigr) \Bigr) \times \GL_2(\RR) \rightarrow \Map(\mathbb{T}^{2}, \GL_{2}(\mathbb{R})), \qquad (f, M) \mapsto Mf.$$ 
+
+In general, for two topological groups $G$ and $H,$ passing to fundamental groups induces a bijection between $[K(G, 1), K(H, 1)]  \xra{\pi_{1}} {\sf homo}(G, H)$ where $[-,-]$ indicates homotopy classes of based maps. This is the homotopy inverse to the classifying space functor. Therefore \begin{equation}\label{e55} \Map_{\ast}\Bigl(K(G, 1), K(H, 1) \Bigr) \xra{\pi_{1}} {\sf homo}(G, H) \end{equation} is a homotopy equivalence. Because $\SS^{1} = SO(2) \hookrightarrow GL_{2}(\RR)$ is a homotopy equivalence onto the connected component containing $\uno$, the map $$\Map_\ast \Bigl( \bigl( 0 \in \TT^2 \bigr) , \bigl( \uno \in \GL_2(\RR) \bigr) \Bigr) \xra{\pi_{1}} {\sf Homo}\Bigl( \pi_1\bigl( 0 \in \TT^2 \bigr) , \pi_1\bigl( \uno \in \GL_2(\RR) \bigr) \Bigr) $$ factors through 
+$$\Map_\ast \Bigl( \bigl( 0 \in \TT^2 \bigr) , \bigl( \uno \in \GL_2(\RR) \bigr) \Bigr) \xra{} \Map_\ast \Bigl( \bigl( 0 \in \TT^2 \bigr) , \bigl( \uno \in SO_2(\RR) \bigr) \Bigr) \xra{\pi_{1}} {\sf Homo}\Bigl( \pi_1\bigl( 0 \in \TT^2 \bigr) , \pi_1\bigl( \uno \in \GL_2(\RR) \bigr) \Bigr),$$ where the first map post composes with the Gram-Schmidt process and the second map is the homotopy equivalence $(\ref{e55})$ for $G = \ZZ^{2}$ and $H = \ZZ.$
+
+
+Finally, the last map to consider is the identification
+\begin{equation} \label{e203}
+{\sf Homo}\Bigl( \pi_1\bigl( 0 \in \TT^2 \bigr) , \pi_1\bigl( \uno \in \GL_2(\RR) \bigr) \Bigr) \longrightarrow \ZZ \times \ZZ
+\end{equation}
+$$h \mapsto (h([\TT^{1}_{1}]), h([\TT^{1}_{2}]))$$ for generators $[\TT^{1}_{i}]$ of $\pi_1\bigl( 0 \in \TT^2 \bigr).$ This is a bijection with inverse $$\ZZ \times \ZZ \rightarrow {\sf Homo}\Bigl( \pi_1\bigl( 0 \in \TT^2 \bigr) , \pi_1\bigl( \uno \in \GL_2(\RR) \bigr) \Bigr), \qquad (a, b) \mapsto (\ZZ^{2} \xra{h_{(a, b)}} \ZZ)$$ where $h_{(a, b)}(p, q) = ap + bq.$ So we have that all maps are homotopy equivalences and therefore the composite will be a homotopy equivalence as well. 
+\end{proof}
+
+The diagram among topological spaces
+\begin{equation}\label{e22}
+\xymatrix{
+\TT^2 \underset{(\ref{e2})}\rtimes \GL_2(\ZZ) \ar[rr]^-{(\ref{e7})} 
+&&
+\Diff(\TT^2) \ar[d]^-{(\ref{e10})}
+&&
+\\
+&&
+\Fr(\TT^2) \ar[rr]^-{(\ref{e21})}
+&&
+\ZZ\times \ZZ \times \GL_2(\RR)
+~
+.
+}
+\end{equation} 
+determines a span among homotopy fibers:
+
+\begin{equation}\label{e20}
+\xymatrix{
+{\sf hofib}_{(\ref{e21}(\varphi_0)}\Bigl(
+\TT^2 \underset{(\ref{e2})}\rtimes \GL_2(\ZZ)
+\xra{~(\ref{e22})~}
+\ZZ\times \ZZ \times \GL_2(\RR)
+\Bigr) \ar[d]^-{}
+\\
+{\sf hofib}_{(\ref{e21}(\varphi_0)}\Bigl(
+\Diff(\TT^2)
+\xra{~(\ref{e21})~ \circ ~(\ref{e10})~}
+\ZZ\times \ZZ \times \GL_2(\RR)
+\Bigr)
+\\
+{\sf hofib}_{\varphi_0}\Bigl(
+\Diff(\TT^2)
+\xra{~(\ref{e10})~}
+\Fr(\TT^2)
+\Bigr)
+~=:~
+\Diff^{\fr}(\TT^2)
+~
+\ar[u]^-{}
+}
+\end{equation}
+
+
+
+\begin{observation}\label{t6}
+Because the horizontal maps in~(\ref{e22}) is an equivalence, by Lemma (\ref{t70}) below, each of the maps in the span among topological spaces~(\ref{e20}) is a homotopy equivalence. Note that $(\ref{e21})\varphi_0) = (0, 0, \uno) \in \ZZ \times \ZZ \times \GL_{2}(\RR).$
+We will compute $${\sf hofib}_{(0, 0, \uno)}\Bigl(
+\Diff(\TT^2)
+\xra{~(\ref{e21})~ \circ ~(\ref{e10})~}
+\ZZ\times \ZZ \times \GL_2(\RR)
+\Bigr)$$ below, allowing us to determine the homotopy type of $\Diff^{\fr}(\TT^2).$
+\end{observation}
+
+
+\begin{lemma}\label{t4}
+There is a commutative diagram among topological spaces
+\begin{equation}\label{e19}
+\xymatrix{
+\TT^2 \underset{(\ref{e2})}\rtimes \GL_2(\ZZ) \ar[rr]^-{(\ref{e7})} \ar[d]_-{\pr}
+&&
+\Diff(\TT^2) \ar[d]^-{(\ref{e10})}
+\\
+\GL_2(\ZZ) \ar[d]_-{\rm inclusion}
+&&
+\Fr(\TT^2) \ar[d]^-{(\ref{e21})}
+\\
+\GL_2(\RR) \ar[rr]^-{A\mapsto (0,0,A)}
+&&
+\ZZ\times \ZZ \times \GL_2(\RR)
+.
+}
+\end{equation}
+\end{lemma}
+
+
+\begin{proof}
+We have that $(p, A) \in \TT^2 \underset{(\ref{e2})}\rtimes \GL_2(\ZZ)$ maps to the linear diffeomorphism $f :=(q \mapsto Aq + p)$ under (\ref{e7}). Then under the orbit map (\ref{e10}) this linear diffeomorphism is mapped to the framing \[ \xymatrix{
+\TT^{2} \times \RR^{2} \ar[d] \ar[rr]^-{f^{-1} \times id} && \TT^{2} \times \RR^{2} \ar[rr]^-{\varphi_{0}} 
+\ar[d] && {\sT}\TT^{2} \ar[rr]^-{\sD f} \ar[d] && {\sT}\TT^{2} \ar[d] \\
+\TT^{2} \ar[rr]^-{f^{-1}} && \TT^{2}  \ar[rr]^-{id} && \TT^{2} \ar[rr]^-{f} && \TT^{2}.}\] Now under the map (\ref{e21}) we see that this framing is first sent to the map from $\TT^{2}$ to $ GL_{2}(\mathbb{Z}):$ \begin{equation}\label{e298} q \mapsto \Bigr( \{q\} \times \RR^{2} \xra{f^{-1} \times \id} \{f^{-1}(q)\} \times \RR^{2} \xra{\varphi_{0}} {\sT}_{f^{-1}(q)} \TT^{2} \xra{{\sD} f} {\sT}_{q} \TT^{2} \xra{\varphi^{-1}_{0}} \{q\} \times \RR^{2} \Bigl). \end{equation} 
+Recall though that the linear diffeomorphism $f$ is actually the composite $$\TT^{2} \xra{\quot^{-1}} \RR^{2}  \xra{A}  \RR^{2} \xra{\quot} \TT^{2} \xra{\trans_{p}} \TT^{2}$$ where we operate in a small neighborhood so ${\sf \quot^{-1}}$ is well defined.
+Then by the chain rule ${{\sD} f}$ is the composite map
+\[ \xymatrix{
+{\sT} \TT^{2} \ar[d] \ar[rr]^-{{\sD} \quot^{-1}} && \sT \RR^{2} \ar[rr]^-{\sD A} 
+\ar[d] && \sT \RR^{2} \ar[rr]^-{\sD \quot} \ar[d] && {\sT}\TT^{2} \ar[d] \ar[rr]^-{\sD \trans_{p}} && \ar[d]{\sT} \TT^{2} \\
+\TT^{2} \ar[rr]^-{\quot^{-1}} && \RR^{2}  \ar[rr]^-{A} && \RR^{2} \ar[rr]^-{\quot} && \TT^{2} \ar[rr]^-{\trans_{p}} &&  \TT^{2}.} \] 
+The map on the fibers of $\sD A$ is precisely $A,$ and the map on the fibers of $\sD \trans_{p}$ is the identity. So looking at (\ref{e298}) more closely, we see that for $(q, v) \in \{q\} \times \RR^{2}$ the leftmost map is the identity on $v$, and then is followed by: 
+$$v \xra{\varphi_{0}|_{f^{-1}(q)}} \sD_{0}(\trans_{f^{-1}(q)} \circ \quot) (v) = (\sD_{0} \trans_{f^{-1}(q)} \circ \sD_{0} \quot) (v) \xra{\sD f|_{f^{-1}(q)}}$$  
+$$\Big(\sD_{\quot(A(\widetilde{f^{-1}(q)}))} \trans_{p} \circ \sD_{A\widetilde{f^{-1}(q)}} \quot \circ \sD_{\widetilde{f^{-1}(q)}} A \circ \sD_{f^{-1}(q)} \quot^{-1} \circ \sD_{0} \trans_{f^{-1}(q)} \circ \sD_{0} \quot \Big) (v)$$
+$$= \Big(\sD_{\quot(A(\widetilde{f^{-1}(q)}))} \trans_{p} \circ \sD_{A\widetilde{f^{-1}(q)}} \quot \circ \sD_{\widetilde{f^{-1}(q)}} A \Big) (v) \xra{\varphi_{0}^{-1}|_{q}}$$
+$$\Big(\sD_{0}\quot^{-1} \circ \sD_{0}{\trans_{q}^{-1}} \circ \sD_{\quot(A(\widetilde{f^{-1}(q)}))} \trans_{p} \circ \sD_{A\widetilde{f^{-1}(q)}} \quot \circ \sD_{\widetilde{f^{-1}(q)}} A \Big) (v)=  (\sD_{\widetilde{f^{-1}(q)}}A)(v) = Av.$$ 
+So we see under (\ref{e298}) the framing is sent to the constant map $$\TT^{2} \rightarrow \GL_{2}(\RR), \qquad q \mapsto A.$$
+This constant map is then sent to $({\sf constant}_{\uno}, A) \in \Map_\ast \Bigl( \bigl( 0 \in \TT^2 \bigr) , \bigl( \uno \in \GL_2(\RR) \bigr) \Bigr) \times \GL_2(\RR)$ by $(\ref{e202}).$ As ${\sf constant}_{\uno}$ is null homotopic, its induced map on fundamental groups is the trivial map $\ZZ^{2} \xra{{\sf constant}_{0}} \ZZ$ which is $(0,0)$ as an element of $\ZZ^{2} \simeq {\sf Homo}\Bigl( \pi_1\bigl( 0 \in \TT^2 \bigr) , \pi_1\bigl( \uno \in \GL_2(\RR) \bigr) \Bigr).$
+\newline \newline So we see that $(p, A) \in \TT^2 \underset{(\ref{e2})}\rtimes \GL_2(\ZZ)$ is mapped to $(0, 0, A)$ by (\ref{e7}) followed by (\ref{e10}) followed by (\ref{e21}) and therefore the diagram commutes.
+\end{proof} 
+
+
+
+\begin{prop}\label{t8}
+There is a canonical null-homotopy of the composite homomorphism $\Braid_3 \xra{(\ref{e1})} \GL_2(\ZZ) \xra{\rm inclusion} \GL_2(\RR)$.  
+The resulting homotopy-commutative diagram 
+\begin{equation}\label{e24}
+\xymatrix{
+\Braid_3 \ar[rr]^-{(\ref{e1})} \ar[d]
+&&
+\GL_2(\ZZ) \ar[d]^-{\rm inclusion}
+\\
+\ast \ar[rr]^-{\lag \uno \rag}
+&&
+\GL_2(\RR)
+}
+\end{equation}
+witnesses a homotopy-pullback.  
+\end{prop}
+\begin{proof}
+
+
+We will first show that the following diagram commutes up to homotopy 
+$$
+\xymatrix{
+\pi_{0}(\Omega \bigr( \SL_{2}(\RR)/\SL_{2}(\ZZ) \bigl)) && \ar[ll] 
+\Omega \bigr( \SL_{2}(\RR)/\SL_{2}(\ZZ) \bigl) \ar[rr] \ar[d] && 
+\SL_{2}(\ZZ) \ar[rr] \ar[d]&& 
+\GL_{2}(\ZZ) \ar[d]
+\\  && \ast \ar[rr]^-{\langle \uno \rangle} && \SL_{2}(\RR) \ar[rr] && \GL_{2}(\RR).
+}$$
+
+The right square is a homotopy pullback because $\SL_{2}(\RR)/\SL_{2}(\ZZ) \cong \GL_{2}(\RR)/\GL_{2}(\ZZ).$ The left square is a homotopy fiber because $\SL_{2}(\ZZ) \subset \SL_{2}(\RR),$ and for any closed subgroup $H \subset G,$ the homotopy fiber ${\sf hofib}_{e}(H \hookrightarrow G) \simeq \Omega(G/H).$
+
+
+Now since $\pi_{n}(\SL_{2}(\ZZ)) = \pi_{n}(\SL_{2}(\RR)) = 0$ for $n > 1,$ the long exact sequence of homotopy groups associated to the fibration
+$$
+\xymatrix{
+\Omega \bigr( \SL_{2}(\RR)/\SL_{2}(\ZZ) \bigl) \ar[rr]  && \SL_{2}(\ZZ)  \ar[d] \\
+  && \SL_{2}(\RR), 
+}
+$$
+
+$$ \hdots \rightarrow \pi_{n+1}(\SL_{2}(\RR)) \rightarrow \pi_{n}(\Omega \bigr( \SL_{2}(\RR)/\SL_{2}(\ZZ) \bigl)) \rightarrow \pi_{n}(\SL_{2}(\ZZ)) \rightarrow \pi_{n}(\SL_{2}(\RR)) \rightarrow \hdots,$$ implies that $\pi_{n}(\Omega \bigr( \SL_{2}(\RR)/\SL_{2}(\ZZ) \bigl)) = 0$ for all $n > 1.$ Therefore, each connected component of $\Omega \bigr( \SL_{2}(\RR)/\SL_{2}(\ZZ) \bigl)$ is contractible, and this contraction gives the homotopy equivalence $$\pi_{0}(\Omega \bigr( \SL_{2}(\RR)/\SL_{2}(\ZZ) \bigl)) \longleftarrow \Omega \bigr(\SL_{2}(\RR)/\SL_{2}(\ZZ) \bigl).$$
+
+It is shown in \cite{mil} that $\SL_2(\RR) / \SL_2(\ZZ)$ is homeomorphic to the compliment of the trefoil, and it follows that $\pi_1( \SL_2(\RR) / \SL_2(\ZZ)) := \pi_{0}(\Omega \bigr( \SL_{2}(\RR)/\SL_{2}(\ZZ) \bigl)) \cong \Braid_{3}.$ Therefore we have that $${\sf hofib}_{\uno}(\GL_{2}(\ZZ) \rightarrow \GL_{2}(\RR)) \simeq \Omega \bigr( \SL_{2}(\RR)/\SL_{2}(\ZZ) \bigl) \simeq \Braid_{3}$$ and the diagram $(\ref{e24})$ is indeed a homotopy-pullback.
+\end{proof}
+
+
+
+\begin{lemma}\label{t7}
+There is a homotopy-commutative diagram among topological spaces, in which each square is a homotpy-pullback:
+\begin{equation}\label{e23}
+\xymatrix{
+\TT^2 
+\underset{(\ref{e3})}\rtimes
+\Braid_3
+\ar[rr]^-{\id_{\TT^2}\rtimes ~(\ref{e1})~} \ar[d]_-{\pr}
+&&
+\TT^2 \underset{(\ref{e2})}\rtimes \GL_2(\ZZ) \ar[d]^-{\pr}
+\\
+\Braid_3 \ar[d] \ar[rr]^-{~(\ref{e1})~}
+&&
+\GL_2(\ZZ) \ar[d]^-{\rm inclusion}
+\\
+\ast \ar[rr]^-{\lag \uno \rag } \ar[d]
+&&
+\GL_2(\RR) \ar[d]^-{A\mapsto (0,0,A)}
+\\
+\ast \ar[rr]^-{\lag (0,0,\uno)\rag }
+&&
+\ZZ\times \ZZ \times \GL_2(\RR)
+.
+}
+\end{equation}
+\end{lemma}
+
+
+
+\begin{proof}
+The lower square is a homotopy-pullback because the bottom right vertical map is the inclusion of the path-component containing the image of the bottom horizontal map.
+Proposition~\ref{t8} gives that the middle square is a homotopy pullback.
+The upper square is a homotopy pullback because the induced map between fibers is non-canonically homeomorphic with the identity map $\TT^2 \xra{\id_{\TT^2}}\TT^2$, which is in particular a homotopy equivalence.  
+\end{proof}
+
+
+
+
+
+\begin{proof}[Proof of Theorem~\ref{main.theorem}]
+For the composite map
+\begin{equation}\label{e111}
+\TT^{2} \rtimes \GL_{2}(\ZZ) \xra{\sf pr} \GL_{2}(\ZZ) \xra{\sf inclusion} \GL_{2}(\RR) \xra{A \mapsto (0,0,A)} \ZZ \times \ZZ \times \GL_{2}(\RR),
+\end{equation}
+we have the diagram
+$$
+\xymatrix{
+\TT^2 
+\underset{(\ref{e3})}\rtimes
+\Braid_3
+\ar[rr]^-{\id_{\TT^2}\rtimes ~(\ref{e1})~} \ar[d]
+&&
+\TT^2 \underset{(\ref{e2})}\rtimes \GL_2(\ZZ) \ar[d]^-{(\ref{e111})} \ar[rr]^-{(\ref{e7})}
+&& 
+\Diff(\TT^{2}) \ar[d]^-{(\ref{e10})}
+\\
+\ast \ar[rr]^-{(0, 0, \uno)}
+&&
+\ZZ \times \ZZ \times \GL_2(\RR) 
+&&
+\Fr(\TT^{2}) \ar[ll]^-{(\ref{e21})}
+}$$
+where the left square is the homotopy pullback from Lemma (\ref{t7}) and the right square is the commutative diagram from Lemma (\ref{t4}). As both (\ref{e7}) and (\ref{e21}) are homotopy equivalences, we have that the following diagram is a homotopy pullback:
+$$
+\xymatrix{
+\TT^2 \underset{(\ref{e3})}\rtimes \Braid_3  \ar[rr]^-{(\ref{e8})} \ar[d]
+&&
+\Diff(\TT^2) \ar[d]^-{(\ref{e21}) \circ (\ref{e10})}
+\\
+\ast \ar[rr]^-{(0, 0, \uno)}
+&&
+\ZZ \times \ZZ \times \GL_2(\RR) 
+.
+}
+$$
+In particular we have that ${\sf hofib}_{(0, 0, \uno)}(\Diff(\TT^{2})\xra{(\ref{e21}) \circ (\ref{e10})} \ZZ \times \ZZ \times \GL_{2}(\RR)) \simeq \TT^2 \underset{(\ref{e3})}\rtimes \Braid_3,$ and then Observation (\ref{t6}) gives us an induced homotopy equivalence from ${\sf hofib}_{(0, 0, \uno)}(\Diff(\TT^{2})$ to $\Diff^{\sf fr}(\TT^{2}).$
+
+
+\end{proof}
+
+
+
+\section*{Miscellaneous Lemmas}
+
+\begin{lemma} \label{t95}
+The assignments
+\[
+\tau_{1,2} 
+\mapsto
+\begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}
+~,\qquad
+\tau_{2,3}
+\mapsto 
+\begin{bmatrix} 1 & 0 \\ -1 & 1 \end{bmatrix}
+\]
+uniquely extend as a group homomorphism
+\[
+\Braid_3 \xra{~(\ref{e1})~} \GL_2(\ZZ)
+~.
+\]
+\end{lemma}
+\begin{proof}
+The given assignments uniquely define a homomorphism from the free group
+$\Phi \colon \lag \tau_{1,2} , \tau_{2,3} \rag \to \GL_2(\ZZ)$.  
+Given the presentation~(\ref{e15}) of the braid group, the existence and uniqueness of such a sought extension follows upon verifying an equality in $\GL_2(\ZZ)$:
+$$\Phi(\tau_{1,2}\tau_{2,3}\tau_{1,2}) := \Phi(\tau_{1,2})\Phi(\tau_{2,3})\Phi(\tau_{1, 2}) = \Phi(\tau_{2,3}) \Phi(\tau_{1,2}) \Phi(\tau_{2,3}) =: \Phi(\tau_{2,3} \tau_{1,2} \tau_{2,3}).$$ Indeed  $$\Phi(\tau_{1,2})\Phi(\tau_{2,3})\Phi(\tau_{1, 2}) = \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}   \begin{bmatrix} 1 & 0 \\ -1 & 1 \end{bmatrix}   \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix} =  \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}  \begin{bmatrix} 1 & 1 \\ -1 & 0 \end{bmatrix} =  \begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix}  $$ and 
+$$\Phi(\tau_{2,3}) \Phi(\tau_{1,2}) \Phi(\tau_{2,3})  =  \begin{bmatrix} 1 & 0 \\ -1 & 1 \end{bmatrix}   \begin{bmatrix} 1 & 1 \\ 0 & 1 \end{bmatrix}   \begin{bmatrix} 1 & 0 \\ -1 & 1 \end{bmatrix} =  \begin{bmatrix} 1 & 0 \\ -1 & 1 \end{bmatrix}   \begin{bmatrix} 0 & 1 \\ -1 & 1 \end{bmatrix}  =  \begin{bmatrix} 0 & 1 \\ -1 & 0 \end{bmatrix}.$$
+\end{proof}
+
+
+\begin{lemma}\label{t70}
+The diagram among topological spaces
+$$\xymatrix{
+A \ar[rr]^-{f} && B \ar[d]^-{g}\\
+  &&  C 
+}$$
+induces a map $${\sf hofib}_{c_{0}}(A \xra{g \circ f} C) \longrightarrow {\sf hofib}_{c_{0}}(B \xra{g} C).$$ Furthermore, if $f$ is a homotopy equivalence then the induced map between homotopy fibers is a homotopy equivalence. Similarly, the diagram among topological spaces
+$$\xymatrix{
+B \ar[d]^-{g} && \\
+C \ar[rr]^-{h} &&  D 
+}$$
+where $h(c_{0}) =  d_{0}$ induces a map $${\sf hofib}_{c_{0}}(B \xra{g} C) \longrightarrow {\sf hofib}_{d_{0}}(B \xra{h \circ g} D).$$ Furthermore, if $h$ is a homotopy equivalence then the induced map between homotopy fibers is a homotopy equivalence.
+\end{lemma}
+\begin{proof}
+The natural map, $$A \times C^{I} \xra{f \times \id} B \times C^{I},$$ respects the homotopy fiber conditions. So the induced map $$A \times C^{I} \supset {\sf hofib}_{c_{0}}(A \xra{g \circ f} C) \ni (a , \gamma) \mapsto (f(a) , \gamma) \in {\sf hofib}_{c_{0}}(B \xra{g} C) \subset B \times C^{I}$$ is well defined. As $\id$ is a homotopy equivalence, if $f$ is a homotopy equivalence we have that the induced map is a homotopy equivalence. Similarly, we may consider the natural map $$B \times C^{I} \xra{\id \times h} B \times D^{I}.$$ Then for $h(c_{0}) = d_{0}$ we have that the induced map $${\sf hofib}_{c_{0}}(B \xra{g} C) \ni (b, \gamma) \mapsto (b, h \circ \gamma) \in {\sf hofib}_{d_{0}}(B \xra{h \circ g} D)$$ is well defined since for any $\gamma \in C^{I}$ where $\gamma(0) = c_{0}$ and $\gamma(1) = g(b),$ the path $h \circ \gamma$ will have $(h \circ \gamma)(0) = h(\gamma(0)) = d_{0}$ and $(h \circ \gamma)(1) = h(\gamma(1))= h(g(b)).$ Again, as we have a product map with $\id$ and $h$, if $h$ is a homotopy equivalence then the induced maps between homotopy fibers will be a homotopy equivalence as well.
+\end{proof}
+
+
+\begin{thebibliography}{9}
+%\bibitem{alexander} J. W. Alexander, On the deformation of an n-cell, Proc. Nat. Acad. Sei. U.S.A. vol. 9 (1923) pp. 406-407.
+\bibitem{ee} Earle, C. J.; Eells, J. The diffeomorphism group of a compact Riemann surface. Bull. Amer. Math. Soc. 73 (1967), no. 4, 557--559. https://projecteuclid.org/euclid.bams/1183528956
+\bibitem{mil} J. Milnor, Introduction to Algebraic K-theory, Annals of Math. Study 72,
+Princeton Univ. Press, 1971.
+\bibitem{rolf} Rolfsen, D.; Knots and Links. Berkeley, Publish or Perish 1976
+\end{thebibliography}
+
+
+\end{document}
